@@ -1,0 +1,66 @@
+----------------------------------------------------------------
+
+Root Ignore List (Ignoring common IDE and build files)
+
+----------------------------------------------------------------
+
+.DS_Store
+.vscode/
+.idea/
+.log
+npm-debug.log
+yarn-error.log*
+.env
+.env.*
+
+----------------------------------------------------------------
+
+1. LARAVEL BACKEND (backend/)
+
+----------------------------------------------------------------
+
+/backend/vendor             # Library dependencies (Composer)
+/backend/node_modules       # Frontend assets (NPM)
+/backend/public/hot
+/backend/public/storage
+/backend/storage/*.key
+/backend/.phpunit.result.cache
+
+----------------------------------------------------------------
+
+2. FLUTTER MOBILE APP (mobile-app/)
+
+----------------------------------------------------------------
+
+/mobile-app/.dart_tool/
+/mobile-app/.packages
+/mobile-app/build/          # Android/iOS build files
+/mobile-app/ios/Pods/       # iOS dependency libraries
+/mobile-app/android/.gradle
+
+----------------------------------------------------------------
+
+3. WEB FRONTEND (web-frontend/)
+
+----------------------------------------------------------------
+
+/web-frontend/node_modules  # JavaScript dependencies
+/web-frontend/dist          # Build outputs
+
+----------------------------------------------------------------
+
+4. PYTHON AI MODELS (ai-models/)
+
+----------------------------------------------------------------
+
+pycache/
+*.pyc
+.venv/                      # Virtual environments
+venv/
+env/
+
+Ignoring large data models
+
+*.pt
+*.onnx
+*.safetensors
