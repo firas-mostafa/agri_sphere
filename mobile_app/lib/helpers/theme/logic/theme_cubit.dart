@@ -28,17 +28,17 @@ class ThemeCubit extends Cubit<ThemeState> {
   }
 
   Future<void> setSystem() async {
-    await cacheHelper.saveData(key: "theme", value: 0);
+    cacheHelper.saveData(key: "theme", value: 0);
     emit(ThemeState(ThemeMode.system));
   }
 
   Future<void> setLight() async {
-    await cacheHelper.saveData(key: "theme", value: 1);
+    cacheHelper.saveData(key: "theme", value: 1);
     emit(ThemeState(ThemeMode.light));
   }
 
   Future<void> setDark() async {
-    await cacheHelper.saveData(key: "theme", value: 2);
+    cacheHelper.saveData(key: "theme", value: 2);
     emit(ThemeState(ThemeMode.dark));
   }
 }

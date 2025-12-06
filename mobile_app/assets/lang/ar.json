@@ -1,0 +1,18 @@
+{
+    "hello_msg": " مرحباً",
+    "home": " الرئيسية",
+    "settings": " الإعدادت",
+    "choose_your_language": "اختر لغتك",
+    "hello_again_!": "مرحبا مرة أخرى !",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "name": "الاسم",
+    "forget_password?": "هل نسيت كلمة المرور؟",
+    "login": "تسجيل الدخول",
+    "dont_have_account?": "ليس لديك حساب؟",
+    "register": "تسجيل حساب جديد",
+    "You_already_have_an_account?": "هل لديك حساب بالفعل؟",
+    "farmer": "مزارع",
+    "ag.engineer": "مهندس زراعي",
+    "equip.dealer": "تاجر معدات"
+}

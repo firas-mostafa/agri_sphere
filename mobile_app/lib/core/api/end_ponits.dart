@@ -1,20 +1,8 @@
 class EndPoint {
-  static String baseUrl = "https://f1w3s1c3-8000.euw.devtunnels.ms/";
-  // static String baseUrl = "http://localhost:8000/";
-  static String api = "api/";
-  static String recipe = "${api}recipe/";
-  static String user = "${api}user/";
-  static String ingredients = "${recipe}ingredients/";
-  static String tags = "${recipe}tags/";
-  static String uploadUserImage = "${user}user-upload-image/";
-  static String me = "${user}me/";
-  static String createUser = "${user}create/";
-  static String recipes = "${recipe}recipes/";
-  static String token = "${user}token/";
-  static String recipeByID(int id) => "$recipes$id/";
-  static String ingredientsByID(int id) => "$ingredients$id/";
-  static String tagsByID(int id) => "$tags$id/";
-  static String uploadRecipeImage(int id) => "${recipeByID(id)}upload-image/";
+  static String baseUrl = "https://5p4qp62j-8000.uks1.devtunnels.ms/api/";
+  // static String baseUrl = "http://localhost:8000/api/";
+  static String register = "register";
+  static String login = "login";
 }
 
 class ApiKey {

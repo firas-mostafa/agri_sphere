@@ -32,7 +32,7 @@ class AccountController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->role = 'customer';
+        $user->role = 'farmer';
 
         $user->save();
 
