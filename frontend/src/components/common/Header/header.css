@@ -35,6 +35,7 @@
 
 .nav__list {
     justify-content: space-between;
+    /* gap: 83px; */
     width: 958px;
     font-size: 20px;
     font-weight: var(--weight-500);
@@ -77,6 +78,10 @@
     justify-content: space-between;
     width: 128px;
     height: 46px;
+}
+
+.header__user-profile {
+    cursor: pointer;
 }
 
 .switch {
@@ -133,4 +138,455 @@ input:checked + .slider:before {
     background: #303136;
     /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
     box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+
+/* =============== POPUPS =============== */
+.login__popup,
+.register__popup,
+.forgetpassword__popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    background-color: rgb(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1500;
+    transition: 0.3s;
+}
+
+.login__popup-inner,
+.register__popup-inner,
+.forgetpassword__popup-inner {
+    border-radius: 10px;
+}
+
+.login__popup-inner,
+.register__popup-inner {
+    box-shadow: 0px 5px 15px 0px hsla(0, 0%, 0%, 0.35);
+}
+
+.login__popup.open,
+.register__popup.open,
+.forgetpassword__popup.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.forgetpassword__popup-btn,
+.login__popup-btn {
+    border-radius: 12px;
+}
+
+.facebook-btn,
+.google-btn,
+.forgetpassword__popup-btn,
+.login__popup-btn {
+    cursor: pointer;
+}
+
+.login__popup-content,
+.register__popup-content,
+.forgetpassword__popup-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =============== LOGIN =============== */
+.login__popup-inner {
+    width: 350px;
+    height: 500px;
+    padding: 30px 30px;
+    background-color: var(--white-color);
+}
+
+.login__popup-title {
+    width: 290px;
+    height: 33px;
+    font-size: 28px;
+    font-weight: var(--weight-600);
+    line-height: 100%;
+    color: var(--black-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login__popup-form {
+    margin-bottom: 16px;
+}
+
+.login__popup-input:nth-child(2) {
+    margin-bottom: 13px;
+}
+
+.login__popup-input {
+    width: 290px;
+    height: 41px;
+    padding: 13px 16px;
+    color: var(--input-color);
+    font-size: 13.3px;
+    font-weight: var(--weight-400);
+    border: 1px solid var(--border-color-alt-2);
+    border-radius: 12px;
+    margin-bottom: 17px;
+}
+
+.login__popup-remember-forget {
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.login__popup-remember-radio {
+    width: 12px;
+    height: 12px;
+    accent-color: var(--first-color);
+}
+
+.login__popup-remember-me {
+    gap: 8px;
+    width: 99px;
+    height: 14px;
+    margin-left: 2px;
+}
+
+.rememberme {
+    width: 79px;
+    color: var(--text-color);
+    font-size: 12px;
+    font-weight: var(--weight-400);
+    line-height: 100%;
+    cursor: pointer;
+}
+
+.login__popup-forget-password {
+    width: 121px;
+    height: 10px;
+    color: var(--first-color);
+    font-size: 12px;
+    font-weight: var(--weight-600);
+    line-height: 100%;
+    cursor: pointer;
+    text-align: right;
+}
+
+.login__popup-forget-password:hover {
+    text-decoration: underline;
+}
+
+.login__popup-btn {
+    width: 290px;
+    height: 35px;
+    font-size: 13.3px;
+    font-weight: var(--weight-400);
+    color: var(--white-color);
+    background-color: var(--first-color);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 3px 8px 0px hsla(0, 0%, 0%, 0.24);
+}
+
+.login__popup-assistant {
+    width: 202px;
+    height: 13px;
+    text-align: center;
+}
+
+.login__popup-account {
+    display: inline-block;
+    width: 149px;
+    height: 11px;
+    color: hsla(0, 0%, 45%, 1);
+    font-size: 14px;
+    font-weight: var(--weight-400);
+    line-height: 100%;
+}
+
+.login__popup-singup {
+    display: inline-block;
+    width: 53px;
+    height: 13px;
+    color: var(--first-color);
+    font-size: 12px;
+    font-weight: var(--weight-900);
+    text-decoration: underline;
+    line-height: 100%;
+    cursor: pointer;
+}
+
+.login__popup-divider {
+    width: 50px;
+    height: 16px;
+    font-size: 14px;
+    font-weight: var(--weight-400);
+    line-height: 100%;
+    margin-block: 25px 20px;
+
+}
+
+.login__popup-socials {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+    width: 290px;
+    height: 101px;
+}
+
+.login__popup-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    width: 290px;
+    height: 43px;
+    border-radius: 25px;
+    line-height: 100%;
+}
+
+.facebook-btn {
+    padding: 6px 16px;
+    color: hsla(214, 99%, 44%, 1);
+    font-size: 17px;
+    font-weight: var(--weight-700);
+    border: 1px solid hsla(214, 99%, 44%, 1);
+}
+
+.login__popup-facebook-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.google-btn {
+    color: var(--black-color);
+    font-size: 12px;
+    font-weight: var(--weight-400);
+    border: 2px solid hsla(0, 0%, 45%, 1);
+    box-shadow: 0px 10px 36px 0px hsla(0, 0%, 0%, 0.16);
+}
+
+.login__popup-google-icon {
+    width: 18px;
+    height: 19px;
+}
+
+
+/* =============== REGISTER =============== */
+.register__popup-content,
+.register__popup-registration-method,
+.register__popup-registration-method-box {
+    display: flex;
+}
+
+.register__popup-inner {
+    width: 435px;
+    height: 776px;
+    padding: 30px 25px;
+    background-color: var(--white-color);
+}
+
+.register__popup-title {
+    width: 375px;
+    height: 33px;
+    font-size: 28px;
+    font-weight: var(--weight-600);
+    line-height: 100%;
+    color: var(--black-color);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.register__popup-subtitle {
+    width: 157px;
+    height: 24px;
+    color: var(--text-color);
+    font-size: 17px;
+    font-weight: var(--weight-600);
+    line-height: 24px;
+    text-align: center;
+}
+
+.register__popup-registration-method {
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 385px;
+    height: 116px;
+    margin-block: 16px 38px;
+}
+
+.register__popup-registration-method-box {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 117.34px;
+    height: 116px;
+    padding: 18px;
+    border: 2px solid hsla(220, 13%, 91%, 1);
+    border-radius: 12px;
+}
+
+.register__popup-registration-method-img {
+    width: 48px;
+    height: 48px;
+}
+
+.register__popup-registration-method-role {
+    color: hsla(217, 19%, 27%, 1);
+    font-size: 16px;
+    font-weight: var(--weight-600);
+    line-height: 24px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.register__popup-input {
+    width: 371px;
+    height: 41px;
+    padding: 13px 16px;
+    color: var(--input-color);
+    font-size: 13.3px;
+    font-weight: var(--weight-400);
+    border: 1px solid var(--border-color-alt-2);
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.register__popup-input:nth-child(4) {
+    margin-bottom: 18px;
+}
+
+.register__popup-btn {
+    width: 375px;
+    height: 41px;
+    font-size: 13.3px;
+    font-weight: var(--weight-400);
+    color: var(--white-color);
+    background-color: var(--first-color);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 3px 8px 0px hsla(0, 0%, 0%, 0.24);
+    margin-bottom: 15px;
+}
+
+.register__popup-divider {
+    width: 46px;
+    height: 16px;
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: var(--weight-400);
+    line-height: 100%;
+    margin-block: 34px 20px;
+}
+
+.register__popup-assistant {
+    width: 207.03px;
+    height: 13px;
+    color: hsla(0, 0%, 45%, 1);
+    font-size: 14px;
+    font-weight: var(--weight-400);
+}
+
+.register__popup-singin {
+    display: inline-block;
+    width: 46px;
+    height: 13px;
+    color: var(--first-color);
+    font-size: 12px;
+    font-weight: var(--weight-900);
+    line-height: 100%;
+    margin-left: 2px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+/* =============== FORGET PASSWORD =============== */
+.forgetpassword__popup-inner {
+    width: 400px;
+    height: 269px;
+    padding: 32px 24px;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0px 2px 3px 0px hsla(0, 0%, 0%, 0.17);
+}
+
+.forgetpassword__popup-title {
+    width: 352px;
+    height: 21px;
+    color: var(--black-color-alt);
+    font-size: 18px;
+    font-weight: var(--weight-600);
+    line-height: 100%;
+    text-align: center;
+}
+
+.forgetpassword__popup-form {
+    width: 352px;
+    height: 128px;
+    margin-block: 20px;
+}
+
+.forgetpassword__popup-label {
+    display: inline-block;
+    width: 352px;
+    height: 16px;
+    color: var(--black-color-alt);
+    font-size: 14px;
+    font-weight: var(--weight-400);
+    line-height: 100%;
+    margin-bottom: 5px;
+}
+
+.forgetpassword__popup-input {
+    width: 352px;
+    height: 41px;
+    padding: 13px 17px;
+    color: var(--input-color);
+    font-size: 13.3px;
+    font-weight: var(--weight-400);
+    line-height: 100%;
+    border: 1px solid hsla(0, 0%, 80%, 1);
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.forgetpassword__popup-btn {
+    width: 352px;
+    height: 40px;
+    color: var(--white-color);
+    font-size: 14px;
+    font-weight: var(--weight-400);
+    text-align: center;
+    background-color: var(--black-color-alt);
+    box-shadow: 0px 2px 3px 0px hsla(0, 0%, 0%, 0.17);
+    cursor: pointer;
+}
+
+.forgetpassword__popup-assistant {
+    width: 223px;
+    height: 16px;
+    color: var(--black-color-alt);
+    font-size: 14px;
+    font-weight: var(--weight-500);
+    line-height: 100%;
+    text-align: center;
+}
+
+.forgetpassword__popup-assistant span {
+    color: var(--text-color);
+    font-size: 13px;
+    transition: .3s;
+    cursor: pointer;
+    margin-left: 2px;
+}
+
+.forgetpassword__popup-assistant span:hover {
+    text-decoration: underline;
 }
