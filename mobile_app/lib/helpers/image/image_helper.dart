@@ -30,16 +30,10 @@ class ImageHelper {
   static String sun = '${iconBase}sun.svg';
   static String tablet = '${iconBase}tablet.svg';
   static String user = '${iconBase}user.svg';
-  static String feather = '${iconBase}feather.svg';
   static String frown = '${iconBase}frown.svg';
   static String key = '${iconBase}key.svg';
   static String mail = '${iconBase}mail.svg';
   static String x = '${iconBase}x.svg';
   static String smile = '${iconBase}smile.svg';
-  static String rice = '${iconBase}rice.svg';
-  static String friedEgg = '${iconBase}fried-egg.svg';
-  static String salad = '${iconBase}salad.svg';
-  static String sandwich = '${iconBase}sandwich.svg';
   static String grid = '${iconBase}grid.svg';
-  static String muffin = '${iconBase}muffin.svg';
 }
