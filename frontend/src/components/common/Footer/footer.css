@@ -27,6 +27,7 @@
     max-width: 744px;
     height: 84px;
     color: var(--white-color-alt);
+    font-family: var(--third-font);
     font-size: 20px;
     font-weight: var(--weight-400);
     line-height: 28px;
@@ -115,7 +116,7 @@
 .footer__logo {
     align-items: center;
     gap: 0.1rem;
-    width: 181px;
+    width: 162px;
     height: 42px;
     background-color: var(--white-color);
     border: 1px solid var(--border-color);
@@ -143,6 +144,7 @@
 
 .footer__description {
     max-width: 257px;
+    font-family: var(--third-font);
     font-size: 14px;
     font-weight: var(--weight-400);
     line-height: 20px;
@@ -171,6 +173,7 @@
 
 .footer__content:nth-child(2) .footer__title,
 .footer__content:nth-child(3) .footer__title {
+    font-family: var(--third-font);
     font-size: 19px;
     font-weight: var(--weight-400);
     line-height: 24px;
@@ -185,6 +188,7 @@
 .footer__lang span {
     display: block;
     color: var(--text-color-alt);
+    font-family: var(--third-font);
     font-size: 14px;
     font-weight: var(--weight-400);
     line-height: 20px;
@@ -282,6 +286,7 @@
     width: 380px;
     height: 21px;
     color: var(--text-color-alt);
+    font-family: var(--third-font);
     font-size: 18px;
     font-weight: var(--weight-400);
     line-height: 20px;

@@ -7,6 +7,10 @@ import Partner_Logo1 from './assets/partner_logo1.png';
 import Partner_Logo2 from './assets/partner_logo2.png';
 import Partner_Logo3 from './assets/partner_logo3.png';
 
+import Trader from './assets/Trader.svg';
+import Engineer from './assets/book.svg';
+import Farmer from './assets/farmer.svg';
+
 
 export const page_links = [
     {
@@ -43,7 +47,7 @@ export const page_links = [
 export const social_links = [
     {
         name: 'Facebook',
-        url: '/',
+        url: 'https://facebook.com',
         icon: Facebook,
     },
     
@@ -138,3 +142,20 @@ export const partner_logos = [
         icon: Partner_Logo3,
     },
 ];
+
+export const roles = [
+    {
+        name: 'trader',
+        icon: Trader,
+    },
+
+    {
+        name: 'enigneer',
+        icon: Engineer,
+    },
+
+    {
+        name: 'farmer',
+        icon: Farmer,
+    }
+]

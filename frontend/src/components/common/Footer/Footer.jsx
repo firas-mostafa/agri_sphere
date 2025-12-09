@@ -3,7 +3,7 @@ import { partner_logos, platform_links, social_links, support_links, term_links 
 import { Link, NavLink } from 'react-router';
 import Logo from '../../../assets/Logo.png';
 import Lang from '../../../assets/Lang.png';
-import Apple from '../../../assets/apple.icon.png';
+import Apple from '../../../assets/apple.png';
 import Google from '../../../assets/google.png';
 
 import './footer.css';
