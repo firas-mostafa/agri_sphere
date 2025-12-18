@@ -1,0 +1,165 @@
+import 'package:flutter/material.dart';
+import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+
+class TodayTasks extends StatefulWidget {
+  const TodayTasks({super.key});
+
+  @override
+  State<TodayTasks> createState() => _TodayTasksState();
+}
+
+class _TodayTasksState extends State<TodayTasks> {
+  @override
+  Widget build(BuildContext context) {
+    final tasks = [
+      {
+        'title': 'Irrigation - Field A',
+        'subtitle': 'Water the wheat crop for 2 hours',
+        'time': '6:00 AM - 8:00 AM',
+        'priority': 'High Priority',
+        'priorityColor': Colors.blue,
+        'icon': Icons.water_drop,
+      },
+      {
+        'title': 'Fertilizer Application',
+        'subtitle': 'Apply NPK fertilizer to corn field',
+        'time': '10:00 AM - 12:00 PM',
+        'priority': 'Medium',
+        'priorityColor': Colors.amber,
+        'icon': Icons.grass,
+      },
+      {
+        'title': 'Pest Monitoring',
+        'subtitle': 'Check for aphids in tomato section',
+        'time': '2:00 PM - 3:00 PM',
+        'priority': 'Low',
+        'priorityColor': Colors.green,
+        'icon': Icons.bug_report,
+      },
+    ];
+
+    // maintain a per-item checked state
+    final checked = List<bool>.filled(tasks.length, false);
+
+    return Column(
+      children: List.generate(tasks.length, (index) {
+        final t = tasks[index];
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.04),
+                  blurRadius: 8,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: (t['priorityColor'] as Color).withOpacity(0.12),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Icon(
+                      t['icon'] as IconData,
+                      color: t['priorityColor'] as Color,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                t['title'] as String,
+                                style: context.textTheme.titleMedium!.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            StatefulBuilder(
+                              builder: (context, setLocalState) {
+                                return Checkbox(
+                                  value: true,
+                                  onChanged: (v) {
+                                    setLocalState(
+                                      () => checked[index] = v ?? true,
+                                    );
+                                    // also update parent if needed
+                                    setState(() {});
+                                  },
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          t['subtitle'] as String,
+                          style: context.textTheme.bodyMedium!.copyWith(
+                            color: context.colorScheme.onSurface.withAlpha(150),
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.access_time,
+                              size: 16,
+                              color: Colors.grey[600],
+                            ),
+                            const SizedBox(width: 6),
+                            Text(
+                              t['time'] as String,
+                              style: TextStyle(color: Colors.grey[600]),
+                            ),
+                            const SizedBox(width: 12),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                color: (t['priorityColor'] as Color)
+                                    .withOpacity(0.12),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Text(
+                                t['priority'] as String,
+                                style: TextStyle(
+                                  color: t['priorityColor'] as Color,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      }),
+    );
+  }
+}

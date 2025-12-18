@@ -15,5 +15,16 @@
     "farmer": "Farmer",
     "ag.engineer": "Ag.Engineer",
     "equip.dealer": "Equip.Dealer",
-    "logout": "Logout"
+    "logout": "Logout",
+    "quick_actions": "Quick Actions",
+    "view_all": "View All",
+    "pest_library":"Pest Library",
+    "my_calendar":"My Calendar",
+    "marketplace":"Marketplace",
+    "crop_stats":"Crop Stats",
+    "your_leatest_pests":"Your Latest Pests",
+    "view_schedule":"View Schedule",
+    "buy_products":"Buy Products",
+    "view_crop_data":"View Crop Data",
+    "today_tasks":"Today's Tasks"
 }

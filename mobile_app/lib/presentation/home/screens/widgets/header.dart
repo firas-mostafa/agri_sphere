@@ -11,7 +11,10 @@ class Header extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [context.colorScheme.primary, context.colorScheme.secondary],
+          colors: [
+            context.colorScheme.primaryContainer,
+            context.colorScheme.secondaryContainer,
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -52,7 +55,7 @@ class Header extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(context.setMineSize(10)),
                   decoration: BoxDecoration(
-                    color: context.colorScheme.primary.withAlpha(100),
+                    color: context.colorScheme.primary.withAlpha(60),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Column(
@@ -67,7 +70,7 @@ class Header extends StatelessWidget {
                       SizedBox(height: context.setHeight(2)),
                       Text(
                         "Aug 14",
-                        style: context.textTheme.titleLarge!.copyWith(
+                        style: context.textTheme.titleMedium!.copyWith(
                           color: context.colorScheme.onPrimary,
                           fontWeight: FontWeight.bold,
                         ),
@@ -85,7 +88,7 @@ class Header extends StatelessWidget {
               width: context.screenWidth * 0.92,
               padding: EdgeInsets.all(context.setMineSize(16)),
               decoration: BoxDecoration(
-                color: context.colorScheme.primary.withAlpha(100),
+                color: context.colorScheme.primary.withAlpha(60),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
@@ -132,7 +135,7 @@ class Header extends StatelessWidget {
                           color: context.colorScheme.onPrimary,
                           size: 24,
                         ),
-                        SizedBox(height: 60),
+                        SizedBox(height: context.setHeight(40)),
                         Text(
                           'Humidity: 65%',
                           style: TextStyle(

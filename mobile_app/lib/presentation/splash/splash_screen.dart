@@ -21,11 +21,6 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 3));
     final String? token = CacheHelper().getDataString(ApiKey.token);
     final bool isLoggedIn = token != null && token.isNotEmpty;
-    print(
-      isLoggedIn
-          ? 'User is logged in with token: $token'
-          : 'User is not logged in, token is null or empty',
-    );
     if (mounted) {
       Navigator.pushReplacementNamed(
         context,

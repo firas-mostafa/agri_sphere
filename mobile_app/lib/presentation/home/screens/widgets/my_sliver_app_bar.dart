@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
-import 'package:mobile_app/widgets/theme_switcher.dart';
 
 class MySliverAppBar extends StatelessWidget {
   final Widget child;
@@ -27,7 +26,7 @@ class MySliverAppBar extends StatelessWidget {
           ),
         ],
       ),
-      actionsPadding: EdgeInsets.only(right: context.setWidth(10)),
+      actionsPadding: EdgeInsets.only(right: context.setWidth(20)),
       automaticallyImplyLeading: false,
 
       actions: [
@@ -39,11 +38,11 @@ class MySliverAppBar extends StatelessWidget {
           ),
         ),
         CircleAvatar(
-          radius: 16,
+          radius: 18,
           backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=3'),
         ),
       ],
-      expandedHeight: context.setHeight(400),
+      expandedHeight: context.setHeight(360),
       backgroundColor: context.colorScheme.primary,
       collapsedHeight: context.setHeight(80),
       floating: true,
@@ -51,7 +50,7 @@ class MySliverAppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         background: child,
         expandedTitleScale: 1,
-        collapseMode: CollapseMode.pin,
+        collapseMode: CollapseMode.parallax,
       ),
     );
   }
