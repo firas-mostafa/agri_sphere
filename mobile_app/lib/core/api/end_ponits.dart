@@ -1,14 +1,15 @@
 class EndPoint {
-  static String baseUrl = "https://5p4qp62j-8000.uks1.devtunnels.ms/api/";
-  // static String baseUrl = "http://localhost:8000/api/";
-  static String register = "register";
-  static String login = "login";
+  static String baseUrl = "https://b645240a7110.ngrok-free.app/";
+
+  // static String baseUrl = "http://localhost:8000/";
+  static String api = "api/";
+  static String register = "${api}register";
+  static String login = "${api}login";
 }
 
 class ApiKey {
   static String authorization = "Authorization";
   static String user = "user";
-  static String recipe = "recipe";
   static String status = "status";
   static String email = "email";
   static String password = "password";
@@ -23,8 +24,6 @@ class ApiKey {
   static String timeMinutes = "time_minutes";
   static String price = "price";
   static String link = "link";
-  static String tags = "tags";
-  static String ingredients = "ingredients";
   static String description = "description";
   static String detail = "detail";
 }

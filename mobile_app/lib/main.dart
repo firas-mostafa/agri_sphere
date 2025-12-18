@@ -12,12 +12,13 @@ import 'package:mobile_app/helpers/theme/app_themes.dart';
 import 'package:mobile_app/helpers/theme/logic/theme_cubit.dart';
 import 'package:mobile_app/helpers/theme/text_theme.dart';
 import 'package:mobile_app/logic/user_cubit/user_cubit.dart';
-import 'package:mobile_app/presentation/language/screens/language_page.dart';
+import 'package:mobile_app/presentation/splash/splash_screen.dart';
 import 'helpers/localization/app_localizations.dart';
 import 'helpers/localization/logic/localization_cubit.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  CacheHelper().init();
   runApp(
     MultiBlocProvider(
       providers: [
@@ -46,11 +47,7 @@ class MyApp extends StatelessWidget {
       hight: context.screenHeight,
       child: Builder(
         builder: (iContext) {
-          TextTheme textTheme = createTextTheme(
-            iContext,
-            "Albert Sans",
-            "Akaya Telivigala",
-          );
+          TextTheme textTheme = createTextTheme(iContext, "Roboto", "Inter");
           return MaterialApp(
             themeMode: iContext.watch<ThemeCubit>().state.themeMode,
             darkTheme: AppThemes(textTheme).dark(),
@@ -76,7 +73,7 @@ class MyApp extends StatelessWidget {
 
               return supportedLocales.first;
             },
-            home: const LanguagePage(),
+            home: const SplashScreen(),
             debugShowCheckedModeBanner: false,
           );
         },

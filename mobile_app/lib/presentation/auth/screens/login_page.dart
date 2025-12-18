@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
     return BlocConsumer<UserCubit, UserState>(
       listener: (consumerContext, state) {
         if (state is SignInSuccess) {
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushReplacementNamed(context, '/');
           showDialog(
             context: context,
             builder: (context) => CustomDialog(

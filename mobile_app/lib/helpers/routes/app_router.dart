@@ -4,6 +4,7 @@ import 'package:mobile_app/presentation/auth/screens/register_page.dart';
 import 'package:mobile_app/presentation/auth/screens/login_page.dart';
 import 'package:mobile_app/presentation/home/screens/home_page.dart';
 import 'package:mobile_app/presentation/language/screens/language_page.dart';
+import 'package:mobile_app/presentation/splash/splash_screen.dart';
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings routeSettings) {
@@ -11,8 +12,6 @@ class AppRouter {
 
     // Fast path for exact matches first
     switch (routeName) {
-      case '/':
-        return MaterialPageRoute(builder: (_) => HomePage());
       case '/home':
         return MaterialPageRoute(builder: (_) => HomePage());
       case '/language':
@@ -22,7 +21,7 @@ class AppRouter {
       case '/register':
         return MaterialPageRoute(builder: (_) => RegisterPage());
       default:
-        return MaterialPageRoute(builder: (_) => HomePage());
+        return MaterialPageRoute(builder: (_) => SplashScreen());
     }
   }
 }

@@ -25,6 +25,10 @@ void handleDioExceptions(DioException e) {
       throw ServerException(errorModel: ErrorModel.fromResponse(e.response!));
     case DioExceptionType.badResponse:
       switch (e.response?.statusCode) {
+        case 500: // Internal server error
+          throw ServerException(
+            errorModel: ErrorModel.fromResponse(e.response!),
+          );
         case 400: // Bad request
           throw ServerException(
             errorModel: ErrorModel.fromResponse(e.response!),

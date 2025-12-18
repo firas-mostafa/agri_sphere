@@ -16,9 +16,9 @@ class UserRepository {
     try {
       final response = await apiConsumer.post(
         EndPoint.login,
-        // isFromData: true,
         data: {ApiKey.email: email, ApiKey.password: password},
       );
+      print('Response from signIn: $response');
       final SignInModel user = SignInModel.fromJson(response);
       CacheHelper().saveData(key: ApiKey.token, value: user.token);
       return Right(user);
