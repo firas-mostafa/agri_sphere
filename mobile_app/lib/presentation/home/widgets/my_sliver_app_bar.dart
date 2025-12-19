@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+import 'package:mobile_app/widgets/theme_switcher.dart';
 
 class MySliverAppBar extends StatelessWidget {
   final Widget child;
@@ -26,10 +27,11 @@ class MySliverAppBar extends StatelessWidget {
           ),
         ],
       ),
-      actionsPadding: EdgeInsets.only(right: context.setWidth(20)),
+      actionsPadding: EdgeInsets.symmetric(horizontal: context.setWidth(20)),
       automaticallyImplyLeading: false,
 
       actions: [
+        ThemeSwitcher(),
         IconButton(
           onPressed: () {},
           icon: Icon(

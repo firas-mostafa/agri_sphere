@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
 
 class TodayTasks extends StatefulWidget {
@@ -37,29 +38,28 @@ class _TodayTasksState extends State<TodayTasks> {
         'icon': Icons.bug_report,
       },
     ];
-
-    // maintain a per-item checked state
-    final checked = List<bool>.filled(tasks.length, false);
-
     return Column(
       children: List.generate(tasks.length, (index) {
         final t = tasks[index];
         return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+          padding: EdgeInsets.symmetric(
+            vertical: context.setMineSize(10),
+            horizontal: context.setMineSize(10),
+          ),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: context.colorScheme.surfaceContainer,
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.04),
+                  color: context.colorScheme.shadow.withAlpha(40),
                   blurRadius: 8,
                   offset: const Offset(0, 3),
                 ),
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: EdgeInsets.all(context.setMineSize(10)),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -67,7 +67,7 @@ class _TodayTasksState extends State<TodayTasks> {
                     width: 48,
                     height: 48,
                     decoration: BoxDecoration(
-                      color: (t['priorityColor'] as Color).withOpacity(0.12),
+                      color: (t['priorityColor'] as Color).withAlpha(30),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Icon(
@@ -75,7 +75,7 @@ class _TodayTasksState extends State<TodayTasks> {
                       color: t['priorityColor'] as Color,
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  SizedBox(width: context.setMineSize(12)),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,54 +90,51 @@ class _TodayTasksState extends State<TodayTasks> {
                                 ),
                               ),
                             ),
-                            StatefulBuilder(
-                              builder: (context, setLocalState) {
-                                return Checkbox(
-                                  value: true,
-                                  onChanged: (v) {
-                                    setLocalState(
-                                      () => checked[index] = v ?? true,
-                                    );
-                                    // also update parent if needed
-                                    setState(() {});
-                                  },
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                );
-                              },
+                            Checkbox(
+                              value: true,
+                              onChanged: (v) {},
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4),
+                              ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 6),
+                        SizedBox(height: context.setMineSize(4)),
                         Text(
                           t['subtitle'] as String,
                           style: context.textTheme.bodyMedium!.copyWith(
                             color: context.colorScheme.onSurface.withAlpha(150),
                           ),
                         ),
-                        const SizedBox(height: 12),
+                        SizedBox(height: context.setMineSize(12)),
                         Row(
                           children: [
                             Icon(
                               Icons.access_time,
                               size: 16,
-                              color: Colors.grey[600],
+                              color: context.colorScheme.onSurface.withAlpha(
+                                150,
+                              ),
                             ),
                             const SizedBox(width: 6),
                             Text(
                               t['time'] as String,
-                              style: TextStyle(color: Colors.grey[600]),
+                              style: TextStyle(
+                                color: context.colorScheme.onSurface.withAlpha(
+                                  150,
+                                ),
+                              ),
                             ),
-                            const SizedBox(width: 12),
+                            SizedBox(width: context.setMineSize(12)),
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 8,
                                 vertical: 4,
                               ),
                               decoration: BoxDecoration(
-                                color: (t['priorityColor'] as Color)
-                                    .withOpacity(0.12),
+                                color: (t['priorityColor'] as Color).withAlpha(
+                                  40,
+                                ),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Text(

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart'
     show RouteSettings, Route, MaterialPageRoute;
 import 'package:mobile_app/presentation/auth/screens/register_page.dart';
 import 'package:mobile_app/presentation/auth/screens/login_page.dart';
-import 'package:mobile_app/presentation/home/screens/home_page.dart';
 import 'package:mobile_app/presentation/language/screens/language_page.dart';
+import 'package:mobile_app/presentation/main/screens/main_screen.dart';
 import 'package:mobile_app/presentation/splash/splash_screen.dart';
 
 class AppRouter {
@@ -12,8 +12,8 @@ class AppRouter {
 
     // Fast path for exact matches first
     switch (routeName) {
-      case '/home':
-        return MaterialPageRoute(builder: (_) => HomePage());
+      case '/main':
+        return MaterialPageRoute(builder: (_) => MainScreen());
       case '/language':
         return MaterialPageRoute(builder: (_) => LanguagePage());
       case '/login':

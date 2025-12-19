@@ -18,13 +18,13 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _checkAuthStatus() async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 5));
     final String? token = CacheHelper().getDataString(ApiKey.token);
     final bool isLoggedIn = token != null && token.isNotEmpty;
     if (mounted) {
       Navigator.pushReplacementNamed(
         context,
-        isLoggedIn ? '/home' : '/language',
+        isLoggedIn ? '/main' : '/language',
       );
     }
   }

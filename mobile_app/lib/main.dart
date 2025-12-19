@@ -16,9 +16,9 @@ import 'package:mobile_app/presentation/splash/splash_screen.dart';
 import 'helpers/localization/app_localizations.dart';
 import 'helpers/localization/logic/localization_cubit.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  CacheHelper().init();
+  await CacheHelper().init();
   runApp(
     MultiBlocProvider(
       providers: [

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/helpers/localization/app_localizations.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
-import 'package:mobile_app/presentation/home/screens/widgets/farming_calander.dart';
-import 'package:mobile_app/presentation/home/screens/widgets/header.dart';
-import 'package:mobile_app/presentation/home/screens/widgets/my_sliver_app_bar.dart';
-import 'package:mobile_app/presentation/home/screens/widgets/quick_actions.dart';
-import 'package:mobile_app/presentation/home/screens/widgets/today_tasks.dart';
+import 'package:mobile_app/presentation/home/widgets/farming_calander.dart';
+import 'package:mobile_app/presentation/home/widgets/header.dart';
+import 'package:mobile_app/presentation/home/widgets/my_sliver_app_bar.dart';
+import 'package:mobile_app/presentation/home/widgets/quick_actions.dart';
+import 'package:mobile_app/presentation/home/widgets/today_tasks.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -46,6 +46,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 FarmingCalander(),
+                SizedBox(height: context.setHeight(20)),
               ],
             ),
           ),

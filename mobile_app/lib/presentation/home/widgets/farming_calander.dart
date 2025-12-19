@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
+import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
 
 class FarmingCalander extends StatefulWidget {
   const FarmingCalander({super.key});
@@ -46,17 +48,17 @@ class _FarmingCalanderState extends State<FarmingCalander> {
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.colorScheme.surfaceContainer,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: context.colorScheme.shadow.withAlpha(20),
             blurRadius: 8,
             offset: const Offset(0, 3),
           ),
         ],
       ),
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(context.setMineSize(10)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -69,9 +71,8 @@ class _FarmingCalanderState extends State<FarmingCalander> {
               ),
               Text(
                 monthLabel,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
+                style: context.textTheme.titleMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
               ),
               IconButton(
@@ -80,7 +81,7 @@ class _FarmingCalanderState extends State<FarmingCalander> {
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: context.setMineSize(3)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
@@ -93,7 +94,7 @@ class _FarmingCalanderState extends State<FarmingCalander> {
               _WeekdayLabel('Sat'),
             ],
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: context.setMineSize(3)),
           GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -113,34 +114,37 @@ class _FarmingCalanderState extends State<FarmingCalander> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 32,
-                      height: 32,
+                      width: context.setMineSize(32),
+                      height: context.setMineSize(32),
                       decoration: isSelected
                           ? BoxDecoration(
-                              color: Colors.green,
+                              color: context.colorScheme.primary,
                               borderRadius: BorderRadius.circular(8),
                             )
                           : null,
                       alignment: Alignment.center,
                       child: Text(
                         '$day',
-                        style: TextStyle(
-                          color: isSelected ? Colors.white : Colors.black87,
+                        style: context.textTheme.bodyMedium!.copyWith(
+                          color: isSelected
+                              ? context.colorScheme.onInverseSurface
+                              : context.colorScheme.onSurface,
                           fontWeight: isSelected
                               ? FontWeight.w700
                               : FontWeight.w400,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 6),
                     if (hasEvents)
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: _events[day]!.take(3).map((c) {
                           return Container(
-                            width: 6,
-                            height: 6,
-                            margin: const EdgeInsets.symmetric(horizontal: 2),
+                            width: context.setMineSize(6),
+                            height: context.setMineSize(6),
+                            margin: EdgeInsets.symmetric(
+                              horizontal: context.setMineSize(1),
+                            ),
                             decoration: BoxDecoration(
                               color: c,
                               shape: BoxShape.circle,
@@ -153,16 +157,14 @@ class _FarmingCalanderState extends State<FarmingCalander> {
               );
             },
           ),
-          const SizedBox(height: 12),
           const Divider(),
-          const SizedBox(height: 8),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: const [
               _LegendDot(color: Colors.blue, label: 'Irrigation'),
-              SizedBox(width: 12),
+
               _LegendDot(color: Colors.orange, label: 'Fertilizer'),
-              SizedBox(width: 12),
+
               _LegendDot(color: Colors.purple, label: 'Pest Check'),
             ],
           ),
@@ -182,7 +184,9 @@ class _WeekdayLabel extends StatelessWidget {
       child: Center(
         child: Text(
           label,
-          style: TextStyle(color: Colors.grey[600], fontSize: 12),
+          style: context.textTheme.bodySmall!.copyWith(
+            color: context.colorScheme.onSurfaceVariant,
+          ),
         ),
       ),
     );
@@ -198,13 +202,14 @@ class _LegendDot extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          width: 10,
-          height: 10,
-          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-        ),
+        CircleAvatar(radius: context.setMineSize(6), backgroundColor: color),
         const SizedBox(width: 6),
-        Text(label, style: TextStyle(color: Colors.grey[700], fontSize: 12)),
+        Text(
+          label,
+          style: context.textTheme.bodySmall!.copyWith(
+            color: context.colorScheme.onSurfaceVariant,
+          ),
+        ),
       ],
     );
   }
