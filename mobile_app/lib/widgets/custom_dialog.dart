@@ -11,7 +11,7 @@ class CustomDialog extends StatelessWidget {
   final String text;
   final String icon;
 
-  CustomDialog({
+  const CustomDialog({
     super.key,
     required this.backgroundColor,
     required this.textColor,

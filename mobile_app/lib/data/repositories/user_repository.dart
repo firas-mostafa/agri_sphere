@@ -16,7 +16,6 @@ class UserRepository {
     try {
       final response = await apiConsumer.post(
         EndPoint.login,
-        // isFromData: true,
         data: {ApiKey.email: email, ApiKey.password: password},
       );
       final SignInModel user = SignInModel.fromJson(response);

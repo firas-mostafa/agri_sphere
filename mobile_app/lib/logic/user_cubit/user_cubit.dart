@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart' show TextEditingController, FocusNode;
 import 'package:flutter_bloc/flutter_bloc.dart' show Cubit;
-import 'package:mobile_app/data/models/user_models/sign_in_model.dart';
 import 'package:mobile_app/data/repositories/user_repository.dart';
 part 'user_state.dart';
 
