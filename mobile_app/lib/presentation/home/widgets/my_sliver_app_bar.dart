@@ -31,7 +31,6 @@ class MySliverAppBar extends StatelessWidget {
       automaticallyImplyLeading: false,
 
       actions: [
-        ThemeSwitcher(),
         IconButton(
           onPressed: () {},
           icon: Icon(

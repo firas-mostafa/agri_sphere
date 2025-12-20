@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 FarmingCalander(),
-                SizedBox(height: context.setHeight(20)),
+                SizedBox(height: context.setHeight(120)),
               ],
             ),
           ),
