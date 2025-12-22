@@ -3,6 +3,8 @@ import React from 'react';
 import Layout from '../../../components/common/Layout';
 import SectionTitle from '../../../components/title/SectionTitle';
 import HowItWorks from '../../../components/how-it-works/HowItWorks';
+import CTAFooter from '../../../components/cta-footer/CTAFooter';
+import Partners from '../../../components/partners/Partners';
 
 import { farmer_about2_data, farmer_about_data, farmer_howItWorks_data, farmer_weather_data } from '../../../Data';
 
@@ -145,6 +147,13 @@ function Farmer() {
                 <HowItWorks data={farmer_howItWorks_data} />
             </section>
 
+
+            {/* =============== CTA-Footer =============== */}
+            <CTAFooter />
+
+            {/* =============== PARTNERS =============== */} 
+            <Partners />
+        
         </Layout>
     );
 };
