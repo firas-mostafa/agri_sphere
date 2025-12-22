@@ -2,7 +2,8 @@
     "hello_msg": " مرحباً",
     "home": " الرئيسية",
     "settings": " الإعدادت",
-    "choose_your_language": "اختر لغتك",
+    "language":" اللغة",
+    "choose_your_language":"أختر لغتك المفضلة لواجهة المستخدم.",
     "hello_again_!": "مرحبا مرة أخرى !",
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
@@ -27,5 +28,16 @@
     "buy_products": "شراء المنتجات",
     "view_crop_data": "عرض بيانات المحاصيل",
     "today_tasks": "مهام اليوم",
-    "farming_calander": "تقويم الزراعة"
+    "farming_calander": "تقويم الزراعة",
+    "choose_a_light_or_dark_theme": "اختر سمة فاتحة أو داكنة، أو اجعلها تتبع إعدادات النظام لديك.",
+    "appearance": "المظهر",
+    "light": "فاتح",
+    "dark": "داكن",
+    "default_system": "النظام الافتراضي",
+    "general": "عام",
+    "welcome_back":"مرحباً مرة أخرى",
+    "today":"اليوم",
+    "current_weather":"الطقس الحالي",
+    "wind":"الرياح",
+    "humidity":"الرطوبة"
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/helpers/localization/app_localizations.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
 
@@ -33,7 +34,7 @@ class Header extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Welcome Back!',
+                      'welcome_back'.tr(context),
                       style: context.textTheme.titleSmall!.copyWith(
                         color: context.colorScheme.onPrimary.withAlpha(180),
                         fontWeight: FontWeight.bold,
@@ -61,7 +62,7 @@ class Header extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        'Today',
+                        'today'.tr(context),
                         style: context.textTheme.titleSmall!.copyWith(
                           color: context.colorScheme.onPrimary.withAlpha(180),
                           fontWeight: FontWeight.bold,
@@ -100,7 +101,7 @@ class Header extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Current Weather',
+                          'current_weather'.tr(context),
                           style: TextStyle(
                             color: context.colorScheme.onPrimary.withAlpha(180),
                             fontSize: 13,
@@ -137,14 +138,14 @@ class Header extends StatelessWidget {
                         ),
                         SizedBox(height: context.setHeight(40)),
                         Text(
-                          'Humidity: 65%',
+                          '${'humidity'.tr(context)}: 65%',
                           style: TextStyle(
                             color: context.colorScheme.onPrimary.withAlpha(180),
                           ),
                         ),
                         SizedBox(height: 6),
                         Text(
-                          'Wind: 12 km/h',
+                          '${'wind'.tr(context)}: 12 km/h',
                           style: TextStyle(
                             color: context.colorScheme.onPrimary.withAlpha(180),
                           ),

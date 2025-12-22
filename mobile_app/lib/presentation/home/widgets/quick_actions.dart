@@ -35,60 +35,63 @@ class QuickActions extends StatelessWidget {
       Colors.purple,
     ];
 
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: context.setWidth(10),
-        mainAxisSpacing: context.setHeight(10),
-        childAspectRatio: 3 / 2,
-      ),
-      itemCount: 4,
-      itemBuilder: (context, index) {
-        return Container(
-          padding: EdgeInsets.all(context.setMineSize(12)),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: context.colorScheme.surfaceContainer,
-            border: Border.all(
-              color: context.colorScheme.onSurface.withAlpha(20),
+    return SizedBox(
+      height: context.setHeight(370),
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: context.setWidth(10),
+          mainAxisSpacing: context.setHeight(10),
+          childAspectRatio: 3 / 2,
+        ),
+        itemCount: 4,
+        itemBuilder: (context, index) {
+          return Container(
+            padding: EdgeInsets.all(context.setMineSize(12)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: context.colorScheme.surfaceContainer,
+              border: Border.all(
+                color: context.colorScheme.onSurface.withAlpha(20),
+              ),
             ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: context.setMineSize(60),
-                height: context.setMineSize(60),
-                decoration: BoxDecoration(
-                  color: actionColors[index].withAlpha(50),
-                  borderRadius: BorderRadius.circular(12),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: context.setMineSize(60),
+                  height: context.setMineSize(60),
+                  decoration: BoxDecoration(
+                    color: actionColors[index].withAlpha(50),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(
+                    actionIcons[index],
+                    color: actionColors[index],
+                    size: context.setHeight(35),
+                  ),
                 ),
-                child: Icon(
-                  actionIcons[index],
-                  color: actionColors[index],
-                  size: context.setHeight(35),
+                SizedBox(height: context.setHeight(8)),
+                Text(
+                  actions[index],
+                  style: context.textTheme.titleMedium!.copyWith(
+                    color: context.colorScheme.onSurface,
+                  ),
                 ),
-              ),
-              SizedBox(height: context.setHeight(8)),
-              Text(
-                actions[index],
-                style: context.textTheme.titleMedium!.copyWith(
-                  color: context.colorScheme.onSurface,
+                Text(
+                  actionDescription[index],
+                  style: context.textTheme.bodySmall!.copyWith(
+                    color: context.colorScheme.onSurface.withAlpha(150),
+                  ),
                 ),
-              ),
-              Text(
-                actionDescription[index],
-                style: context.textTheme.bodySmall!.copyWith(
-                  color: context.colorScheme.onSurface.withAlpha(150),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

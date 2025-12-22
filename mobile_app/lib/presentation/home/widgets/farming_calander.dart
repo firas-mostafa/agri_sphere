@@ -47,18 +47,22 @@ class _FarmingCalanderState extends State<FarmingCalander> {
     ).formatMonthYear(_visibleMonth);
 
     return Container(
+      margin: EdgeInsets.symmetric(
+        horizontal: context.setMineSize(10),
+        vertical: context.setMineSize(10),
+      ),
       decoration: BoxDecoration(
         color: context.colorScheme.surfaceContainer,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: context.colorScheme.shadow.withAlpha(20),
+            color: context.colorScheme.shadow.withAlpha(50),
             blurRadius: 8,
             offset: const Offset(0, 3),
           ),
         ],
       ),
-      padding: EdgeInsets.all(context.setMineSize(10)),
+      padding: EdgeInsets.symmetric(horizontal: context.setMineSize(10)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -95,67 +99,70 @@ class _FarmingCalanderState extends State<FarmingCalander> {
             ],
           ),
           SizedBox(height: context.setMineSize(3)),
-          GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 7,
-              childAspectRatio: 1.25,
-            ),
-            itemCount: firstWeekday + daysInMonth,
-            itemBuilder: (context, index) {
-              if (index < firstWeekday) return const SizedBox.shrink();
-              final day = index - firstWeekday + 1;
-              final isSelected = _selectedDay == day;
-              final hasEvents = _events.containsKey(day);
-              return GestureDetector(
-                onTap: () => setState(() => _selectedDay = day),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: context.setMineSize(32),
-                      height: context.setMineSize(32),
-                      decoration: isSelected
-                          ? BoxDecoration(
-                              color: context.colorScheme.primary,
-                              borderRadius: BorderRadius.circular(8),
-                            )
-                          : null,
-                      alignment: Alignment.center,
-                      child: Text(
-                        '$day',
-                        style: context.textTheme.bodyMedium!.copyWith(
-                          color: isSelected
-                              ? context.colorScheme.onInverseSurface
-                              : context.colorScheme.onSurface,
-                          fontWeight: isSelected
-                              ? FontWeight.w700
-                              : FontWeight.w400,
+          SizedBox(
+            height: context.setHeight(300),
+            child: GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 7,
+                childAspectRatio: 1.25,
+              ),
+              itemCount: firstWeekday + daysInMonth,
+              itemBuilder: (context, index) {
+                if (index < firstWeekday) return const SizedBox.shrink();
+                final day = index - firstWeekday + 1;
+                final isSelected = _selectedDay == day;
+                final hasEvents = _events.containsKey(day);
+                return GestureDetector(
+                  onTap: () => setState(() => _selectedDay = day),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: context.setMineSize(32),
+                        height: context.setMineSize(32),
+                        decoration: isSelected
+                            ? BoxDecoration(
+                                color: context.colorScheme.primary,
+                                borderRadius: BorderRadius.circular(8),
+                              )
+                            : null,
+                        alignment: Alignment.center,
+                        child: Text(
+                          '$day',
+                          style: context.textTheme.bodyMedium!.copyWith(
+                            color: isSelected
+                                ? context.colorScheme.onInverseSurface
+                                : context.colorScheme.onSurface,
+                            fontWeight: isSelected
+                                ? FontWeight.w700
+                                : FontWeight.w400,
+                          ),
                         ),
                       ),
-                    ),
-                    if (hasEvents)
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: _events[day]!.take(3).map((c) {
-                          return Container(
-                            width: context.setMineSize(6),
-                            height: context.setMineSize(6),
-                            margin: EdgeInsets.symmetric(
-                              horizontal: context.setMineSize(1),
-                            ),
-                            decoration: BoxDecoration(
-                              color: c,
-                              shape: BoxShape.circle,
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                  ],
-                ),
-              );
-            },
+                      if (hasEvents)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: _events[day]!.take(3).map((c) {
+                            return Container(
+                              width: context.setMineSize(6),
+                              height: context.setMineSize(6),
+                              margin: EdgeInsets.symmetric(
+                                horizontal: context.setMineSize(1),
+                              ),
+                              decoration: BoxDecoration(
+                                color: c,
+                                shape: BoxShape.circle,
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
           const Divider(),
           Row(
@@ -168,6 +175,7 @@ class _FarmingCalanderState extends State<FarmingCalander> {
               _LegendDot(color: Colors.purple, label: 'Pest Check'),
             ],
           ),
+          SizedBox(height: context.setMineSize(10)),
         ],
       ),
     );

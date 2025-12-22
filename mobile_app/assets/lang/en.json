@@ -2,7 +2,8 @@
     "hello_msg":"Hello there !",
     "home": "Home",
     "settings": "Settings",
-    "choose_your_language": "Choose your language",
+    "language": "Language",
+    "choose_your_language": "Choose your preferred language for the user interface.",
     "hello_again_!": "Hello again !",
     "email": "Email",
     "password": "Password",
@@ -27,5 +28,16 @@
     "buy_products":"Buy Products",
     "view_crop_data":"View Crop Data",
     "today_tasks":"Today's Tasks",
-    "farming_calander":"Farming Calendar"
+    "farming_calander":"Farming Calendar",
+    "choose_a_light_or_dark_theme": "Choose a light or dark theme, or have it follow your system settings.",
+    "appearance": "Appearance",
+    "light": "Light",
+    "dark": "Dark",
+    "default_system": "Default system",
+    "general":"General",
+    "welcome_back":"Welcome Back",
+    "today":"Today",
+    "current_weather":"Current Weather",
+    "wind":"Wind",
+    "humidity":"Humidity"
 }
