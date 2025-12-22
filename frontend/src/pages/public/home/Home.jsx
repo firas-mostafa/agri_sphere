@@ -5,6 +5,8 @@ import { Link } from 'react-router';
 import Layout from '../../../components/common/Layout';
 import SectionSubTitle from '../../../components/subtitle/SectionSubTitle';
 
+import { howItWorks_home_data } from '../../../Data';
+
 import Wheat from '../../../assets/wheat.svg';
 import WeatherCard from '../../../assets/Weather_card.png'
 import MemberShips from '../../../assets/memberships.png';
@@ -18,10 +20,12 @@ import Text from '../../../assets/text.png';
 import Location from '../../../assets/location.png';
 
 import './home.css';
+import SectionTitle from '../../../components/title/SectionTitle';
 
 function Home() {
     return (
         <Layout>
+
             {/* =============== HOME =============== */}
             <section className="home section">
                 <div className="home__container container grid">
@@ -275,6 +279,48 @@ function Home() {
                     </div>
                 </div>
             </section>
+
+            
+            {/* =============== HOW IT WORKS =============== */}
+            <section className="howItWorks__home">
+                <SectionTitle
+                    subtitle='process'
+                    title='how it works'
+                    description={
+                        'Get started in four simple steps and experience the future of agriculture management.'
+                    }
+                />
+
+                <div className="howItWorks__home__container container grid">
+                    {
+                        howItWorks_home_data.map( ( { icon, number, title, description}, index ) => {
+                            return (
+                                <div key={index} className="howItWorks__home__card">
+                                    <img 
+                                        src={icon} 
+                                        alt={`howItWorks__home-Card-Icon-${index + 1}`}
+                                        className='howItWorks__home__card-img' 
+                                    />
+
+                                    <div className="howItWorks__home__card-number">
+                                        <p>{number}</p>
+                                    </div>
+
+                                    <p className="howItWorks__home__card-title">
+                                        {title}
+                                    </p>
+
+                                    <p className="howItWorks__home__card-description">
+                                        {description}
+                                    </p>
+                                </div>
+                            )
+                        })
+                    }
+                    <div className="howItWorks__home__horizontal-line"></div>
+                </div>
+            </section>
+
         </Layout>
     );
 };
