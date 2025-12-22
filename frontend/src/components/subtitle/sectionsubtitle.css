@@ -1,0 +1,29 @@
+.section__subtitle {
+    position: relative;
+    width: fit-content;
+    color: var(--first-color);
+    font-size: 38px;
+    font-weight: var(--weight-600);
+    line-height: 45px;
+    text-transform: capitalize;
+    margin-inline: auto;
+}
+
+.section__subtitle::before,
+.section__subtitle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 68px;
+    height: 4px;
+    background-color: var(--second-color);
+    border-radius: 2px;
+}
+
+.section__subtitle::before {
+    right: calc(100% + 18px);
+}
+
+.section__subtitle::after {
+    left: calc(100% + 18px);
+}
