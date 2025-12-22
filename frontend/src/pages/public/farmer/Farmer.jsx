@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '../../../components/common/Layout';
 import SectionTitle from '../../../components/title/SectionTitle';
 
-import { farmer_about_data, farmer_weather_data } from '../../../Data';
+import { farmer_about2_data, farmer_about_data, farmer_weather_data } from '../../../Data';
 
 import './farmer.css';
 
@@ -104,6 +104,33 @@ function Farmer() {
                                     <p className="about__farmer-card-description">
                                         {description}
                                     </p>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </section>
+
+
+            {/* =============== OPERATIONS INFO =============== */}
+            <section className="about2__farmer">
+                <SectionTitle
+                    title='Transform Your Agricultural Operations'
+                    description={
+                        'Benefit like the thousands of farmers who are starting to reap the benefits of smart transformation.'
+                    }
+                />
+
+                <div className="about2__farmer-cards grid">
+                    {
+                        farmer_about2_data.map( ( { backgroundImage }, index) => {
+                            return (
+                                <div key={index} className="about2__farmer-card flex">
+                                    <img 
+                                        src={backgroundImage} 
+                                        alt={`About2-Card-Image-${index + 1}`}
+                                        className='about2__farmer-card-img' 
+                                    />
                                 </div>
                             )
                         })
