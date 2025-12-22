@@ -197,3 +197,113 @@
     border-radius: 999px;
     text-transform: capitalize;
 }
+/* =============== ABOUT FARMER CONSULTATION =============== */
+.about__farmer {
+    padding-inline: 162px;
+    padding-bottom: 45px;
+}
+
+.about__farmer .section__title-title,
+.about__farmer .section__title-description {
+    letter-spacing: 0;
+}
+
+.about__farmer .section__title-title {
+    font-size: 36px;
+    line-height: 40px;
+    margin-block: 0;
+}
+
+.about__farmer .section__title-description {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.about__farmer-cards {
+    grid-template-columns: repeat(3, 356px);
+    grid-template-rows: repeat(3, 227px);
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+    margin-top: 35px;
+}
+
+.about__farmer-card {
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0px 10px 15px 0px hsla(0, 0%, 0%, 0.1);
+    background-color: var(--white-color);
+}
+
+.about__farmer-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+}
+
+.about__farmer-card:nth-child(1) .about__farmer-icon-wrapper {
+    background: linear-gradient(90deg, hsla(221, 83%, 53%, 1) 0%, hsla(217, 91%, 60%, 1) 100%);
+}
+
+.about__farmer-card:nth-child(2) .about__farmer-icon-wrapper {
+    background: linear-gradient(90deg, hsla(161, 94%, 30%, 1) 0%, hsla(142, 71%, 45%, 1) 100%);
+}
+
+.about__farmer-card:nth-child(3) .about__farmer-icon-wrapper {
+    background: linear-gradient(90deg, hsla(21, 90%, 48%, 1) 0%, hsla(38, 92%, 50%, 1) 100%);
+}
+
+.about__farmer-card:nth-child(4) .about__farmer-icon-wrapper {
+    background: linear-gradient(90deg, hsla(175, 84%, 32%, 1) 0%, hsla(173, 80%, 40%, 1) 100%);
+}
+
+.about__farmer-card:nth-child(5) .about__farmer-icon-wrapper {
+    background: linear-gradient(90deg, hsla(347, 77%, 50%, 1) 0%, hsla(350, 89%, 60%, 1) 100%);
+}
+
+.about__farmer-card:nth-child(6) .about__farmer-icon-wrapper {
+    background: linear-gradient(90deg, hsla(215, 19%, 35%, 1) 0%, hsla(215, 16%, 47%, 1) 100%);
+}
+
+.about__farmer-card:nth-child(7) .about__farmer-icon-wrapper {
+    background: linear-gradient(90deg, hsla(243, 75%, 59%, 1) 0%, hsla(239, 84%, 67%, 1) 100%);
+}
+
+.about__farmer-card:nth-child(8) .about__farmer-icon-wrapper {
+    background: linear-gradient(90deg, hsla(192, 91%, 36%, 1) 0%, hsla(189, 94%, 43%, 1) 100%);
+}
+
+.about__farmer-card:nth-child(9) .about__farmer-icon-wrapper {
+    background: linear-gradient(90deg, hsla(41, 96%, 40%, 1) 0%, hsla(45, 93%, 47%, 1) 100%);
+}
+
+.about__farmer-card-icon {
+    width: 24px;
+    height: 24px;
+
+}
+
+.about__farmer-card-title,
+.about__farmer-card-description {
+    font-family: var(--inter-font);
+}
+
+.about__farmer-card-title {
+    color: var(--black-color-alt-2);
+    font-size: 20px;
+    font-weight: var(--weight-600);
+    line-height: 28px;
+}
+
+.about__farmer-card-description {
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: var(--weight-400);
+    line-height: 26px;
+}

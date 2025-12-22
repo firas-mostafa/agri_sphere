@@ -1,8 +1,9 @@
 import React from 'react';
 
 import Layout from '../../../components/common/Layout';
+import SectionTitle from '../../../components/title/SectionTitle';
 
-import { farmer_weather_data } from '../../../Data';
+import { farmer_about_data, farmer_weather_data } from '../../../Data';
 
 import './farmer.css';
 
@@ -73,6 +74,43 @@ function Farmer() {
                 </div>
             </section> 
             
+            
+            {/* =============== CONSULTATION INFO =============== */}
+            <section className="about__farmer">
+                <SectionTitle
+                    title="Everything You Need to Succeed"
+                    description={
+                        'Comprehensive tools and services designed specifically for modern farmers.'
+                    }
+                />
+
+                <div className="about__farmer-cards grid">
+                    {
+                        farmer_about_data.map( ( { icon, title, description }, index) => {
+                            return (
+                                <div key={index} className="about__farmer-card flex">
+                                    <div className="about__farmer-icon-wrapper">
+                                        <img 
+                                            src={icon}
+                                            alt={`About-Farmer-Card-Icon-${index + 1}`} 
+                                            className='about__farmer-card-icon'
+                                        />
+                                    </div>
+
+                                    <h6 className="about__farmer-card-title">
+                                        {title}
+                                    </h6>
+
+                                    <p className="about__farmer-card-description">
+                                        {description}
+                                    </p>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </section>
+
         </Layout>
     );
 };
