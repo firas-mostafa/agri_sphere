@@ -1,6 +1,9 @@
 import React from 'react';
 
 import Layout from '../../../components/common/Layout';
+import SectionTitle from '../../../components/title/SectionTitle';
+
+import { engineer__coreTools_data } from '../../../Data';
 
 import FarmerImage from '../../../assets/farmer.jpg';
 
@@ -46,6 +49,42 @@ function Engineer() {
                 </div>
             </section>
 
+
+            {/* =============== CORE TOOLS =============== */}
+            <section className="coreTools__engineer">
+                <SectionTitle
+                    title='the core tools for engineering sustainable impact'
+                    description={
+                        'Everything you need to optimize your agronomic expertise, deliver exceptional service, and build a successful practice.'
+                    }
+                />
+
+                <div className="coreTools__engineer__container container flex">
+                    {
+                        engineer__coreTools_data.map( ( { icon, title, description }, index) => {
+                            return (
+                                <div key={index} className="coreTools__engineer-card">
+                                    <div className="coreTools__engineer-icon-wrapper">
+                                        <img 
+                                            src={icon}
+                                            alt={`Engineer-CoreTools-Card-Icon-${index + 1}`}
+                                            className="coreTools__engineer-card-icon" 
+                                        />
+                                    </div>
+
+                                    <h6 className="coreTools__engineer-card-title">
+                                        {title}
+                                    </h6>
+
+                                    <p className="coreTools__engineer-card-description">
+                                        {description}
+                                    </p>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </section>
 
         </Layout>
     );
