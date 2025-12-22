@@ -2,8 +2,9 @@ import React from 'react';
 
 import Layout from '../../../components/common/Layout';
 import SectionTitle from '../../../components/title/SectionTitle';
+import HowItWorks from '../../../components/how-it-works/HowItWorks';
 
-import { farmer_about2_data, farmer_about_data, farmer_weather_data } from '../../../Data';
+import { farmer_about2_data, farmer_about_data, farmer_howItWorks_data, farmer_weather_data } from '../../../Data';
 
 import './farmer.css';
 
@@ -136,6 +137,12 @@ function Farmer() {
                         })
                     }
                 </div>
+            </section>
+
+
+            {/* =============== HOW IT WORKS =============== */}
+            <section className="howItWorks__farmer">
+                <HowItWorks data={farmer_howItWorks_data} />
             </section>
 
         </Layout>
