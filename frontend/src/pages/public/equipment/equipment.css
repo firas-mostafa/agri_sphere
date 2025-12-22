@@ -202,3 +202,9 @@
     font-weight: var(--weight-400);
     line-height: 29.25px;
 }
+
+/* =============== HOW IT WORKS =============== */
+.howItWorks__equipment {
+    padding-block: 60px 80px;
+    padding-inline: 272px;
+}
