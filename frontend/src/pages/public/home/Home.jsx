@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import Layout from '../../../components/common/Layout';
 import SectionSubTitle from '../../../components/subtitle/SectionSubTitle';
 
-import { benefits_data, howItWorks_home_data } from '../../../Data';
+import { benefits_data, cropSoluation_data, howItWorks_home_data } from '../../../Data';
 
 import Wheat from '../../../assets/wheat.svg';
 import WeatherCard from '../../../assets/Weather_card.png'
@@ -358,6 +358,92 @@ function Home() {
                             )
                         })
                     }
+                </div>
+            </section>
+
+            
+            {/* =============== CROP SOLUATION =============== */}
+            <section className="cropSoluations">
+                <SectionTitle 
+                    title='Smart farming for every crop'
+                    subtitle='crop soluations'
+                    description={
+                        'Tailored agricultural intelligence for your specific crops. Monitor, analyze, and optimize every aspect of your farming operations.'
+                    }
+                />
+
+                <div className="cropSoluations__cards grid">
+                    {
+                        cropSoluation_data.map( ( { image, name, type, growthTime, waterNeed, smartFeatures }, index) => {
+                            return (
+                                <div key={index} className="cropSoluations__card">
+                                    <div className="cropSoluations__card-header">
+                                        <img 
+                                            src={image} 
+                                            alt={`Crop-Soluation-Card-Image-${index}`}
+                                            className='cropSoluations__card-header-img'
+                                        />
+
+                                        <h6 className="cropSoluations__card-header-name">
+                                            {name}
+                                        </h6>
+
+                                        <p className="cropSoluations__card-header-type">
+                                            {type}
+                                        </p>
+                                    </div>
+
+                                    <div className="cropSoluations__card-info">
+                                        <div className="cropSoluations__card-data">
+                                            <div>
+                                                <h6>Growth Time</h6>
+
+                                                <p>{growthTime}</p>
+                                            </div>
+
+                                            <div>
+                                                <h6>Water Need</h6>
+
+                                                <p>{waterNeed}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="cropSoluations__card-features">
+                                            <h6 className="cropSoluations__card-features-title">
+                                                Smart Features:
+                                            </h6>
+
+                                            <ul className="cropSoluations__card-features-list">
+                                                {
+                                                    smartFeatures.map( ( element, index ) => {
+                                                        return (
+                                                            <li key={index} className="cropSoluations__card-features-list-item">
+                                                                {element}
+                                                            </li>
+                                                        )
+                                                    })
+                                                }
+                                            </ul>
+                                        </div>
+
+                                        <button type="button" className='cropSoluations__card-btn'>
+                                            Explore Soluation
+                                        </button>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+
+                <div className="cropSoluations__view">
+                    <p className="cropSoluations__view-txt">
+                        Don't see your crop? We support over 50+ crop varieties. 
+                    </p>
+
+                    <button type="button" className="cropSoluations__view-btn">
+                        View All Crops
+                    </button>
                 </div>
             </section>
 
