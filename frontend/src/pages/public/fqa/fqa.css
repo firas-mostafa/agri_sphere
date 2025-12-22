@@ -1,0 +1,50 @@
+/* =============== FQA HEADER =============== */
+.fqa__header__container {
+    padding-top: 68px;
+}
+
+.fqa__header-title,
+.fqa__header-subtitle,
+.fqa__header-select {
+    font-family: var(--inter-font);
+}
+
+.fqa__header-title,
+.fqa__header-subtitle {
+    width: fit-content;
+}
+
+.fqa__header-title {
+    color: var(--first-color);
+    font-size: 48px;
+    font-weight: var(--weight-400);
+    line-height: 56px;
+    text-transform: capitalize;
+}
+
+.fqa__header-subtitle {
+    color: var(--black-color);
+    font-size: 32px;
+    font-weight: var(--weight-400);
+    line-height: 40px;
+    margin-block: 36px 34px;
+}
+
+.fqa__header-filter {
+    position: relative;
+    justify-content: space-between;
+    padding-bottom: 21px;
+    padding-inline: 332px 189px;
+    border-bottom: 1px solid hsla(0, 0%, 83%, 1);
+}
+
+.fqa__header-select {
+    width: 273px;
+    height: 45px;
+    padding: 4px 3px;
+    color: var(--black-color);
+    font-size: 16px;
+    font-weight: var(--weight-400);
+    line-height: 23px;
+    border: 1px solid hsla(0, 0%, 0%, 0.23);
+}
