@@ -2,6 +2,8 @@ import React from 'react';
 
 import Layout from '../../../components/common/Layout';
 
+import { fqa_allUsers_questions, fqa_engineer_questions, fqa_equipment_questions, fqa_farmer_questions } from '../../../Data';
+
 import './fqa.css';
 
 function FQA() {
@@ -40,6 +42,126 @@ function FQA() {
                             <option value="#">Newest to oldest</option>
                             <option value="#">Oldest to newest</option>
                         </select>
+                    </div>
+                </div>
+            </section>
+
+
+            {/* =============== FQA QUESTIONS =============== */}
+            <section className="fqa__questions">
+                <div className="fqa__questions__container container flex">
+
+                    <div className="fqa__questions-farmer">
+                        <h5 className="fqa__questions-title">
+                            For Farmers
+                        </h5>
+
+                        {
+                            fqa_farmer_questions.map( ( { question, answer }, index ) => {
+                                return (
+                                    <div key={index} className='fqa__question'>
+                                        <h6 className="fqa__question-question">
+                                            { index + 1 }. {question}
+                                        </h6>
+
+                                        <p className="fqa__question-answer">
+                                            {answer}
+                                        </p>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
+                    <div className="fqa__questions-engineer">
+                        <h5 className="fqa__questions-title">
+                            For Agricultural Engineers
+                        </h5>
+
+                        {
+                            fqa_engineer_questions.map( ( { question, answer, answers }, index ) => {
+                                return (
+                                    <div key={index} className='fqa__question'>
+                                        <h6 className="fqa__question-question">
+                                            { index + 1 }. {question}
+                                        </h6>
+
+                                        <p className="fqa__question-answer">{answer}</p>
+
+                                        {
+                                            answers &&
+                                            <div className="fqa__question-answers">
+                                                {
+                                                    answers.map( ( element ) => {
+                                                        return (
+                                                            <p className='fqa__question-answers-answer'>- {element}</p>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
+                    <div className="fqa__questions-equipment">
+                        <h5 className="fqa__questions-title">
+                            For Farm Equipment Owners (Dealers)
+                        </h5>
+
+                        {
+                            fqa_equipment_questions.map( ( { question, answer }, index ) => {
+                                return (
+                                    <div key={index} className='fqa__question'>
+                                        <h6 className="fqa__question-question">
+                                            { index + 1 }. {question}
+                                        </h6>
+
+                                        <p className="fqa__question-answer">
+                                            {answer}
+                                        </p>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
+                    <div className="fqa__questions-equipment">
+                        <h5 className="fqa__questions-title">
+                            For all users
+                        </h5>
+
+                        {
+                            fqa_allUsers_questions.map( ( { question, answer, answers }, index ) => {
+                                return (
+                                    <div key={index} className='fqa__question'>
+                                        <h6 className="fqa__question-question">
+                                            { index + 1 }. {question}
+                                        </h6>
+
+                                        {
+                                            answer &&
+                                                <p className="fqa__question-answer">{answer}</p>
+                                        }
+
+                                        {
+                                            answers &&
+                                            <div className="fqa__question-answer">
+                                                {
+                                                    answers.map( ( element ) => {
+                                                        return (
+                                                            <p>- {element}</p>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </section>
