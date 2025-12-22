@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import Layout from '../../../components/common/Layout';
 import SectionSubTitle from '../../../components/subtitle/SectionSubTitle';
 
-import { howItWorks_home_data } from '../../../Data';
+import { benefits_data, howItWorks_home_data } from '../../../Data';
 
 import Wheat from '../../../assets/wheat.svg';
 import WeatherCard from '../../../assets/Weather_card.png'
@@ -318,6 +318,46 @@ function Home() {
                         })
                     }
                     <div className="howItWorks__home__horizontal-line"></div>
+                </div>
+            </section>
+
+
+            {/* =============== BENEFITS =============== */}
+            <section className="benefits">
+                <SectionTitle
+                    subtitle='beneftis'
+                    title='why choose agriSphere'
+                    description={
+                        'Discover the advantages that make AgriSphere the preferred choice for modern farmers and agricultural professionals.'
+                    }
+                />
+
+                <div className="benefits__cards grid">
+                    {
+                        benefits_data.map( ( { icon, title, description }, index) => {
+                            return (
+                                <div key={index} className="benefits__card">
+                                    <div className="benefits__card-title">
+                                        <div className="benefits__card-image-wrapper">
+                                            <img 
+                                                src={icon} 
+                                                alt={`Benefits-Card-Icon-${index + 1}`} 
+                                                className='benefits__card-img'
+                                            />
+                                        </div>
+
+                                        <p className="benefits__card-txt">
+                                            {title}
+                                        </p>
+                                    </div>
+
+                                    <p className="benefits__card-description">
+                                        {description}
+                                    </p>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </section>
 
