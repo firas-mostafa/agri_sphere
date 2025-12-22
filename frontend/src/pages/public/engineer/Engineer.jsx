@@ -2,6 +2,8 @@ import React from 'react';
 
 import Layout from '../../../components/common/Layout';
 import SectionTitle from '../../../components/title/SectionTitle';
+import CTAFooter from '../../../components/cta-footer/CTAFooter';
+import Partners from '../../../components/partners/Partners';
 
 import { engineer__coreTools_data, engineer_howItWorks_data } from '../../../Data';
 
@@ -92,6 +94,13 @@ function Engineer() {
             <section className="howItWorks__engineer">
                 <HowItWorks data={engineer_howItWorks_data} />
             </section>
+
+            
+            {/* =============== CTA-Footer =============== */}
+            <CTAFooter />
+
+            {/* =============== PARTNERS =============== */} 
+            <Partners />
 
         </Layout>
     );
