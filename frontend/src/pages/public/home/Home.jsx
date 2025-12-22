@@ -10,6 +10,12 @@ import WeatherCard from '../../../assets/Weather_card.png'
 import MemberShips from '../../../assets/memberships.png';
 import ScrollDown from '../../../assets/scroll_down.svg';
 import LinkIcon from '../../../assets/link.svg';
+import Service1 from '../../../assets/service1.jpg';
+import Service2 from '../../../assets/service2.png';
+import Service3 from '../../../assets/service3.jpg';
+import WheatImage from '../../../assets/wheat-image.png';
+import Text from '../../../assets/text.png';
+import Location from '../../../assets/location.png';
 
 import './home.css';
 
@@ -102,6 +108,173 @@ function Home() {
                 </div>
             </section>
 
+            
+            {/* =============== SERVICES =============== */}
+            <section className="services">
+                <SectionSubTitle subtitle='services of agriSphere' />
+
+                <div className="services__container container grid">
+                    <div className="services__content">
+                        <div className="services__title">
+                            <img 
+                                src={WheatImage} 
+                                alt="Services Tilte Icon" 
+                                className='services__title-crop-img'
+                            />
+
+                            <p className="services__title-txt">
+                                Smart alerts & Check the condition of the plant
+                            </p>
+                        </div>
+
+                        <h4 className="services__subtitle">
+                            +10000 Farmer
+                        </h4>
+
+                        <div className="services__description">
+                            <p>They use our smart alerts monthly to improve their crops.</p>
+                            <p>
+                                Whether you're in the greenhouse or the field, we send you precise SMS alerts like:
+                                "The optimal time to irrigate wheat is tomorrow at 9 AM" or "Heavy rain expected within 48 hours—postpone planting."
+                            </p>
+                        </div>
+
+                        <div className="services__links">
+                            <button type='button' className='services__link service__link-singup'>
+                                Sign Up as Farmer
+                            </button>
+
+                            <Link to='#' className='services__link service__link-discover'>
+                                <p className="service__link-discover-txt">
+                                    Discover More
+                                </p>
+
+                                <img 
+                                    src={LinkIcon} 
+                                    alt="Link Icon" 
+                                    className='service__link-discover-icon'
+                                />
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="services__image-wrapper">
+                        <img 
+                            src={Service1}
+                            alt="Service Image 1" 
+                            className='service-img'
+                        />
+                    </div>
+
+                    <div className="services__image-wrapper">
+                        <img 
+                            src={Service2}
+                            alt="Service Image 2" 
+                            className='service-img'
+                        />
+                    </div>
+
+                    <div className="services__content">
+                        <div className="services__title">
+                            <img 
+                                src={Text} 
+                                alt="Services Tilte Icon" 
+                                className='services__title-note-img'
+                            />
+
+                            <p className="services__title-txt">
+                                Smart dashboard for managing consultations & inventory
+                            </p>
+                        </div>
+
+                        <h4 className="services__subtitle">
+                            +500 agricultural engineers
+                        </h4>
+
+                        <div className="services__description">
+                            <p>
+                                They use our smart dashboard to efficiently manage their consultations and inventory.
+                            </p>
+                            <p>
+                                Receive farmer requests and prioritize them (emergency pests vs. regular inquiries).
+                                Monitor seed and fertilizer inventory and receive 
+                                alerts when they are running low.
+                                Specially designed for agricultural engineers and pharmacies.
+                            </p>
+                        </div>
+
+                        <div className="services__links">
+                            <button type='button' className='services__link service__link-singup'>
+                                Sign Up as Engineer
+                            </button>
+
+                            <Link to='#' className='services__link service__link-discover'>
+                                <p className="service__link-discover-txt">
+                                    Discover More
+                                </p>
+
+                                <img 
+                                    src={LinkIcon} 
+                                    alt="Link Icon" 
+                                    className='service__link-discover-icon'
+                                />
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="services__content">
+                        <div className="services__title">
+                            <img 
+                                src={Location} 
+                                alt="Services Tilte Icon" 
+                                className='services__title-location-img'
+                            />
+
+                            <p className="services__title-txt">
+                                Rent your equipment
+                            </p>
+                        </div>
+
+                        <h4 className="services__subtitle">
+                            +3,000 equipment requests daily
+                        </h4>
+
+                        <div className="services__description">
+                            <p>
+                                View tractor and equipment requests near you, and determine the best time to work based on weather and soil conditions.
+                                Receive maintenance alerts and see your ratings from farmers.
+                                Ideal for agricultural equipment owners.
+                            </p>
+                        </div>
+
+                        <div className="services__links">
+                            <button type='button' className='services__link service__link-singup'>
+                                Sign Up as Equipment Dealer
+                            </button>
+
+                            <Link to='#' className='services__link service__link-discover'>
+                                <p className="service__link-discover-txt">
+                                    Discover More
+                                </p>
+
+                                <img 
+                                    src={LinkIcon} 
+                                    alt="Link Icon" 
+                                    className='service__link-discover-icon'
+                                />
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="services__image-wrapper">
+                        <img 
+                            src={Service3}
+                            alt="Service Image 3" 
+                            className='service-img'
+                        />
+                    </div>
+                </div>
+            </section>
         </Layout>
     );
 };
