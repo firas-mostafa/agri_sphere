@@ -5,6 +5,8 @@ import { Link } from 'react-router';
 import Layout from '../../../components/common/Layout';
 import SectionSubTitle from '../../../components/subtitle/SectionSubTitle';
 import SectionTitle from '../../../components/title/SectionTitle';
+import CTAFooter from '../../../components/cta-footer/CTAFooter';
+import Partners from '../../../components/partners/Partners';
 
 import { benefits_data, cropSoluation_data, fqa_questions, howItWorks_home_data } from '../../../Data';
 
@@ -488,6 +490,13 @@ function Home() {
                     </Link>
                 </div>
             </section>
+
+
+            {/* =============== CTA-Footer =============== */}
+            <CTAFooter />
+
+            {/* =============== PARTNERS =============== */} 
+            <Partners />
 
         </Layout>
     );
