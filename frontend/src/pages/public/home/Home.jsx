@@ -4,8 +4,9 @@ import { Link } from 'react-router';
 
 import Layout from '../../../components/common/Layout';
 import SectionSubTitle from '../../../components/subtitle/SectionSubTitle';
+import SectionTitle from '../../../components/title/SectionTitle';
 
-import { benefits_data, cropSoluation_data, howItWorks_home_data } from '../../../Data';
+import { benefits_data, cropSoluation_data, fqa_questions, howItWorks_home_data } from '../../../Data';
 
 import Wheat from '../../../assets/wheat.svg';
 import WeatherCard from '../../../assets/Weather_card.png'
@@ -18,9 +19,9 @@ import Service3 from '../../../assets/service3.jpg';
 import WheatImage from '../../../assets/wheat-image.png';
 import Text from '../../../assets/text.png';
 import Location from '../../../assets/location.png';
+import Plus from '../../../assets/plus.svg'
 
 import './home.css';
-import SectionTitle from '../../../components/title/SectionTitle';
 
 function Home() {
     return (
@@ -444,6 +445,47 @@ function Home() {
                     <button type="button" className="cropSoluations__view-btn">
                         View All Crops
                     </button>
+                </div>
+            </section>
+
+            {/* =============== FQA =============== */}
+            <section className="fqa">
+                <SectionTitle 
+                    subtitle='fqa'
+                    title='frequently asked questions'
+                    description={
+                        'Find answers to common questions about AgriSphere and how our platform can help transform your agricultural operations.'
+                    }
+                />
+
+                <div className="fqa__cards">
+                    {
+                        fqa_questions.map( ( { question }, index) => {
+                            return(
+                                <div key={index} className="fqa__card">
+                                    <p className="fqa__card-question">
+                                        {question}
+                                    </p>
+
+                                    <div className="fqa__card-plus">
+                                        <img 
+                                            src={Plus}
+                                            alt={`FQA-CARD-Plus-${index + 1}`} 
+                                            className='fqa__card-plus-img'
+                                        />
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+
+                <div className="fqa__more-questions">
+                    <p>Still have questions?</p>
+
+                    <Link to='/contact'>
+                        Contact our support team
+                    </Link>
                 </div>
             </section>
 
