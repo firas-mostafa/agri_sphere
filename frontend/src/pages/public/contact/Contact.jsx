@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Layout from '../../../components/common/Layout';
+import CtaContactFooter from '../../../components/cta-footer/CtaContactFooter';
 
 import { contact__data } from '../../../Data';
 
@@ -209,6 +210,10 @@ function Contact() {
                     </div>
                 </div>
             </section>
+
+            
+            {/* =============== CTA-Contact-Footer =============== */}
+            <CtaContactFooter />
 
         </Layout>
     );
