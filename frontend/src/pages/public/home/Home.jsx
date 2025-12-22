@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import Layout from '../../../components/common/Layout';
+import SectionSubTitle from '../../../components/subtitle/SectionSubTitle';
 
 import Wheat from '../../../assets/wheat.svg';
 import WeatherCard from '../../../assets/Weather_card.png'
@@ -80,6 +81,24 @@ function Home() {
                         className='home__scroll-img'
                     />
                     <p className='home__scroll-txt'>Grow With Us</p>
+                </div>
+            </section>
+
+            
+            {/* =============== ABOUT =============== */}
+            <section className='about'>
+                <div className="about__content">
+                    <SectionSubTitle subtitle='about agriShpere' />
+
+                    <p className="about__description">
+                        AgriSphere is revolutionizing agriculture by connecting farmers, agricultural engineers, and equipment dealers through intelligent technology.
+                        Our platform provides real-time insights, expert consultations, and smart resource management to help you achieve optimal crop yields and sustainable farming practices.
+                    </p>
+
+                    <p className="about__info">
+                        Founded by agricultural experts and technology innovators, we understand the unique challenges of modern farming. 
+                        Our mission is to empower every farmer with the tools and knowledge needed to thrive in an ever-changing agricultural landscape.
+                    </p>
                 </div>
             </section>
 
