@@ -1,5 +1,5 @@
 import React from 'react';
-import { partner_logos, platform_links, social_links, support_links, term_links } from '../../../Data';
+import { platform_links, social_links, support_links, term_links } from '../../../Data';
 import { Link, NavLink } from 'react-router';
 import Logo from '../../../assets/Logo.png';
 import Lang from '../../../assets/Lang.png';
@@ -11,49 +11,6 @@ import './footer.css';
 function Footer() {
     return (
         <>
-            {/* =============== CAT-Footer =============== */}
-            <div className="cta__footer">
-                <h2 className="cta__footer-title">
-                    Ready to Transform Your Farm?
-                </h2>
-
-                <p className="cta__footer-p">
-                    Join thousands of farmers who have already improved their operations with our platform. 
-                    Subscribe to receive farming tips, weather insights, and exclusive updates.
-                </p>
-
-                <div className="cta__footer-email">
-                    <input 
-                        type="email" 
-                        name="email" 
-                        id="email" 
-                        className='cta__footer-input'
-                        placeholder='@ Enter Your Email'
-                    />
-                    <button type="button" className='cta__footer-btn'>Get Start</button>
-                </div>
-            </div>
-
-            {/* =============== PARTNERS =============== */}
-            <div className="partners">
-                <h3 className='partner__title'>Partner With</h3>
-
-                <div className="partner__logos">
-                    {
-                        partner_logos.map( ( { name, icon }, index ) => {
-                            return (
-                                <img
-                                    key={index}
-                                    src={icon} 
-                                    alt={`${name} Image`} 
-                                    className='partner__logo'
-                                />
-                            )
-                        })
-                    }
-                </div>
-            </div>
-
             {/* =============== FOOTER =============== */}
             <footer className="footer">
                 <div className="footer__container container grid">

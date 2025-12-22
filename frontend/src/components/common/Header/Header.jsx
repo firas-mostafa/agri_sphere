@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-import { page_links, roles } from '../../../Data';
+import { public_links, roles } from '../../../Data';
 import { Link, NavLink } from 'react-router';
 
 import Logo from '../../../assets/Logo.png';
 import Facebook from '../../../assets/facebook-btn.svg';
 import Google from '../../../assets/google-btn.svg';
 
-import UserProfile from '../../../assets/user-bold 1.svg';
+import UserProfile from '../../../assets/user-bold 1.png';
 
 import './header.css';
 
@@ -33,7 +33,7 @@ function Header() {
                     <div className={ `${ showMenu ? 'nav__menu show__menu' : 'nav__menu' } ` } id='nav-menu'>
                         <ul className="nav__list">
                             {
-                                page_links.map( ( { name, path }, index ) => {
+                                public_links.map( ( { name, path }, index ) => {
                                     return (
                                         <li className="nav__item" key={index}>
                                             <NavLink
@@ -78,16 +78,16 @@ function Header() {
                         <form className="login__popup-form">
                             <input 
                                 type="email" 
-                                name="name" 
-                                id="name" 
+                                name="login_email" 
+                                id="login_email" 
                                 className='login__popup-input'
                                 placeholder='Email'
                             />
 
                             <input 
                                 type="password" 
-                                name="password" 
-                                id="password" 
+                                name="login_password" 
+                                id="login_password" 
                                 className='login__popup-input'
                                 placeholder='Password'
                             />
@@ -196,16 +196,16 @@ function Header() {
                         <form className="register__popup-form">
                             <input 
                                 type="text" 
-                                name="name" 
-                                id="name" 
+                                name="register_name" 
+                                id="register_name" 
                                 className='register__popup-input'
                                 placeholder='Name'
                             />
 
                             <input 
                                 type="email" 
-                                name="name" 
-                                id="name" 
+                                name="register_email" 
+                                id="register_email" 
                                 className='register__popup-input'
                                 placeholder='Email'
                             />
@@ -220,8 +220,8 @@ function Header() {
 
                             <input 
                                 type="password" 
-                                name="password"
-                                id="password" 
+                                name="register_password"
+                                id="register_password" 
                                 className='register__popup-input'
                                 placeholder='Password'
                             />
@@ -272,19 +272,19 @@ function Header() {
             <div className={ ` ${ showPopupForgetpassword ?'forgetpassword__popup open' : 'forgetpassword__popup' } ` }>
                 <div className="forgetpassword__popup-inner">
                     <div className="forgetpassword__popup-content flex">
-                        <h5 className='forgetpassword__popup-title'>Forget Password</h5>
+                        <h6 className='forgetpassword__popup-title'>Forget Password</h6>
 
                         <form className="forgetpassword__popup-form">
-                            <label htmlFor="email" className="forgetpassword__popup-label">
+                            <label htmlFor="forget_email" className="forgetpassword__popup-label">
                                 Email
                             </label>
 
                             <input 
                                 type="email" 
-                                name="email" 
-                                id="email" 
+                                name="forget_email" 
+                                id="forget_email" 
                                 className="forgetpassword__popup-input" 
-                                placeholder='Email your email'
+                                placeholder='Enter your email'
                             />
 
                             <button type="submit" className="forgetpassword__popup-btn">Send Email</button>
