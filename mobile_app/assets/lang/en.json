@@ -34,5 +34,10 @@
     "light": "Light",
     "dark": "Dark",
     "default_system": "Default system",
-    "general":"General"
+    "general":"General",
+    "welcome_back":"Welcome Back",
+    "today":"Today",
+    "current_weather":"Current Weather",
+    "wind":"Wind",
+    "humidity":"Humidity"
 }

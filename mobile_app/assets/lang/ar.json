@@ -34,5 +34,10 @@
     "light": "فاتح",
     "dark": "داكن",
     "default_system": "النظام الافتراضي",
-    "general": "عام"
+    "general": "عام",
+    "welcome_back":"مرحباً مرة أخرى",
+    "today":"اليوم",
+    "current_weather":"الطقس الحالي",
+    "wind":"الرياح",
+    "humidity":"الرطوبة"
 }
