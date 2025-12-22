@@ -3,11 +3,12 @@ import React from 'react';
 import Layout from '../../../components/common/Layout';
 import SectionTitle from '../../../components/title/SectionTitle';
 
-import { engineer__coreTools_data } from '../../../Data';
+import { engineer__coreTools_data, engineer_howItWorks_data } from '../../../Data';
 
 import FarmerImage from '../../../assets/farmer.jpg';
 
 import './engineer.css';
+import HowItWorks from '../../../components/how-it-works/HowItWorks';
 
 function Engineer() {
     return (
@@ -84,6 +85,12 @@ function Engineer() {
                         })
                     }
                 </div>
+            </section>
+
+
+            {/* =============== HOW IT WORKS =============== */}
+            <section className="howItWorks__engineer">
+                <HowItWorks data={engineer_howItWorks_data} />
             </section>
 
         </Layout>
