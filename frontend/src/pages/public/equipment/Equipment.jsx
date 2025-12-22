@@ -3,6 +3,8 @@ import React from 'react';
 import Layout from '../../../components/common/Layout';
 import SectionTitle from '../../../components/title/SectionTitle';
 import HowItWorks from '../../../components/how-it-works/HowItWorks';
+import CTAFooter from '../../../components/cta-footer/CTAFooter';
+import Partners from '../../../components/partners/Partners';
 
 import { equipment_features_data1, equipment_features_data2, equipment_howItWorks_data } from '../../../Data';
 
@@ -133,7 +135,14 @@ function Equipment() {
             {/* =============== HOW IT WORKS =============== */}
             <section className="howItWorks__equipment">
                 <HowItWorks data={equipment_howItWorks_data} />
-            </section> 
+            </section>
+
+            
+            {/* =============== CTA-Footer =============== */}
+            <CTAFooter />
+
+            {/* =============== PARTNERS =============== */} 
+            <Partners />
 
         </Layout>
     );
