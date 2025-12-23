@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
-import 'package:mobile_app/widgets/theme_switcher.dart';
 
 class MySliverAppBar extends StatelessWidget {
   final Widget child;
