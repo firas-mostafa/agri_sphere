@@ -20,7 +20,11 @@ class Header extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+      padding: EdgeInsets.only(
+        left: context.setWidth(15),
+        right: context.setWidth(15),
+        top: context.setHeight(40),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -82,79 +86,76 @@ class Header extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 18),
+          SizedBox(height: context.setHeight(20)),
           // Weather card
-          Center(
-            child: Container(
-              width: context.screenWidth * 0.92,
-              padding: EdgeInsets.all(context.setMineSize(16)),
-              decoration: BoxDecoration(
-                color: context.colorScheme.primary.withAlpha(60),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 4,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'current_weather'.tr(context),
-                          style: TextStyle(
-                            color: context.colorScheme.onPrimary.withAlpha(180),
-                            fontSize: 13,
-                          ),
+          Container(
+            padding: EdgeInsets.all(context.setMineSize(16)),
+            decoration: BoxDecoration(
+              color: context.colorScheme.primary.withAlpha(60),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'current_weather'.tr(context),
+                        style: TextStyle(
+                          color: context.colorScheme.onPrimary.withAlpha(180),
+                          fontSize: 13,
                         ),
-                        SizedBox(height: 8),
-                        Text(
-                          '28°C',
-                          style: TextStyle(
-                            color: context.colorScheme.onPrimary,
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 6),
-                        Text(
-                          'Sunny, Perfect for crops',
-                          style: TextStyle(
-                            color: context.colorScheme.onPrimary.withAlpha(180),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Icon(
-                          Icons.wb_sunny,
+                      ),
+                      SizedBox(height: context.setHeight(8)),
+                      Text(
+                        '28°C',
+                        style: TextStyle(
                           color: context.colorScheme.onPrimary,
-                          size: 24,
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
                         ),
-                        SizedBox(height: context.setHeight(40)),
-                        Text(
-                          '${'humidity'.tr(context)}: 65%',
-                          style: TextStyle(
-                            color: context.colorScheme.onPrimary.withAlpha(180),
-                          ),
+                      ),
+                      SizedBox(height: context.setHeight(6)),
+                      Text(
+                        'Sunny, Perfect for crops',
+                        style: TextStyle(
+                          color: context.colorScheme.onPrimary.withAlpha(180),
                         ),
-                        SizedBox(height: 6),
-                        Text(
-                          '${'wind'.tr(context)}: 12 km/h',
-                          style: TextStyle(
-                            color: context.colorScheme.onPrimary.withAlpha(180),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Icon(
+                        Icons.wb_sunny,
+                        color: context.colorScheme.onPrimary,
+                        size: 24,
+                      ),
+                      SizedBox(height: context.setHeight(40)),
+                      Text(
+                        '${'humidity'.tr(context)}: 65%',
+                        style: TextStyle(
+                          color: context.colorScheme.onPrimary.withAlpha(180),
+                        ),
+                      ),
+                      SizedBox(height: context.setHeight(2)),
+                      Text(
+                        '${'wind'.tr(context)}: 12 km/h',
+                        style: TextStyle(
+                          color: context.colorScheme.onPrimary.withAlpha(180),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],
