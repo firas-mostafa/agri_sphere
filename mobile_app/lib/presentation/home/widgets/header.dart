@@ -20,7 +20,10 @@ class Header extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+      padding: EdgeInsets.symmetric(
+        horizontal: context.setWidth(15),
+        vertical: context.setHeight(43),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -32,9 +32,10 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               icon != null ? Icon(icon, color: textColor) : SizedBox(),
+              SizedBox(width: context.setMineSize(10)),
               Text(
                 text,
                 style: context.textTheme.bodyMedium!.copyWith(
