@@ -1,7 +1,7 @@
 class EndPoint {
-  static String baseUrl = "https://1555374a4da3.ngrok-free.app/";
+  static String baseUrl = "https://d1c8909c51ad.ngrok-free.app/";
 
-  // static String baseUrl = "http://localhost:8000/";
+  // static String baseUrl = "http://127.0.0.1:8000/";
   static String api = "api/";
   static String register = "${api}register";
   static String login = "${api}login";

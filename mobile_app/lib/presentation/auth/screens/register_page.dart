@@ -68,32 +68,32 @@ class RegisterPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: context.setHeight(20)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CustomBoxChoose(
-                          size: context.setMineSize(180),
-                          text: "farmer".tr(context),
-                          image: ImageHelper.farmer,
-                          onTap: () {},
-                        ),
-                        CustomBoxChoose(
-                          size: context.setMineSize(180),
 
-                          text: "ag.engineer".tr(context),
-                          image: ImageHelper.engineer,
-                          onTap: () {},
-                        ),
-                        CustomBoxChoose(
-                          size: context.setMineSize(180),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //   children: [
+                    //     CustomBoxChoose(
+                    //       size: context.setMineSize(180),
+                    //       text: "farmer".tr(context),
+                    //       image: ImageHelper.farmer,
+                    //       onTap: () {},
+                    //     ),
+                    //     CustomBoxChoose(
+                    //       size: context.setMineSize(180),
 
-                          text: "equip.dealer".tr(context),
-                          image: ImageHelper.dealer,
-                          onTap: () {},
-                        ),
-                      ],
-                    ),
+                    //       text: "ag.engineer".tr(context),
+                    //       image: ImageHelper.engineer,
+                    //       onTap: () {},
+                    //     ),
+                    //     CustomBoxChoose(
+                    //       size: context.setMineSize(180),
 
+                    //       text: "equip.dealer".tr(context),
+                    //       image: ImageHelper.dealer,
+                    //       onTap: () {},
+                    //     ),
+                    //   ],
+                    // ),
                     SizedBox(height: context.setHeight(20)),
                     CustomTextField(
                       controller: consumerContext.read<UserCubit>().signUpName,
