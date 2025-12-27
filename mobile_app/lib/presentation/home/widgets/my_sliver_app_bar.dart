@@ -28,7 +28,6 @@ class MySliverAppBar extends StatelessWidget {
       ),
       actionsPadding: EdgeInsets.symmetric(horizontal: context.setWidth(20)),
       automaticallyImplyLeading: false,
-
       actions: [
         IconButton(
           onPressed: () {},
