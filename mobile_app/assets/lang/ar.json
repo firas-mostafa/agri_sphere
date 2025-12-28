@@ -39,5 +39,14 @@
     "today":"اليوم",
     "current_weather":"الطقس الحالي",
     "wind":"الرياح",
-    "humidity":"الرطوبة"
+    "humidity":"الرطوبة",
+    "upload_pest_image":"تحميل صورة للآفة",
+    "take_a_photo_or_upload_from_gallery":"التقط صورة أو قم بتحميلها من المعرض",
+    "camera":"الكاميرة",
+    "gallery":"المعرض",
+    "pest_scanner":"ماسح الأفات",
+    "tips_for_best_results":"نصائح للحصول على أفضل النتائج",
+    "avoid_blurry_or_distant_shots":"تجنب الصور الضبابية أو البعيدة",
+    "focus_on_the_pest_or_damaged_area":"ركز على الآفة أو المنطقة المتضررة",
+    "capture_clear,well-lit_images":"التقط صورًا واضحة ومضاءة جيدًا"
 }

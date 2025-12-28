@@ -20,15 +20,13 @@ class Header extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      padding: EdgeInsets.only(
-        left: context.setWidth(15),
-        right: context.setWidth(15),
-        top: context.setHeight(40),
+      padding: EdgeInsets.symmetric(
+        horizontal: context.setWidth(15),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: context.setHeight(79)),
+          SizedBox(height: context.setHeight(110)),
           // Top bar: logo / title / actions
           Row(
             children: [

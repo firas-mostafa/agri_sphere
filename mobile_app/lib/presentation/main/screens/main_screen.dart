@@ -28,7 +28,9 @@ class MainScreen extends StatelessWidget {
         builder: (indexContext) {
           return Scaffold(
             floatingActionButton: FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/pest_reporting');
+              },
               disabledElevation: 0,
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               backgroundColor: context.colorScheme.primary,

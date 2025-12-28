@@ -39,5 +39,14 @@
     "today":"Today",
     "current_weather":"Current Weather",
     "wind":"Wind",
-    "humidity":"Humidity"
+    "humidity":"Humidity",
+    "upload_pest_image":"Upload Pest Image",
+    "take_a_photo_or_upload_from_gallery":"Take a photo or upload from gallery",
+    "camera":"Camera",
+    "gallery":"Gallery",
+    "pest_scanner":"Pest Scanner",
+    "tips_for_best_results":"Tips for Best Results",
+    "avoid_blurry_or_distant_shots":"Avoid blurry or distant shots",
+    "focus_on_the_pest_or_damaged_area":"Focus on the pest or damaged area",
+    "capture_clear,well-lit_images":"Capture clear, well-lit images"
 }
