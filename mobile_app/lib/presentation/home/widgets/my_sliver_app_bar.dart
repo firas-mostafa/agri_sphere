@@ -37,7 +37,7 @@ class MySliverAppBar extends StatelessWidget {
           ),
         ),
         CircleAvatar(
-          radius: 18,
+          radius: context.setMineSize(25),
           backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=3'),
         ),
       ],

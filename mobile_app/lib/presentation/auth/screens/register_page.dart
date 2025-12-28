@@ -5,7 +5,6 @@ import 'package:mobile_app/helpers/localization/app_localizations.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
 import 'package:mobile_app/logic/user_cubit/user_cubit.dart';
-import 'package:mobile_app/widgets/custom_box_choose.dart';
 import 'package:mobile_app/widgets/custom_button.dart';
 import 'package:mobile_app/widgets/custom_dialog.dart';
 import 'package:mobile_app/widgets/custom_text_button.dart';
@@ -69,31 +68,6 @@ class RegisterPage extends StatelessWidget {
                     ),
                     SizedBox(height: context.setHeight(20)),
 
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    //   children: [
-                    //     CustomBoxChoose(
-                    //       size: context.setMineSize(180),
-                    //       text: "farmer".tr(context),
-                    //       image: ImageHelper.farmer,
-                    //       onTap: () {},
-                    //     ),
-                    //     CustomBoxChoose(
-                    //       size: context.setMineSize(180),
-
-                    //       text: "ag.engineer".tr(context),
-                    //       image: ImageHelper.engineer,
-                    //       onTap: () {},
-                    //     ),
-                    //     CustomBoxChoose(
-                    //       size: context.setMineSize(180),
-
-                    //       text: "equip.dealer".tr(context),
-                    //       image: ImageHelper.dealer,
-                    //       onTap: () {},
-                    //     ),
-                    //   ],
-                    // ),
                     SizedBox(height: context.setHeight(20)),
                     CustomTextField(
                       controller: consumerContext.read<UserCubit>().signUpName,
