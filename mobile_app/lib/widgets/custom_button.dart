@@ -10,12 +10,14 @@ class CustomButton extends StatelessWidget {
     this.color,
     this.titleColor,
     this.icon,
+    this.height,
   });
   final Function()? onTap;
   final String text;
   final Color? color;
   final Color? titleColor;
   final IconData? icon;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     final buttonColor = color ?? context.colorScheme.primary;
@@ -23,7 +25,7 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: context.setHeight(60),
+        height: height ?? context.setHeight(60),
         width: double.infinity,
         decoration: BoxDecoration(
           color: buttonColor,

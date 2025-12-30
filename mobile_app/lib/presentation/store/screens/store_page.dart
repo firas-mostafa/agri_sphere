@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
@@ -23,11 +25,28 @@ class StorePage extends StatelessWidget {
           child: SearchFilter(),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
+      body: SizedBox(
+        height: context.screenHeight,
+        child: Stack(
           children: [
-            ItemsList(),
-            SizedBox(height: context.setHeight(100)),
+            Align(
+              alignment: Alignment.center,
+              child: CircleAvatar(
+                backgroundColor: context.colorScheme.primaryContainer,
+                radius: context.screenWidth / 2,
+              ),
+            ),
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ItemsList(),
+                    SizedBox(height: context.setHeight(100)),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

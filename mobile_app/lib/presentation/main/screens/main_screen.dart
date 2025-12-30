@@ -45,6 +45,7 @@ class MainScreen extends StatelessWidget {
             body: screens[indexContext.watch<IndexCubit>().state.indexValue],
             extendBody: true,
             bottomNavigationBar: CrystalNavigationBar(
+              backgroundColor: context.colorScheme.surface.withAlpha(130),
               marginR: EdgeInsets.only(
                 left:
                     context.read<LocaleCubit>().state.locale ==
