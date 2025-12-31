@@ -1,6 +1,9 @@
 class ImageHelper {
   static String imageBase = 'assets/images/';
   static String iconBase = 'assets/icons/';
+
+  static String leaf = '${imageBase}leaf.gif';
+
   static String farmer = '${imageBase}f.png';
   static String engineer = '${imageBase}e.png';
   static String dealer = '${imageBase}d.png';
