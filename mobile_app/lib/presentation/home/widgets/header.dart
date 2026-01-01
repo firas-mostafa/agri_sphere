@@ -24,7 +24,7 @@ class Header extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: context.setHeight(110)),
+          SizedBox(height: context.setHeight(130)),
           // Top bar: logo / title / actions
           Row(
             children: [
