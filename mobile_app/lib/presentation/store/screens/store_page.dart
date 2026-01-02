@@ -1,9 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:mobile_app/helpers/image/image_helper.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+import 'package:mobile_app/presentation/store/widget/falling_dots.dart';
 import 'package:mobile_app/presentation/store/widget/items_list.dart';
 import 'package:mobile_app/presentation/store/widget/search_filter.dart';
 
@@ -32,14 +31,9 @@ class StorePage extends StatelessWidget {
         height: context.screenHeight,
         child: Stack(
           children: [
-            Image.asset(
-              ImageHelper.leaf,
-              width: context.screenWidth,
-              height: context.screenHeight,
-              fit: BoxFit.fitHeight,
-            ),
+            Positioned.fill(child: FallingDots()),
             BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
