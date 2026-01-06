@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class FallingDots extends StatefulWidget {
   final int count;
-  const FallingDots({Key? key, this.count = 25}) : super(key: key);
+  const FallingDots({Key? key, this.count = 20}) : super(key: key);
   @override
   _FallingDotsState createState() => _FallingDotsState();
 }
