@@ -2,11 +2,9 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' show WatchContext, ReadContext;
-import 'package:mobile_app/helpers/image/image_helper.dart';
 import 'package:mobile_app/helpers/responsive/device_utils.dart';
 import 'package:mobile_app/helpers/theme/logic/theme_cubit.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
-import 'package:mobile_app/widgets/svg_icon.dart';
 
 class ThemeSwitcher extends StatelessWidget {
   final Color? color;
@@ -17,31 +15,31 @@ class ThemeSwitcher extends StatelessWidget {
     Widget iconSelector() {
       switch (context.watch<ThemeCubit>().state.themeMode) {
         case ThemeMode.light:
-          return SvgIcon(
-            ImageHelper.sun,
+          return Icon(
+            Icons.light_mode,
             color: color ?? context.colorScheme.tertiary,
           );
         case ThemeMode.dark:
-          return SvgIcon(
-            ImageHelper.moon,
+          return Icon(
+            Icons.dark_mode,
             color: color ?? context.colorScheme.tertiary,
           );
         case ThemeMode.system:
           if ((Platform.isAndroid || Platform.isIOS) &&
               DeviceUtils.isMobile(context)) {
-            return SvgIcon(
-              ImageHelper.smartphone,
+            return Icon(
+              Icons.phone_iphone_rounded,
               color: color ?? context.colorScheme.tertiary,
             );
           } else if ((Platform.isAndroid || Platform.isIOS) &&
               DeviceUtils.isTablet(context)) {
-            return SvgIcon(
-              ImageHelper.tablet,
+            return Icon(
+              Icons.tablet_mac_rounded,
               color: color ?? context.colorScheme.tertiary,
             );
           } else {
-            return SvgIcon(
-              ImageHelper.pc,
+            return Icon(
+              Icons.laptop_rounded,
               color: color ?? context.colorScheme.tertiary,
             );
           }

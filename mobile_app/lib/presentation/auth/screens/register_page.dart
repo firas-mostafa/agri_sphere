@@ -9,7 +9,6 @@ import 'package:mobile_app/widgets/custom_button.dart';
 import 'package:mobile_app/widgets/custom_dialog.dart';
 import 'package:mobile_app/widgets/custom_text_button.dart';
 import 'package:mobile_app/widgets/custom_text_field.dart';
-import 'package:mobile_app/widgets/svg_icon.dart';
 import 'package:mobile_app/widgets/theme_switcher.dart';
 import '../logic/obscure/obscure_cubit.dart' show ObscureCubit;
 
@@ -126,8 +125,10 @@ class RegisterPage extends StatelessWidget {
                             obscure: obscure,
 
                             suffix: IconButton(
-                              icon: SvgIcon(
-                                obscure ? ImageHelper.eye : ImageHelper.eyeOff,
+                              icon: Icon(
+                                obscure
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
                               ),
                               onPressed: obscureContext
                                   .read<ObscureCubit>()

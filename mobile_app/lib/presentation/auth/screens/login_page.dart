@@ -10,7 +10,6 @@ import 'package:mobile_app/widgets/custom_button.dart';
 import 'package:mobile_app/widgets/custom_dialog.dart';
 import 'package:mobile_app/widgets/custom_text_button.dart';
 import 'package:mobile_app/widgets/custom_text_field.dart';
-import 'package:mobile_app/widgets/svg_icon.dart';
 import 'package:mobile_app/widgets/theme_switcher.dart';
 
 class LoginPage extends StatelessWidget {
@@ -106,8 +105,10 @@ class LoginPage extends StatelessWidget {
                               consumerContext.read<UserCubit>().signIn();
                             },
                             suffix: IconButton(
-                              icon: SvgIcon(
-                                obscure ? ImageHelper.eye : ImageHelper.eyeOff,
+                              icon: Icon(
+                                obscure
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
                               ),
                               onPressed: obscureContext
                                   .read<ObscureCubit>()

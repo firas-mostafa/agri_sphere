@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class FallingDots extends StatefulWidget {
   final int count;
-  const FallingDots({Key? key, this.count = 20}) : super(key: key);
+  const FallingDots({super.key, this.count = 20});
   @override
+  // ignore: library_private_types_in_public_api
   _FallingDotsState createState() => _FallingDotsState();
 }
 
@@ -69,7 +70,7 @@ class _FallingDotsState extends State<FallingDots>
                         width: dot.size,
                         height: dot.size,
                         decoration: BoxDecoration(
-                          color: baseColor.withOpacity(opacity),
+                          color: baseColor.withAlpha((opacity * 100).toInt()),
                           shape: BoxShape.circle,
                         ),
                       ),
