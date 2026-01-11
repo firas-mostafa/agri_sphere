@@ -1,0 +1,191 @@
+.dashboard {
+  width: 100%;
+  padding: 24px 0;
+  font-family: Roboto,sans-serif;
+}
+.dashboard * {
+  box-sizing: border-box;
+}
+.icon--primary { color: #3b82f6; }   
+.icon--call { color: #a855f7; }      
+.icon--warning { color: #ef4444; }  
+.icon--order { color: #22c55e; }     
+.icon--rating { color: #eab308; }    
+.icon--neutral { color: #6b7280; }   
+.overview {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .overview {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.overview-item {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+.overview-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.overview-text {
+  flex: 1;
+}
+.overview-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  margin: 0 0 4px 0;
+}
+.overview-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+.overview-note {
+  font-size: 0.875rem;
+  margin: 0;
+}
+.overview-note.positive { color: #16a34a; }
+.overview-note.upcoming { color: #9333ea; }
+.overview-note.critical { color: #dc2626; }
+.overview-note.muted { color: #6b7280; }
+.overview-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.main-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 1024px) {
+  .main-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.activity-feed {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.feed-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+.view-all-link {
+  color: #2563eb;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.view-all-link:hover {
+  color: #1d4ed8;
+}
+.feed-entry {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.feed-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.entry-icon {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.entry-details {
+  flex: 1;
+}
+.farmer-name {
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+.action-desc {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin: 0 0 4px 0;
+}
+.timestamp {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin: 0;
+}
+.tools-panel {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+.panel-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+}
+.tool-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+.tool-button:hover {
+  background-color: #f9fafb;
+}
+.tool-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.monthly-wrapup {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 24px;
+  margin-top: 24px;
+}
+.monthly-wrapup h4 {
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+.wrapup-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.wrapup-label {
+  color: #4b5563;
+}
+.wrapup-value {
+  font-weight: 600;
+}
