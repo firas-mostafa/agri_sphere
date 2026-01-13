@@ -23,7 +23,7 @@ class UserImage extends Model
             return "";
         }
 
-        return asset("/uploads/products/small/".$this->image);
+        return asset("/uploads/users/small/".$this->image);
     }
 
     public function user() : BelongsTo
