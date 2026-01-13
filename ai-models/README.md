@@ -1,4 +1,4 @@
-# AI Model (aimodel)
+# AI Model
 
 This folder contains the code, scripts, and documentation for the machine learning model(s) used by Agri Sphere. The repository aims to provide models for plant/disease detection, yield prediction, or other agricultural insights.
 
