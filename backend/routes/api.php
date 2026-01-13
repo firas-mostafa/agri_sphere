@@ -13,6 +13,7 @@ use App\Http\Controllers\engineer\ProductController as EngineerProductController
 use App\Http\Controllers\farmer\OrderController as FarmerOrderController;
 use App\Http\Controllers\front\ProductController as FrontProductController;
 use App\Http\Controllers\front\AccountController;
+use App\Http\Controllers\TempImageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,12 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     // ========== Account Routes (User APIs) ==========
     Route::get('get-profile-details', [AccountController::class, 'getAccountDetails']);
     Route::post('update-profile', [AccountController::class, 'updateProfile']);
+    Route::post('temp-images', [TempImageController::class, 'store']);
+    Route::delete('delete-temp-image/{id}', [TempImageController::class, 'destroy']);
+    Route::post('save-product-image', [ProductController::class, 'saveProductImage']);
+    Route::post('save-user-image', [AccountController::class, 'saveUserImage']);
+    Route::post('change-product-default-image', [ProductController::class, 'updateDefaultImage']);
+    Route::delete('delete-product-image/{id}', [ProductController::class, 'deleteProductImage']);
 
     // ========== Admin Routes (Admin APIs) ==========
     Route::group(['middleware' => 'checkAdminRole'], function() {
