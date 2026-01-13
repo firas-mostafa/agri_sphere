@@ -1,16 +1,22 @@
-# React + Vite
+# Frontend (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This folder contains the React web application for Agri Sphere.
 
-Currently, two official plugins are available:
+## Prerequisites
+- Node.js 16+ (or specified in `engines` in package.json)
+- npm or yarn
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup
+1. Install dependencies: `npm install` or `yarn`\2. Create environment file: copy `.env.example` to `.env` and set `REACT_APP_API_URL` to your backend API (e.g., `http://localhost:8000`).
 
-## React Compiler
+## Development
+- Start dev server: `npm start`\- The app will be available at `http://localhost:3000` by default.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Build
+- Create a production build: `npm run build`
 
-## Expanding the ESLint configuration
+## Testing
+- Run tests: `npm test`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Notes
+- Keep API base URLs and keys in environment variables using the `REACT_APP_` prefix.
