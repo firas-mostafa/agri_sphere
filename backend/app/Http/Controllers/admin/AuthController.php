@@ -30,8 +30,8 @@ class AuthController extends Controller
                 return response()-> json([
                     'status' => 200,
                     'token' => $token,
-                    'id' => $user->id,
-                    'name' => $user->name
+                    'id' => $user->user_id,
+                    'name' => $user->username
                 ], 200);
                 
             } else {

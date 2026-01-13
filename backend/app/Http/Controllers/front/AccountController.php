@@ -70,8 +70,8 @@ class AccountController extends Controller
             return response()-> json([
                 'status' => 200,
                 'token' => $token,
-                'id' => $user->id,
-                'name' => $user->name,
+                'id' => $user->user_id,
+                'name' => $user->username,
                 'roles' => $user->roles,
             ], 200);
             
