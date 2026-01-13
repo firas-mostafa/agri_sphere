@@ -67,7 +67,7 @@ class WeatherCard extends StatelessWidget {
             content = SizedBox(
               height: 100,
               child: Center(
-                child: CircularProgressIndicator(
+                child: LinearProgressIndicator(
                   color: context.colorScheme.onPrimary,
                 ),
               ),
@@ -174,7 +174,6 @@ class WeatherCard extends StatelessWidget {
           } else {
             content = SizedBox.shrink();
           }
-
           return content;
         },
       ),
