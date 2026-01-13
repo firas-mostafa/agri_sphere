@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id('review_id');
 
             $table->unsignedBigInteger('product_id'); // or uuid()
-            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
 
             $table->unsignedBigInteger('user_id'); // or uuid()
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
 
             $table->tinyInteger('rating');
             $table->text('comment')->nullable();

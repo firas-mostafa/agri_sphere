@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id('payment_id');
 
             $table->unsignedBigInteger('order_id'); // or uuid()
-            $table->foreign('order_id')->references('order_id')->on('orders');
+            $table->foreign('order_id')->references('order_id')->on('orders')->onDelete('cascade');
 
             $table->string('payment_method');
             $table->enum('payment_status', ['pending', 'completed', 'failed', 'refunded'])->default('pending');
             $table->decimal('amount', 10, 2);
-            $table->string('transaction_id')->unique();
+            $table->string('transaction_id')->autoIncrement()->unique();
             $table->timestamp('paid_at')->nullable();
 
             $table->timestamps();

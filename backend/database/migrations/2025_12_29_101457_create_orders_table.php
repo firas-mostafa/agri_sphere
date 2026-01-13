@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id('order_id');
 
             $table->unsignedBigInteger('user_id'); // or uuid()
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
 
-            $table->enum('order_type', ['purchased', 'rental'])->default('purchased');
-            $table->date('order_date');
+            $table->enum('order_type', ['purchased_order', 'rental_order'])->default('purchased_order');
+            $table->date('ordered_at')->nullable();
             $table->decimal('discount_amount', 10, 2)->nullable();
 
-            $table->timestamp('canelled_at')->nullable();
+            $table->timestamp('caneclled_at')->nullable();
             $table->string('cancellation_reason')->nullable();
 
             $table->timestamps();

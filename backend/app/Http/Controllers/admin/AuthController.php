@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\ResponseService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -16,12 +17,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if ( $validator->fails() ) {
-            return response()-> json([
-                'status' => 400,
-                'errors' => $validator->errors()
-            ], 400);
-        }
+        if ( $validator->fails() ) return ResponseService::faliedValidationResponse($validator);
 
         if ( Auth::attempt(['email' => $request->email, 'password' => $request->password]) ) {
             

@@ -15,15 +15,15 @@ return new class extends Migration
             $table->id('address_id');
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
 
-            $table->string('address_line_1');
-            $table->string('address_line_2')->nullable();
+            $table->string('address_line1');
+            $table->string('address_line2')->nullable();
             $table->string('city');
             $table->string('state')->nullable();
-            $table->string('postal_code')->nullable();
             $table->string('country');
-            $table->enum('address_type', ['shipping', 'billing', 'pickup', 'dropoff'])->default('shipping');
+            $table->string('postal_code')->nullable();
+            $table->enum('address_type', ['user_address', 'shipping', 'billing', 'pickup', 'dropoff'])->default('user_address');
 
             $table->timestamps();
         });

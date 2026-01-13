@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('rental_products', function (Blueprint $table) {
 
             $table->unsignedBigInteger('rental_product_id')->primary();
-            $table->foreign('rental_product_id')->references('product_id')->on('products');
+            $table->foreign('rental_product_id')->references('product_id')->on('products')->onDelete('cascade');
 
-            $table->string('product_type')->default('rental');
+            $table->enum('product_type', ['rental_product'])->default('rental_product');
 
-            $table->double('hourly_rate',10,2);
-            $table->double('daily_rate',10,2);
-            $table->double('weekly_rate',10,2);
-            $table->double('monthly_rate',10,2);
+            $table->decimal('hourly_rate',10,2);
+            $table->decimal('daily_base_rate',10,2);
+            $table->decimal('weekly_base_rate',10,2);
+            $table->decimal('monthly_base_rate',10,2);
             
             $table->enum('transmission', ['automatice', 'manual', 'cvt', 'electric'])->default('automatice');
             $table->enum('fuel_type', ['diesel', 'gasoline', 'electric', 'hybrid', 'plug-in_hybrid'])->default('diesel');

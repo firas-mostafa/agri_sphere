@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('management_products', function (Blueprint $table) {
-            $table->id('management_product_id');
+        Schema::create('management_user_products', function (Blueprint $table) {
+            $table->id('management_user_product_id');
 
             $table->unsignedBigInteger('user_id'); // or uuid()
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
 
             $table->unsignedBigInteger('product_id'); // or uuid()
-            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
 
             $table->timestamps();
         });
