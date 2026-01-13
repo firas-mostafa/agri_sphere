@@ -1,16 +1,21 @@
-# mobile_app
+# Mobile App (Flutter)
 
-A new Flutter project.
+This folder contains the Flutter mobile application for Agri Sphere. The app targets Android and iOS.
 
-## Getting Started
+## Prerequisites
+- Flutter SDK (stable channel)
+- Android Studio / Xcode for device emulators and builds
+- Set up Android SDK and platform tools, and configure PATH as per Flutter docs
 
-This project is a starting point for a Flutter application.
+## Setup
+1. Install dependencies: `flutter pub get`\2. Run on an emulator or device: `flutter run`
 
-A few resources to get you started if this is your first Flutter project:
+## Build
+- Android APK: `flutter build apk --release`
+- iOS: `flutter build ios` (requires a macOS machine with Xcode)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Environment / API
+- If the app uses environment constants, configure them in a secure way (e.g., use build-time dart-define or a config file ignored by Git).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Notes
+- Keep keys out of source control. For testing API endpoints use the local backend URL or a tunneling service (like ngrok) when running on a physical device.
