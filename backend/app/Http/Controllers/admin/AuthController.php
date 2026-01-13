@@ -21,9 +21,9 @@ class AuthController extends Controller
 
         if ( Auth::attempt(['email' => $request->email, 'password' => $request->password]) ) {
             
-            $user = User::find(Auth::user()->id);
+            $user = User::find(Auth::user()->user_id);
 
-            if ( $user->role == 'admin' ) {
+            if ( $user->hasRole('superadmin') || $user->hasRole('admin') ) {
                 
                 $token = $user->createToken('token')->plainTextToken;
 
