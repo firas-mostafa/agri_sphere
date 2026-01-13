@@ -197,6 +197,7 @@
     border-radius: 999px;
     text-transform: capitalize;
 }
+
 /* =============== ABOUT FARMER CONSULTATION =============== */
 .about__farmer {
     padding-inline: 162px;
@@ -343,6 +344,7 @@
     flex-direction: column;
     gap: 14px;
 }
+
 /* =============== HOW IT WORKS =============== */
 .howItWorks__farmer {
     padding-block: 40px 80px;

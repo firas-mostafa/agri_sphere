@@ -8,7 +8,7 @@ import SectionTitle from '../../../components/title/SectionTitle';
 import CTAFooter from '../../../components/cta-footer/CTAFooter';
 import Partners from '../../../components/partners/Partners';
 
-import { benefits_data, cropSoluation_data, fqa_questions, howItWorks_home_data } from '../../../Data';
+import { howItWorks_home_data, benefits_data, cropSoluation_data, fqa_questions } from '../../../Data';
 
 import Wheat from '../../../assets/wheat.svg';
 import WeatherCard from '../../../assets/Weather_card.png'
@@ -28,7 +28,6 @@ import './home.css';
 function Home() {
     return (
         <Layout>
-
             {/* =============== HOME =============== */}
             <section className="home section">
                 <div className="home__container container grid">
@@ -97,7 +96,7 @@ function Home() {
                 </div>
             </section>
 
-            
+
             {/* =============== ABOUT =============== */}
             <section className='about'>
                 <div className="about__content">
@@ -115,7 +114,7 @@ function Home() {
                 </div>
             </section>
 
-            
+
             {/* =============== SERVICES =============== */}
             <section className="services">
                 <SectionSubTitle subtitle='services of agriSphere' />
@@ -283,7 +282,7 @@ function Home() {
                 </div>
             </section>
 
-            
+
             {/* =============== HOW IT WORKS =============== */}
             <section className="howItWorks__home">
                 <SectionTitle
@@ -327,7 +326,7 @@ function Home() {
 
             {/* =============== BENEFITS =============== */}
             <section className="benefits">
-                <SectionTitle
+                <SectionTitle 
                     subtitle='beneftis'
                     title='why choose agriSphere'
                     description={
@@ -364,7 +363,7 @@ function Home() {
                 </div>
             </section>
 
-            
+
             {/* =============== CROP SOLUATION =============== */}
             <section className="cropSoluations">
                 <SectionTitle 
@@ -491,13 +490,11 @@ function Home() {
                 </div>
             </section>
 
-
             {/* =============== CTA-Footer =============== */}
             <CTAFooter />
 
             {/* =============== PARTNERS =============== */} 
             <Partners />
-
         </Layout>
     );
 };
