@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-        public function authenticate(Request $request) {
+    public function authenticate(Request $request) {
         $validator = Validator::make($request -> all(), [
             'email' => 'required|email',
             'password' => 'required'
@@ -23,7 +23,7 @@ class AuthController extends Controller
             
             $user = User::find(Auth::user()->user_id);
 
-            if ( $user->hasRole('superadmin') || $user->hasRole('admin') ) {
+            if ( $user->hasRole('admin') || $user->hasRole('superadmin') ) {
                 
                 $token = $user->createToken('token')->plainTextToken;
 

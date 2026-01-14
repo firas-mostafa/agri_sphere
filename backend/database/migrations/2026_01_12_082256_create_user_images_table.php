@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_images', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->id('user_image_id');
+
+            $table->unsignedBigInteger("user_id"); // or uuid()
+            $table->foreign("user_id")->references('user_id')->on('users')->onDelete('cascade');
+
+            $table->string('image');
             $table->timestamps();
         });
     }
