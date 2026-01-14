@@ -1,10 +1,10 @@
 import React from 'react';
 
+import { fqa_allUsers_questions, fqa_engineer_questions, fqa_equipment_questions, fqa_farmer_questions } from '../../../Data';
+
 import Layout from '../../../components/common/Layout';
 import CTAFooter from '../../../components/cta-footer/CTAFooter';
 import Partners from '../../../components/partners/Partners';
-
-import { fqa_allUsers_questions, fqa_engineer_questions, fqa_equipment_questions, fqa_farmer_questions } from '../../../Data';
 
 import './fqa.css';
 
@@ -47,7 +47,6 @@ function FQA() {
                     </div>
                 </div>
             </section>
-
 
             {/* =============== FQA QUESTIONS =============== */}
             <section className="fqa__questions">
@@ -168,13 +167,11 @@ function FQA() {
                 </div>
             </section>
 
-
             {/* =============== CTA-Footer =============== */}
             <CTAFooter />
 
             {/* =============== PARTNERS =============== */} 
             <Partners />
-
         </Layout>
     );
 };

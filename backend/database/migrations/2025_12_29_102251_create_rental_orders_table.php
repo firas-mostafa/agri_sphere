@@ -14,18 +14,18 @@ return new class extends Migration
         Schema::create('rental_orders', function (Blueprint $table) {
 
             $table->unsignedBigInteger('rental_order_id')->primary(); // or uuid()
-            $table->foreign('rental_order_id')->references('order_id')->on('orders');
+            $table->foreign('rental_order_id')->references('order_id')->on('orders')->onDelete('cascade');
 
             $table->unsignedBigInteger('rental_product_id'); // or uuid()
-            $table->foreign('rental_product_id')->references('rental_product_id')->on('rental_products');
+            $table->foreign('rental_product_id')->references('rental_product_id')->on('rental_products')->onDelete('cascade');
 
-            $table->unsignedBigInteger('pickup_location_id'); // or uuid()
-            $table->foreign('pickup_location_id')->references('address_id')->on('addresses');
+            $table->unsignedBigInteger('pickup_location_id')->nullable(); // or uuid()
+            $table->foreign('pickup_location_id')->references('address_id')->on('addresses')->onDelete('cascade');
 
-            $table->unsignedBigInteger('dropoff_location_id'); // or uuid()
-            $table->foreign('dropoff_location_id')->references('address_id')->on('addresses');
+            $table->unsignedBigInteger('dropoff_location_id')->nullable(); // or uuid()
+            $table->foreign('dropoff_location_id')->references('address_id')->on('addresses')->onDelete('cascade');
 
-            $table->string('order_type')->default('rental');
+            $table->enum('order_type', ['rental_order'])->default('rental_order');
             $table->timestamp('actual_pickup_date')->nullable();
             $table->timestamp('actual_dropoff_date')->nullable();
 
@@ -37,7 +37,7 @@ return new class extends Migration
 
             $table
                 ->enum(
-                    'pick_status', ['pending', 'customer_present', 'vehicle_ready', 'completed']
+                    'pickup_status', ['pending', 'customer_present', 'vehicle_ready', 'completed']
                     )
                 ->default('pending');
 
@@ -51,7 +51,7 @@ return new class extends Migration
             $table->decimal('tax_amount', 10, 2)->default(0);
             $table->decimal('insurance_total', 10, 2)->nullable();
             $table->decimal('total_amount', 10, 2);
-            $table->decimal('refund_amount', 10, 2);
+            $table->decimal('refund_amount', 10, 2)->nullable();
 
             $table->timestamps();
         });

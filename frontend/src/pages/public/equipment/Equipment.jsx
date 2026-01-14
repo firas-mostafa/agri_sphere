@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router';
+
+import { equipment_features_data1, equipment_features_data2, equipment_howItWorks_data } from '../../../Data';
 
 import Layout from '../../../components/common/Layout';
 import SectionTitle from '../../../components/title/SectionTitle';
 import HowItWorks from '../../../components/how-it-works/HowItWorks';
 import CTAFooter from '../../../components/cta-footer/CTAFooter';
 import Partners from '../../../components/partners/Partners';
-
-import { equipment_features_data1, equipment_features_data2, equipment_howItWorks_data } from '../../../Data';
 
 import CropsImage from '../../../assets/corps.jpg';
 import ForestImage from '../../../assets/forest.jpg';
@@ -16,7 +17,6 @@ import './equipment.css';
 function Equipment() {
     return (
         <Layout>
-
             {/* =============== HERO =============== */}
             <section className="hero__equipment section">
                 <div className="hero__equipment__container container grid">
@@ -40,7 +40,6 @@ function Equipment() {
                 </div>
             </section>
 
-            
             {/* =============== FEATURES =============== */}
             <section className="features__equipment">
                 <SectionTitle
@@ -130,20 +129,17 @@ function Equipment() {
 
                 </div>
             </section>
-            
 
             {/* =============== HOW IT WORKS =============== */}
             <section className="howItWorks__equipment">
                 <HowItWorks data={equipment_howItWorks_data} />
             </section>
-
             
             {/* =============== CTA-Footer =============== */}
             <CTAFooter />
 
             {/* =============== PARTNERS =============== */} 
             <Partners />
-
         </Layout>
     );
 };

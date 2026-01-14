@@ -15,12 +15,12 @@ return new class extends Migration
 
             // purchased_product_id is primary and foreign key at the same time, WoW!
             $table->unsignedBigInteger('purchased_product_id')->primary(); // or uuid()
-            $table->foreign('purchased_product_id')->references('product_id')->on('products');
+            $table->foreign('purchased_product_id')->references('product_id')->on('products')->onDelete('cascade');
 
-            $table->string('product_type')->default('purchased');
+            $table->enum('product_type', ['purchased_product'])->default('purchased_product');
 
-            $table->double('price',10,2);
-            $table->double('compare_price',10,2)->nullable();
+            $table->decimal('price',10,2);
+            $table->decimal('compare_price',10,2)->nullable();
             $table->boolean('is_active')->default(true);
 
             $table->timestamps();

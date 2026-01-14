@@ -41,7 +41,7 @@ class MySliverAppBar extends StatelessWidget {
           backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=3'),
         ),
       ],
-      expandedHeight: context.setHeight(360),
+      expandedHeight: context.setHeight(380),
       backgroundColor: context.colorScheme.primary,
       collapsedHeight: context.setHeight(80),
       floating: true,

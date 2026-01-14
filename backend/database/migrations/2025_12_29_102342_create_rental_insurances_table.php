@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('rental_insurances', function (Blueprint $table) {
             $table->id('rental_insurance_id');
-            $table->double('daily_rate_applied',10,2)->nullable();
+
+            $table->unsignedBigInteger('rental_order_id'); // or uuid()
+            $table->foreign('rental_order_id')->references('rental_order_id')->on('rental_orders')->onDelete('cascade');
+
+            $table->decimal('daily_rate_applied',10,2)->nullable();
             $table->integer('number_of_days')->nullable();
-            $table->double('total_cost',10,2)->nullable();
+            $table->decimal('total_cost',10,2)->nullable();
             $table->timestamps();
         });
     }

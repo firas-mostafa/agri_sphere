@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id('product_id');
 
             $table->unsignedBigInteger('category_id'); // or uuid()
-            $table->foreign('category_id')->references('category_id')->on('categories');
+            $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
 
             $table->unsignedBigInteger('brand_id')->nullable(); // or uuid()
-            $table->foreign('brand_id')->references('brand_id')->on('brands');
+            $table->foreign('brand_id')->references('brand_id')->on('brands')->onDelete('cascade');
 
             $table->enum('product_type', ['purchased_product', 'rental_product'])->default('purchased_product');
 
@@ -27,9 +27,9 @@ return new class extends Migration
             $table->string('short_description')->nullable();
             $table->string('image')->nullable();
             $table->string('barcode')->nullable();
-            $table->string('sku');
+            $table->string('sku')->unique();
             $table->integer('stock_quantity')->nullable();
-            $table->double('average_rating',3,2)->nullable();
+            $table->decimal('average_rating',3,2)->nullable();
             $table->integer('total_reviews')->nullable();
 
             $table->timestamps();

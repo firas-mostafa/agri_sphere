@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import Layout from '../../../components/common/Layout';
 import CtaContactFooter from '../../../components/cta-footer/CtaContactFooter';
@@ -10,12 +11,10 @@ import FQAImage from '../../../assets/fqa-image.png';
 import TelegramIcon from '../../../assets/telegram.svg';
 
 import './contact.css';
-import { Link } from 'react-router';
 
 function Contact() {
     return (
         <Layout>
-
             {/* =============== CONTACT =============== */}
             <section className="contact section">
                 <div className="contact__container grid">
@@ -75,7 +74,7 @@ function Contact() {
                                     Find answers to Frequently Asked Questions about our products, services, ordering process, and more.
                                 </p>
 
-                                <Link
+                                <Link 
                                     to='/fqa' 
                                     className="contact__fqa-data-btn"
                                 >
@@ -212,13 +211,11 @@ function Contact() {
                 </div>
             </section>
 
-            
             {/* =============== CTA-Contact-Footer =============== */}
             <CtaContactFooter />
-            
+
             {/* =============== PARTNERS =============== */}
             <Partners />
-
         </Layout>
     );
 };

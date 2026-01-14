@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('product_image_id');
 
             $table->unsignedBigInteger('product_id'); // or uuid()
-            $table->foreign('product_id')->references('product_id')->on('products');
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
 
             $table->string('image');
 

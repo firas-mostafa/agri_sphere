@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id('brand_id');
+            $table->string('name');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

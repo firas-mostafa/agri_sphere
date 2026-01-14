@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/helpers/localization/logic/localization_cubit.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+import 'package:mobile_app/presentation/calendar/screens/calendar_page.dart';
 import 'package:mobile_app/presentation/engineers/screens/engineers_page.dart';
 import 'package:mobile_app/presentation/home/screens/home_page.dart';
 import 'package:mobile_app/presentation/main/logic/index_cubit/index_cubit.dart';
@@ -17,7 +18,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> screens = [
       HomePage(),
-      SettingsPage(),
+      CalendarPage(),
       StorePage(),
       EngineersPage(),
       SettingsPage(),

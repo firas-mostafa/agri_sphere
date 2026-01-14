@@ -32,7 +32,7 @@ class LanguagePage extends StatelessWidget {
                   image: ImageHelper.english,
                   onTap: () {
                     context.read<LocaleCubit>().changeLanguage('en');
-                    Navigator.pushNamed(context, "/login");
+                    Navigator.pushNamed(context, "/main");
                   },
                 ),
                 CustomBoxChoose(
@@ -40,7 +40,7 @@ class LanguagePage extends StatelessWidget {
                   image: ImageHelper.arabic,
                   onTap: () {
                     context.read<LocaleCubit>().changeLanguage('ar');
-                    Navigator.pushNamed(context, "/login");
+                    Navigator.pushNamed(context, "/main");
                   },
                 ),
               ],

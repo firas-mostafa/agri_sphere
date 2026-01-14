@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/helpers/localization/app_localizations.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+import 'package:mobile_app/presentation/main/logic/index_cubit/index_cubit.dart';
 
 class QuickActions extends StatelessWidget {
   const QuickActions({super.key});
@@ -35,6 +37,12 @@ class QuickActions extends StatelessWidget {
       Colors.purple,
     ];
 
+    List<VoidCallback> actionNav = [
+      () => Navigator.pushNamed(context, "/pest_reporting"),
+      () => context.read<IndexCubit>().changeIndex(1),
+      () => context.read<IndexCubit>().changeIndex(2),
+      () => Navigator.pushNamed(context, "/pest_reporting"),
+    ];
     return SizedBox(
       height: context.setHeight(370),
       child: GridView.builder(
@@ -48,46 +56,49 @@ class QuickActions extends StatelessWidget {
         ),
         itemCount: 4,
         itemBuilder: (context, index) {
-          return Container(
-            padding: EdgeInsets.all(context.setMineSize(12)),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: context.colorScheme.surfaceContainer,
-              border: Border.all(
-                color: context.colorScheme.onSurface.withAlpha(20),
+          return InkWell(
+            onTap: actionNav[index],
+            child: Container(
+              padding: EdgeInsets.all(context.setMineSize(12)),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: context.colorScheme.surfaceContainer,
+                border: Border.all(
+                  color: context.colorScheme.onSurface.withAlpha(20),
+                ),
               ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: context.setMineSize(60),
-                  height: context.setMineSize(60),
-                  decoration: BoxDecoration(
-                    color: actionColors[index].withAlpha(50),
-                    borderRadius: BorderRadius.circular(12),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: context.setMineSize(60),
+                    height: context.setMineSize(60),
+                    decoration: BoxDecoration(
+                      color: actionColors[index].withAlpha(50),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Icon(
+                      actionIcons[index],
+                      color: actionColors[index],
+                      size: context.setHeight(35),
+                    ),
                   ),
-                  child: Icon(
-                    actionIcons[index],
-                    color: actionColors[index],
-                    size: context.setHeight(35),
+                  SizedBox(height: context.setHeight(8)),
+                  Text(
+                    actions[index],
+                    style: context.textTheme.titleMedium!.copyWith(
+                      color: context.colorScheme.onSurface,
+                    ),
                   ),
-                ),
-                SizedBox(height: context.setHeight(8)),
-                Text(
-                  actions[index],
-                  style: context.textTheme.titleMedium!.copyWith(
-                    color: context.colorScheme.onSurface,
+                  Text(
+                    actionDescription[index],
+                    style: context.textTheme.bodySmall!.copyWith(
+                      color: context.colorScheme.onSurface.withAlpha(150),
+                    ),
                   ),
-                ),
-                Text(
-                  actionDescription[index],
-                  style: context.textTheme.bodySmall!.copyWith(
-                    color: context.colorScheme.onSurface.withAlpha(150),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },

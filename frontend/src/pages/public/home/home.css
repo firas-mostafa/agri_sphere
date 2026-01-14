@@ -1,3 +1,10 @@
+.services,
+.howItWorks__home,
+.benefits,
+.fqa {
+    background-color: var(--body-color);
+}
+
 /* =============== HOME =============== */
 .home {
     position: relative;
@@ -164,6 +171,7 @@
     line-height: 100%;
     text-align: center;
 }
+
 
 /* =============== ABOUT =============== */
 .about {
