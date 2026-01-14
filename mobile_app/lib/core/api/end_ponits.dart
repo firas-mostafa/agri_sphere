@@ -1,5 +1,5 @@
 class EndPoint {
-  static String baseUrl = "https://d1c8909c51ad.ngrok-free.app/";
+  static String baseUrl = "https://40ff7c979111.ngrok-free.app/";
 
   // static String baseUrl = "http://127.0.0.1:8000/";
 
