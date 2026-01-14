@@ -19,13 +19,13 @@ class Order extends Model
         'order_type',
         'order_date',
         'discount_amount',
-        'caneclled_at',
+        'cancelled_at',
         'cancellation_reason',
     ];
 
     protected $dates = [
         'order_date',
-        'canelled_at',
+        'cancelled_at',
     ];
 
     protected function casts(): array

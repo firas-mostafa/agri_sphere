@@ -37,7 +37,6 @@ class StorePurchasedOrderRequest extends FormRequest
 
         return [
             'order_type' => 'required|string|in:'.implode(',', $allowedOrderTypes),
-            'order_date' => 'required|string',
             'discount_amount' => 'nullable|numeric',
             'cancelled_at' => 'nullable|string',
             'cancellation_reason' => 'nullable|string',

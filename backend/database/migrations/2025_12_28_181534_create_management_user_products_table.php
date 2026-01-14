@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id('order_id');
+        Schema::create('management_user_products', function (Blueprint $table) {
+            $table->id('management_user_product_id');
 
             $table->unsignedBigInteger('user_id'); // or uuid()
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
 
-            $table->enum('order_type', ['purchased_order', 'rental_order'])->default('purchased_order');
-            $table->date('order_date')->nullable();
-            $table->decimal('discount_amount', 10, 2)->nullable();
-
-            $table->timestamp('cancelled_at')->nullable();
-            $table->string('cancellation_reason')->nullable();
+            $table->unsignedBigInteger('product_id')->primary(); // or uuid()
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
 
             $table->timestamps();
         });
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('management_products');
     }
 };

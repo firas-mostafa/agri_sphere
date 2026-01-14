@@ -5,14 +5,12 @@ namespace App\Http\Controllers\farmer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\order\purchasedOrder\StorePurchasedOrderRequest;
 use App\Http\Requests\order\rentalOrder\StoreRentalOrderRequest;
-use App\Http\Requests\order\StoreOrderRequest;
 use App\Models\PurchasedOrderItem;
 use App\Services\AddressService;
 use App\Services\OrderService;
 use App\Services\PaymentService;
 use App\Services\ResponseService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
@@ -37,10 +35,6 @@ class OrderController extends Controller
 
             if ( $validator->fails() ) return ResponseService::faliedValidationResponse($validator);
 
-            $validator = OrderService::validateStoreOrder($request);
-
-            if ( $validator->fails() ) return ResponseService::faliedValidationResponse($validator);
-
             $validator = PaymentService::validateStorePayment($request);
 
             if ( $validator->fails() ) return ResponseService::faliedValidationResponse($validator);
@@ -54,17 +48,18 @@ class OrderController extends Controller
 
             $purchasedOrder->shipping_address_id = $address->address_id;
 
+            $purchased_order_id = $purchasedOrder->purchased_order_id;
             $purchasedOrder->save();
 
             // Save Purchased Order Items
             foreach ( $request->cart as $item ) {
                 $purchasedOrderItem = new PurchasedOrderItem();
 
-                $purchasedOrderItem->purchased_order_id = $purchasedOrder->purchased_order_id;
-                $purchasedOrderItem->purchased_product_id = $item["purchased_order_id"];
-                $purchasedOrderItem->name = $item["purchased_order_id"];
+                $purchasedOrderItem->purchased_order_id = $purchased_order_id;
+                $purchasedOrderItem->purchased_product_id = $item["purchased_product_id"];
+                $purchasedOrderItem->name = $item["name"];
                 $purchasedOrderItem->quantity = $item["quantity"];
-                $purchasedOrderItem->price = $item["qauntity"] * $item["price"];
+                $purchasedOrderItem->price = $item["quantity"] * $item["price"];
                 $purchasedOrderItem->price_per_unit = $item["price"];
                 
                 $purchasedOrderItem->save();
@@ -72,7 +67,7 @@ class OrderController extends Controller
 
             return response()->json([
                 'status' => 200,
-                'id' => $purchasedOrder->purchased_order_id,
+                'id' => $purchased_order_id,
                 'message' => 'You have successfully placed your order',
             ], 200);
 
@@ -90,10 +85,6 @@ class OrderController extends Controller
         $rentalOrder = OrderService::storeRentalOrder($request, $request->rental_product_id);
 
         $validator = AddressService::validateStoreAddress($request, $this->allowedRentalAddressTypes);
-
-        if ( $validator->fails() ) return ResponseService::faliedValidationResponse($validator);
-
-        $validator = OrderService::validateStoreOrder($request);
 
         if ( $validator->fails() ) return ResponseService::faliedValidationResponse($validator);
 
