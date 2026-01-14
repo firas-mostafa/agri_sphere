@@ -151,6 +151,7 @@
 }
 .feedback-user-icon {
   color: var(--color-gray-400);
+  margin-right: 16px;
 }
 .feedback-user-info p:first-child {
   font-weight: 500;
@@ -169,14 +170,18 @@
 .category-consultation {
   background-color: var(--color-green-100);
   color: var(--color-green-800);
+  margin-left: 44px;
 }
 .category-product {
   background-color: var(--color-orange-100);
   color: var(--color-orange-800);
+  margin-left: 44px;
 }
 .category-pest {
   background-color: var(--color-red-100);
   color: var(--color-red-800);
+  margin-left: 44px;
+
 }
 .no-feedback {
   text-align: center;
