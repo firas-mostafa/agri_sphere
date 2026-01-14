@@ -55,7 +55,6 @@ class StoreRentalOrderRequest extends FormRequest
         return [
             'rental_product_id' => 'required|integer',
             'order_type' => 'required|string|in:'.implode(',', $allowedOrderTypes),
-            'order_date' => 'required|string',
             'discount_amount' => 'nullable|numeric',
             'cancelled_at' => 'nullable|string',
             'cancellation_reason' => 'nullable|string',

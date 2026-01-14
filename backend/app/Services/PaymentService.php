@@ -84,7 +84,7 @@ class PaymentService
         ? 
             $payment->paid_at = Carbon::now()
         : 
-            $payment->paid_at = "";
+            $payment->paid_at;
 
         return $payment;
     }

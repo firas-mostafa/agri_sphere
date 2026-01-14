@@ -213,7 +213,6 @@ class OrderService
     public static function validateStoreOrder($request) {
         $purchasedOrderStoreRules = [
             'order_type' => 'required|string|in:'.implode(',', OrderService::$allowedOrderTypes),
-            'order_date' => 'required|string',
             'discount_amount' => 'nullable|numeric',
             'cancelled_at' => 'nullable|string',
             'cancellation_reason' => 'nullable|string',
