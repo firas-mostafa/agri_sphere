@@ -141,7 +141,7 @@ const QuickActions = ({ setCurrentPage, consultationsThisMonth, productsSold, to
       </div>
       <div className="summary-row">
         <span className="summary-label">Revenue</span>
-        <span className="summary-value">${totalRevenue.toLocaleString()}</span>
+        <span className="summary-value">{totalRevenue.toLocaleString()}{" "}SYP</span>
       </div>
     </div>
   </div>
@@ -151,10 +151,9 @@ const HomePage = ({ consultations, upcomingCalls, orders, feedback, setCurrentPa
   const pendingConsultations = consultations.filter(consultation => consultation.status === 'pending').length;
   const videoCallsScheduled = upcomingCalls.length;
   
-  // ✅ Active Alerts = عدد طلبات pest بحالة pending
-  const activeAlerts = consultations.filter(c => c.type === 'pest' && c.status === 'pending').length;
+  const activeAlerts = consultations.filter(consultation => consultation.type === 'pest' && consultation.status === 'pending').length;
   
-  const pestReports = activeAlerts; // نفس العدد
+  const pestReports = activeAlerts; 
   const purchaseRequests = orders.filter(order => order.status === 'pending').length;
   const averageRating = feedback.length > 0 
     ? (feedback.reduce((sum, f) => sum + f.rating, 0) / feedback.length).toFixed(1) 
