@@ -2,9 +2,31 @@ class EndPoint {
   static String baseUrl = "https://d1c8909c51ad.ngrok-free.app/";
 
   // static String baseUrl = "http://127.0.0.1:8000/";
+
+  // Farmer endPoint
   static String api = "api/";
   static String register = "${api}register";
   static String login = "${api}login";
+  static String getCategories = "${api}get-categories";
+  static String getBrands = "${api}get-brands";
+  static String getPurhcasedProducts = "${api}get-purhcased-products";
+  static String getRentalProducts = "${api}get-rental-products";
+  static String getProfileDetails = "${api}get-profile-details";
+  static String savePurchasedOrder = "${api}save-purchased-order";
+  static String saveRentalOrder = "${api}save-rental-order";
+  static String getOrders = "${api}get-orders";
+  static String getLatestEquipmentProducts =
+      "${api}get-latest-equipment-products";
+  static String getLatestMedicineProducts =
+      "${api}get-latest-medicine-products";
+  static String getLatestInsecticideProducts =
+      "${api}get-latest-insecticide-products";
+  static String getLatestSeederProducts = "${api}get-latest-seeder-products";
+  static String getLatestPurchasedProducts =
+      "${api}get-latest-purchased-products";
+  static String getLatestRentalProducts = "${api}get-latest-rental-products";
+  static String getproduct(int id) => "${api}get-product/$id";
+  static String getOrderDetails(int id) => "${api}get-order-details/$id";
 }
 
 class ApiKey {
