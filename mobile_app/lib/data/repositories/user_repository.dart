@@ -35,7 +35,7 @@ class UserRepository {
       await apiConsumer.post(
         EndPoint.register,
         data: {
-          ApiKey.name: name,
+          ApiKey.username: name,
           ApiKey.email: email,
           ApiKey.password: password,
         },

@@ -14,7 +14,7 @@ class UserModel extends Equatable {
   factory UserModel.fromJson(Map<String, dynamic> jsonData) {
     return UserModel(
       email: jsonData[ApiKey.email],
-      username: jsonData[ApiKey.name],
+      username: jsonData[ApiKey.username],
       firstName: '',
       lastName: '',
       phoneNumber: 1,

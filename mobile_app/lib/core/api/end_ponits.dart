@@ -39,7 +39,8 @@ class ApiKey {
   static String nonFieldErrors = "non_field_errors";
   static String message = "message";
   static String id = "id";
-  static String name = "name";
+  static String userID = "user_id";
+  static String username = "username";
   static String confirmPassword = "confirmPassword";
   static String image = "image";
   static String title = "title";
@@ -49,3 +50,13 @@ class ApiKey {
   static String description = "description";
   static String detail = "detail";
 }
+            // "user_id": 3,
+            // "username": "Farmer",
+            // "email": "farmer@example.com",
+            // "email_verified_at": null,
+            // "first_name": null,
+            // "last_name": null,
+            // "phone_number": null,
+            // "created_at": "2026-01-14T18:09:20.000000Z",
+            // "updated_at": "2026-01-14T18:09:20.000000Z",
+            // "addresses": []
