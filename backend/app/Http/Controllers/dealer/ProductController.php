@@ -8,8 +8,6 @@ use App\Http\Requests\product\UpdateProductRequest;
 use App\Models\ManagementUserProduct;
 use App\Models\Product;
 use App\Models\ProductImage;
-use App\Models\PurchasedProduct;
-use App\Models\RentalProduct;
 use App\Models\TempImage;
 use App\Services\ProductService;
 use App\Services\ResponseService;
@@ -19,7 +17,7 @@ use Intervention\Image\ImageManager;
 
 class ProductController extends Controller
 {
-    private $itemName = "RentalProduct";
+    private $itemName = "DealerProduct";
     private $purchasedProductType = "purchased_product";
 
     public function getDealerProducts(Request $request) {
@@ -28,7 +26,15 @@ class ProductController extends Controller
         return ResponseService::allItemsResponse($dealerProducts);
     }
 
-    public function getDealerProduct (string $id) {
+    public function getDealerProduct(string $id) {
+
+        $dealerProduct = ManagementUserProduct::where([
+            'user_id' => auth()->user()->user_id,
+            'product_id' => $id,
+        ])->first();
+
+        if ( $dealerProduct == null ) return ProductService::productNotFoundResponse($this->itemName, $id);
+
         $dealerProduct = ProductService::getProductById($id);
 
         if ( $dealerProduct == null ) return ResponseService::itemNotFoundResponse($this->itemName, $id);
@@ -100,6 +106,14 @@ class ProductController extends Controller
     }
 
     public function updateDealerProduct(UpdateProductRequest $request, string $id) {
+
+        $dealerProduct = ManagementUserProduct::where([
+            'user_id' => auth()->user()->user_id,
+            'product_id' => $id,
+        ])->first();
+
+        if ( $dealerProduct == null ) return ProductService::productNotFoundResponse($this->itemName, $id);
+
         $dealerProduct = Product::find($id);
 
         if ( $dealerProduct == null ) return ResponseService::itemNotFoundResponse($this->itemName, $id);
@@ -132,9 +146,17 @@ class ProductController extends Controller
     }
 
     public function deleteDealerProduct(string $id) {
-        $product = ProductService::deleteProductById($id);
 
-        if ( $product == null ) return ResponseService::itemNotFoundResponse($this->itemName, $id);
+        $dealerProduct = ManagementUserProduct::where([
+            'user_id' => auth()->user()->user_id,
+            'product_id' => $id,
+        ])->first();
+
+        if ( $dealerProduct == null ) return ProductService::productNotFoundResponse($this->itemName, $id);
+
+        $dealerProduct = ProductService::deleteProductById($id);
+
+        if ( $dealerProduct == null ) return ResponseService::itemNotFoundResponse($this->itemName, $id);
 
         return ResponseService::successDeleteItemResponse($this->itemName, $id);
     }

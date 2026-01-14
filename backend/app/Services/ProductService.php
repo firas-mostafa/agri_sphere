@@ -126,7 +126,7 @@ class ProductService
 
             $product = Product::select('products.*', 'PP.*')
                 ->join(
-                    'purchased_products as PP', 'products.product_id', '=', 'PP.rental_product_id'
+                    'purchased_products as PP', 'products.product_id', '=', 'PP.purchased_product_id'
                     )
                 ->with('productImages')
                 ->find($id);
@@ -280,6 +280,15 @@ class ProductService
             'product' => $product,
             $product_type => $subProduct,
         ], 200);
+    }
+
+    // This method will return product not found response
+    public static function productNotFoundResponse($itemName, $id) {
+        return response()->json([
+            'status'=> 404,
+            'message' => $itemName.' with ID: '.$id.' not found',
+            'data' => [],
+        ], 404);
     }
 
 

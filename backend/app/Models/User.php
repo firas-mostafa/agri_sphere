@@ -66,7 +66,7 @@ class User extends Authenticatable
 
     public function relatedUserProducts() : HasMany
     {//                                                 foreign key  local key
-        return $this->hasMany(ManagementProduct::class, 'user_id', 'user_id');
+        return $this->hasMany(ManagementUserProduct::class, 'user_id', 'user_id');
     }
 
     public function userImages() : HasMany

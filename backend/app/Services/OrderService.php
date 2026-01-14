@@ -112,8 +112,6 @@ class OrderService
     public static function getOrderById(string $id) {
         $order = Order::find($id);
 
-        if ( $order == null ) return null;
-
         if ( $order->order_type != null ) {
 
             if ( $order->order_type == "purchased_order") {

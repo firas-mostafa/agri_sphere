@@ -29,7 +29,15 @@ class ProductController extends Controller
         return ResponseService::allItemsResponse($engineerProducts);
     }
 
-    public function getEngineerProduct (string $id) {
+    public function getEngineerProduct(string $id) {
+
+        $engineerProduct = ManagementUserProduct::where([
+            'user_id' => auth()->user()->user_id,
+            'product_id' => $id,
+        ])->first();
+
+        if ( $engineerProduct == null ) return ProductService::productNotFoundResponse($this->itemName, $id);
+
         $engineerProduct = ProductService::getProductById($id);
 
         if ( $engineerProduct == null ) return ResponseService::itemNotFoundResponse($this->itemName, $id);
@@ -154,6 +162,14 @@ class ProductController extends Controller
     }
 
     public function updateEngineerProduct(UpdateProductRequest $request, string $id) {
+
+        $engineerProduct = ManagementUserProduct::where([
+            'user_id' => auth()->user()->user_id,
+            'product_id' => $id,
+        ])->first();
+
+        if ( $engineerProduct == null ) return ProductService::productNotFoundResponse($this->itemName, $id);
+
         $engineerProduct = Product::find($id);
 
         if ( $engineerProduct == null ) return ResponseService::itemNotFoundResponse($this->itemName, $id);
@@ -210,9 +226,17 @@ class ProductController extends Controller
     }
 
     public function deleteEngineerProduct(string $id) {
-        $product = ProductService::deleteProductById($id);
 
-        if ( $product == null ) return ResponseService::itemNotFoundResponse($this->itemName, $id);
+        $engineerProduct = ManagementUserProduct::where([
+            'user_id' => auth()->user()->user_id,
+            'product_id' => $id,
+        ])->first();
+
+        if ( $engineerProduct == null ) return ProductService::productNotFoundResponse($this->itemName, $id);
+
+        $engineerProduct = ProductService::deleteProductById($id);
+
+        if ( $engineerProduct == null ) return ResponseService::itemNotFoundResponse($this->itemName, $id);
 
         return ResponseService::successDeleteItemResponse($this->itemName, $id);
     }

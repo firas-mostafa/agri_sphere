@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Http\Requests\user\StoreUserRequest;
 use App\Http\Requests\user\UpdateUserRequest;
+use App\Models\Address;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -20,26 +21,31 @@ class UserService
 
     // This method will return complete user info
     public static function userInfo(Request $request) {
-        $user = User::select(
-            'users.username',
-            'users.email',
-            'users.first_name',
-            'users.last_name',
-            'users.phone_number',
-            'A.*',
-        )
-        ->join('addresses as A', 'users.user_id', '=', 'A.user_id')
-        ->where([
-            'users.user_id' => $request->user()->user_id,
-            'A.address_type' => "user_address",
-        ])
-        ->get();
 
-        // $user = User::with('addresses')
+        // $user = User::select(
+        //     'users.username',
+        //     'users.email',
+        //     'users.first_name',
+        //     'users.last_name',
+        //     'users.phone_number',
+        //     'A.*',
+        // )
+        // ->join('addresses as A', 'users.user_id', '=', 'A.user_id')
         // ->where([
-        //     'user_id' => $request->user()->user_id,
+        //     'users.user_id' => $request->user()->user_id,
+        //     'A.address_type' => "user_address",
         // ])
         // ->get();
+
+        $user = User::with([
+            'addresses' => function ($query) {
+                $query->where('address_type', 'user_address');
+            }
+        ])
+        ->where([
+            'user_id' => $request->user()->user_id,
+        ])
+        ->get();
 
         return $user;
     }
