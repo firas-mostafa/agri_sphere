@@ -143,7 +143,7 @@ class AccountController extends Controller
 
 
         $image = $request->file('image');
-        $imageName = $request->product_id.'-'.time().'.'.$image->extension(); // 17-23224242.jpg
+        $imageName = $request->user_id.'-'.time().'.'.$image->extension(); // 17-23224242.jpg
 
         // Large Thumbnail
         
