@@ -1,5 +1,5 @@
 class EndPoint {
-  static String baseUrl = "https://40ff7c979111.ngrok-free.app/";
+  static String baseUrl = "https://04f2991ee7c9.ngrok-free.app/";
 
   // static String baseUrl = "http://127.0.0.1:8000/";
 
@@ -39,13 +39,13 @@ class ApiKey {
   static String nonFieldErrors = "non_field_errors";
   static String message = "message";
   static String id = "id";
-  static String name = "name";
+  static String userID = "user_id";
+  static String username = "username";
+  static String firstName = "first_name";
+  static String lastName = "last_name";
+  static String phoneNumber = "phone_number";
+  static String createdAt = "created_at";
   static String confirmPassword = "confirmPassword";
+  static String addresses = "addresses";
   static String image = "image";
-  static String title = "title";
-  static String timeMinutes = "time_minutes";
-  static String price = "price";
-  static String link = "link";
-  static String description = "description";
-  static String detail = "detail";
 }

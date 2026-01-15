@@ -17,7 +17,7 @@ const VideoCallStats = ({ upcomingCalls, completedCalls }) => (
       <div className="stat-content">
         <div className="stat-text-inside">
           <h3>Completed Today</h3>
-          <p>{completedCalls.filter(c => c.date.includes('Yesterday')).length}</p>
+          <p>{completedCalls.filter(call => call.date.includes('Yesterday')).length}</p>
         </div>
         <Camera className="icon--completed" size={24} />
       </div>
@@ -174,7 +174,10 @@ const VideoCallPage = ({
               </div>
               <h2 className="modal-main-title">Engineer: Enhance Farmer Support with Our Mobile App</h2>
               <p className="modal-description">
- Download our mobile app to connect directly with farmers via video calls. Provide real-time visual assistance and empower them with instant solutions. Streamline your support and resolve issues faster with immediate, on-site communication.              </p>
+              Download our mobile app to connect directly with farmers via 
+              video calls. Provide real-time visual assistance and empower them with 
+              instant solutions. Streamline your support and resolve issues faster with 
+              immediate, on-site communication.</p>
               <div className="divider"></div>
               <div className="download-options">
                 <div className="qr-section">
@@ -185,7 +188,7 @@ const VideoCallPage = ({
                   />
                   <span className="qr-label">Scan to Get App</span>
                 </div>
-                <div className="flex flex-col gap-3 flex-grow w-full">
+                <div className="Donwload_Div">
                   <p className="method-label">Preferred method?</p>
                   <button className="download-app-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" className="bi bi-download"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/></svg>
@@ -199,13 +202,12 @@ const VideoCallPage = ({
                 </div>
               </div>
               <div className="footer-info">
-               
               </div>
             </div>
           </div>
         </div>
       )}
-
+      {/* Reschedule Modal */}
       {showRescheduleModal && (
         <div className="modal-overlay">
           <div className="reschedule-modal">
@@ -251,5 +253,4 @@ const VideoCallPage = ({
     </div>
   );
 };
-
 export default VideoCallPage;
