@@ -1,16 +1,18 @@
 import 'package:equatable/equatable.dart' show Equatable;
+import 'package:mobile_app/core/api/end_ponits.dart';
 
-class ProductModel extends Equatable {
+class CategoryModel extends Equatable {
   final int categoryId;
-  final int brandId;
-  final bool isActive;
+  final String name;
 
-  const ProductModel({
-    required this.categoryId,
-    required this.brandId,
-    required this.isActive,
-  });
+  const CategoryModel({required this.categoryId, required this.name});
 
+  factory CategoryModel.fromJson(Map<String, dynamic> jsonData) {
+    return CategoryModel(
+      categoryId: jsonData[ApiKey.categoryId],
+      name: jsonData[ApiKey.name],
+    );
+  }
   @override
-  List<Object?> get props => [categoryId, brandId, isActive];
+  List<Object?> get props => [categoryId, name];
 }

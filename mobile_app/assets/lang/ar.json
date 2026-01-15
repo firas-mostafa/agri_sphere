@@ -49,5 +49,10 @@
     "avoid_blurry_or_distant_shots":"تجنب الصور الضبابية أو البعيدة",
     "focus_on_the_pest_or_damaged_area":"ركز على الآفة أو المنطقة المتضررة",
     "capture_clear,well-lit_images":"التقط صورًا واضحة ومضاءة جيدًا",
-    "member_since":"تاريخ الأنضمام"
+    "member_since":"تاريخ الأنضمام",
+    "profile": "الملف الشخصي",
+    "your_profile_information": "معلومات ملفك الشخصي",
+    "username": "اسم المستخدم",
+    "phone_number": "رقم الهاتف",
+    "addresses": "العناوين"
 }

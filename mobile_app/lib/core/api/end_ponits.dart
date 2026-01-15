@@ -1,5 +1,5 @@
 class EndPoint {
-  static String baseUrl = "https://04f2991ee7c9.ngrok-free.app";
+  static String baseUrl = "https://41b4563b5d57.ngrok-free.app";
 
   // static String baseUrl = "http://127.0.0.1:8000/";
 
@@ -32,8 +32,13 @@ class EndPoint {
 class ApiKey {
   static String authorization = "Authorization";
   static String user = "user";
+  static String categoryId = "category_id";
+  static String brandId = "brand_id";
+
   static String status = "status";
+
   static String email = "email";
+  static String name = "name";
   static String password = "password";
   static String token = "token";
   static String nonFieldErrors = "non_field_errors";
