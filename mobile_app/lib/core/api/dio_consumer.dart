@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mobile_app/core/api/api_consumer.dart';
+import 'package:mobile_app/core/api/api_interceptors.dart';
 // import 'package:mobile_app/core/api/api_interceptors.dart';
 import 'package:mobile_app/core/api/end_ponits.dart';
 import 'package:mobile_app/core/errors/exceptions.dart';
@@ -9,17 +10,7 @@ class DioConsumer extends ApiConsumer {
 
   DioConsumer({required this.dio}) {
     dio.options.baseUrl = EndPoint.baseUrl;
-    // dio.interceptors.add(ApiInterceptor());
-    // dio.interceptors.add(
-    //   LogInterceptor(
-    //     request: true,
-    //     requestHeader: true,
-    //     requestBody: true,
-    //     responseHeader: true,
-    //     responseBody: true,
-    //     error: true,
-    //   ),
-    // );
+    dio.interceptors.add(ApiInterceptor());
   }
 
   @override

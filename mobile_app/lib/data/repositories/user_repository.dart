@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart' show Left, Right, Either;
 import 'package:mobile_app/core/api/api_consumer.dart';
 import 'package:mobile_app/core/api/end_ponits.dart';
 import 'package:mobile_app/core/errors/exceptions.dart';
+import 'package:mobile_app/data/models/user_models/user_model.dart';
 import 'package:mobile_app/helpers/cache/cache_helper.dart';
 import '../models/user_models/sign_in_model.dart' show SignInModel;
 
@@ -46,6 +47,17 @@ class UserRepository {
       );
       final SignInModel user = SignInModel.fromJson(response);
       CacheHelper().saveData(key: ApiKey.token, value: user.token);
+      return Right(user);
+    } on ServerException catch (e) {
+      return Left(e.errorModel.errorMessage);
+    }
+  }
+
+  Future<Either<String, UserModel>> getProfileDetails() async {
+    try {
+      final response = await apiConsumer.get(EndPoint.getProfileDetails);
+
+      final UserModel user = UserModel.fromJson(response['data'][0]);
       return Right(user);
     } on ServerException catch (e) {
       return Left(e.errorModel.errorMessage);

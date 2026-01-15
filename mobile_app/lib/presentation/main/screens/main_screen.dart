@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/helpers/localization/logic/localization_cubit.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+import 'package:mobile_app/logic/user_cubit/user_cubit.dart';
 import 'package:mobile_app/presentation/calendar/screens/calendar_page.dart';
 import 'package:mobile_app/presentation/engineers/screens/engineers_page.dart';
 import 'package:mobile_app/presentation/home/screens/home_page.dart';

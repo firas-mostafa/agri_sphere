@@ -23,3 +23,15 @@ final class SignUpFailure extends UserState {
   final String errorMessage;
   SignUpFailure(this.errorMessage);
 }
+
+final class GetProfileDetailsLoading extends UserState {}
+
+final class GetProfileDetailsFailure extends UserState {
+  final String errorMessage;
+  GetProfileDetailsFailure(this.errorMessage);
+}
+
+final class GetProfileDetailsSuccess extends UserState {
+  final UserModel userModel;
+  GetProfileDetailsSuccess(this.userModel);
+}
