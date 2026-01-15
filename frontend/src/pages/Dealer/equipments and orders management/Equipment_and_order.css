@@ -1,0 +1,588 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.Equipment_Dealer_container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  width: 100vw;
+  max-width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Equipment_Dealer_main {
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.Equipment_Dealer_header {
+  margin-bottom: 2rem;
+}
+
+.Equipment_Dealer_header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.Equipment_Dealer_header p {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.Equipment_Dealer_card {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.Equipment_Dealer_tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.Equipment_Dealer_tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.Equipment_Dealer_tab {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 0.5rem 0.5rem 0 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.Equipment_Dealer_tab.inactive {
+  color: #64748b;
+  background: transparent;
+}
+
+.Equipment_Dealer_tab.active {
+  color: #3b82f6;
+  background-color: #eff6ff;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.Equipment_Dealer_tab:hover:not(.active) {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.Equipment_Dealer_section_header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.Equipment_Dealer_section_header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.Equipment_Dealer_section_desc {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.Equipment_Dealer_table_container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  background: white;
+}
+
+.Equipment_Dealer_table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+}
+
+.Equipment_Dealer_table thead {
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.Equipment_Dealer_table th {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.Equipment_Dealer_table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.875rem;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.Equipment_Dealer_table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.Equipment_Dealer_table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.Equipment_Dealer_font_medium {
+  font-weight: 500;
+}
+
+.Equipment_Dealer_daily_rate {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.Equipment_Dealer_icon {
+  flex-shrink: 0;
+}
+
+.Equipment_Dealer_icon_tractor,
+.Equipment_Dealer_icon_calendar {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #4b5563;
+}
+
+.Equipment_Dealer_icon_dollar {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: #374151;
+}
+
+.Equipment_Dealer_icon_edit,
+.Equipment_Dealer_icon_plus,
+.Equipment_Dealer_icon_check,
+.Equipment_Dealer_icon_x {
+  width: 1rem;
+  height: 1rem;
+}
+
+.Equipment_Dealer_icon_close {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #64748b;
+}
+
+.Equipment_Dealer_icon_check {
+  color: #ffffff;
+}
+
+.Equipment_Dealer_icon_x {
+  color: #ffffff;
+}
+
+.Equipment_Dealer_icon_edit {
+  color: #4b5563;
+}
+
+.Equipment_Dealer_icon_plus {
+  color: #ffffff;
+}
+
+.Equipment_Dealer_status_badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.Equipment_Dealer_status_ready {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.Equipment_Dealer_status_maintenance {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.Equipment_Dealer_status_reserved {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+/* Action Buttons */
+.Equipment_Dealer_actions_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.Equipment_Dealer_action_select {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  background: white;
+  cursor: pointer;
+  color: #374151;
+  min-width: 120px;
+}
+
+.Equipment_Dealer_edit_button {
+  padding: 0.375rem 0.75rem;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  color: #4b5563;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Equipment_Dealer_edit_button:hover {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.Equipment_Dealer_add_button_container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+}
+
+.Equipment_Dealer_add_button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.Equipment_Dealer_add_button:hover {
+  background-color: #2563eb;
+}
+
+.Equipment_Dealer_order_actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.Equipment_Dealer_approve_button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.Equipment_Dealer_approve_button:hover {
+  background-color: #059669;
+}
+
+.Equipment_Dealer_reject_button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.Equipment_Dealer_reject_button:hover {
+  background-color: #dc2626;
+}
+.Equipment_Dealer_order_status_text {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-style: italic;
+}
+.Equipment_Dealer_dialog_overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.Equipment_Dealer_dialog_content {
+  background: white;
+  border-radius: 0.75rem;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.Equipment_Dealer_dialog_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+}
+
+.Equipment_Dealer_dialog_title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.Equipment_Dealer_dialog_close {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Equipment_Dealer_dialog_close:hover {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.Equipment_Dealer_dialog_desc {
+  color: #64748b;
+  font-size: 0.875rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.Equipment_Dealer_form_group {
+  padding: 0 1.5rem 1rem 1.5rem;
+}
+
+.Equipment_Dealer_form_label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.375rem;
+}
+
+.Equipment_Dealer_form_input,
+.Equipment_Dealer_form_select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  color: #374151;
+  background: white;
+}
+
+.Equipment_Dealer_form_input:focus,
+.Equipment_Dealer_form_select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.Equipment_Dealer_dialog_footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.Equipment_Dealer_cancel_button {
+  padding: 0.5rem 1rem;
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.Equipment_Dealer_cancel_button:hover {
+  background-color: #e5e7eb;
+}
+
+.Equipment_Dealer_save_button {
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.Equipment_Dealer_save_button:hover {
+  background-color: #2563eb;
+}
+
+.Equipment_Dealer_add_button_dialog {
+  padding: 0.5rem 1rem;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.Equipment_Dealer_add_button_dialog:hover {
+  background-color: #059669;
+}
+
+@media (max-width: 640px) {
+  .Equipment_Dealer_main {
+    padding: 1rem;
+  }
+  
+  .Equipment_Dealer_header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .Equipment_Dealer_tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .Equipment_Dealer_card {
+    padding: 1rem;
+  }
+  
+  .Equipment_Dealer_table {
+    font-size: 0.8125rem;
+  }
+  
+  .Equipment_Dealer_table th,
+  .Equipment_Dealer_table td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .Equipment_Dealer_order_actions {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .Equipment_Dealer_actions_wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .Equipment_Dealer_action_select {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  
+  .Equipment_Dealer_edit_button {
+    width: 100%;
+  }
+  
+  .Equipment_Dealer_dialog_content {
+    max-width: 100%;
+    margin: 0.5rem;
+  }
+  .Equipment_Dealer_dialog_header,
+  .Equipment_Dealer_dialog_desc,
+  .Equipment_Dealer_form_group,
+  .Equipment_Dealer_dialog_footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .Equipment_Dealer_table {
+    min-width: 1000px;
+  }
+  .Equipment_Dealer_tab {
+    padding: 0.75rem 1.25rem;
+  }
+}
+@media (min-width: 1025px) {
+  .Equipment_Dealer_main {
+    padding: 2rem;
+  }
+  
+  .Equipment_Dealer_container {
+    padding: 0;
+  }
+}
+@media (min-width: 1536px) {
+  .Equipment_Dealer_main {
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+}
+@media (hover: none) and (pointer: coarse) {
+  .Equipment_Dealer_edit_button,
+  .Equipment_Dealer_approve_button,
+  .Equipment_Dealer_reject_button,
+  .Equipment_Dealer_add_button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .Equipment_Dealer_action_select {
+    min-height: 44px;
+    font-size: 0.875rem;
+  }
+  .Equipment_Dealer_tab {
+    min-height: 44px;
+  }
+}
