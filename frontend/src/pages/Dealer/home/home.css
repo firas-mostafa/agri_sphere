@@ -1,0 +1,207 @@
+.Home_Dealer_Container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Home_Dealer_MainContent {
+  padding: 1.5rem;
+}
+
+.Home_Dealer_StatsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .Home_Dealer_StatsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .Home_Dealer_StatsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.Home_Dealer_DashboardStatsCard {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
+}
+
+.Home_Dealer_StatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.Home_Dealer_StatTitle {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 0.25rem;
+}
+
+.Home_Dealer_StatValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.Home_Dealer_StatSubtitle {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.Home_Dealer_StatIcon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #f70909;
+  padding-top: 59%;
+}
+
+.Home_Dealer_RecentActivityCard {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
+  margin-bottom: 2rem;
+}
+
+.Home_Dealer_RecentActivityTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.Home_Dealer_ActivityList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.Home_Dealer_ActivityItem {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.Home_Dealer_ActivityIconWrapper {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.Home_Dealer_Icon_Star {
+  color: #f59e0b; 
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 60%;
+}
+
+.Home_Dealer_Icon_Wrench {
+  color: #3b82f6; 
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 60%;
+
+}
+
+.Home_Dealer_Icon_Alert {
+  color: #f59e0b; 
+  width: 1.25rem;
+  height: 1.25rem;
+ margin-top: 60%;
+
+}
+
+.Home_Dealer_Icon_Trend {
+  color: #10b981; 
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 60%;
+
+}
+
+.Home_Dealer_ActivityText {
+  font-size: 0.875rem;
+  color: #1f2937;
+}
+
+.Home_Dealer_ActivityTime {
+  font-size: 0.75rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.Home_Dealer_ClockIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.Home_Dealer_BottomGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .Home_Dealer_BottomGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.Home_Dealer_StatsSection {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
+}
+
+.Home_Dealer_SectionTitle {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.Home_Dealer_StatsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.Home_Dealer_StatRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Home_Dealer_StatLabel {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.Home_Dealer_StatValueInline {
+  font-weight: 500;
+  color: #111827;
+}
+
+.Home_Dealer_RevenueHighlight {
+  font-weight: 700;
+}
+
+.Home_Dealer_StatusBadge {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+}
