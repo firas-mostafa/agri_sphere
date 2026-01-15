@@ -1,0 +1,2932 @@
+{
+	"info": {
+		"_postman_id": "19addb5e-c9e1-4645-b5fc-3786ab084723",
+		"name": "agrisephere",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36799505"
+	},
+	"item": [
+		{
+			"name": "Auth (Private APIs)",
+			"item": [
+				{
+					"name": "Account",
+					"item": [
+						{
+							"name": "get-account-details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-profile-details",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-profile-details"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update-account-details",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Farmer\",\r\n    \"email\" : \"farmer@example.com\",\r\n    \"password\" : \"password\",\r\n    \"password_confirmation\": \"password\",\r\n    \"first_name\" : \"Farmer\",\r\n    \"last_name\" : \"farmer\",\r\n    \"phone_number\" : \"0969710996\",\r\n    \"address_line1\": \"dummy address line 1 updated\",\r\n    \"address_line2\": \"dummy address line 2 updated\",\r\n    \"city\": \"dummy city\",\r\n    \"state\": \"dummy state\",\r\n    \"country\": \"dummy country\",\r\n    \"postal_code\": \"dummy postal code\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/update-profile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"update-profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store-user-image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "image/*",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/qasm8/Pictures/pexels-sebastian-715546.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/save-user-image",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"save-user-image"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "11|ixeIGoO6TxMx45k8kj2dDg3mb8sFM0jhzyUXR4w094aac68a",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "users",
+							"item": [
+								{
+									"name": "get-all-users",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get-user-by-id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/users/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-user",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\" : \"\",\r\n    \"email\" : \"\",\r\n    \"password\" : \"\",\r\n    \"password_confirmation\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-user-by-id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\" : \"\",\r\n    \"email\" : \"\",\r\n    \"password\" : \"\",\r\n    \"password_confirmation\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users/6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"6"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete-user-by-id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/users/10",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"10"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "permissions",
+							"item": [
+								{
+									"name": "get-all-permissions",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/permissions",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"permissions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get-permission-by-id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/permissions/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"permissions",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-permission",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/permissions",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"permissions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-permission-by-id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/permissions/6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"permissions",
+												"6"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete-permission-by-id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/permissions/6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"permissions",
+												"6"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "roles",
+							"item": [
+								{
+									"name": "get-all-roles",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/roles",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"roles"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get-role-by-id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/roles/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"roles",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-role",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/roles",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"roles"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-permission-by-id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/roles/6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"roles",
+												"6"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete-permission-by-id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/roles/6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"roles",
+												"6"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "categories",
+							"item": [
+								{
+									"name": "get-all-categories",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/categories",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"categories"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get-category-by-id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/categories/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"categories",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-category",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"\",\r\n    \"is_active\" : \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/categories",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"categories"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-category-by-id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"\",\r\n    \"is_active\" : \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/categories/6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"categories",
+												"6"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete-category-by-id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/categories/10",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"categories",
+												"10"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "brands",
+							"item": [
+								{
+									"name": "get-all-brands",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/brands",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"brands"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get-brand-by-id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/brands/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"brands",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-brand",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"\",\r\n    \"is_active\" : \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/brands",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"brands"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-brand-by-id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"\",\r\n    \"is_active\" : \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/brands/6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"brands",
+												"6"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete-brand-by-id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/brands/10",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"brands",
+												"10"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "products",
+							"item": [
+								{
+									"name": "get-all-products",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/products",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"products"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get-product-by-id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/products/20",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"products",
+												"20"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-purhcased-product",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"category_id\": 1,\r\n    \"brand_id\": 1,\r\n    \"product_type\": \"purchased_product\",\r\n    \"name\": \"dummy name\",\r\n    \"description\": \"dummy description\",\r\n    \"short_description\": \"dummy short description\",\r\n    \"image\": \"dummy image name\",\r\n    \"barcode\": \"dummy barcode\",\r\n    \"sku\": \"dummy 80sku\",\r\n    \"stock_quantity\": 5,\r\n    \"average_rating\": \"5.00\",\r\n    \"total_reviews\": 5,\r\n    \"created_at\": \"2026-01-07T04:50:10.000000Z\",\r\n    \"updated_at\": \"2026-01-07T04:50:10.000000Z\",\r\n    \"price\": \"10.00\",\r\n    \"compare_price\": \"10.00\",\r\n    \"is_active\": 1,\r\n    \"image_url\": \"/uploads/products/small/dummy image name\",\r\n    \"gallery\": []\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/products",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"products"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-rental-product",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"category_id\": 1,\r\n    \"brand_id\": 1,\r\n    \"product_type\": \"rental_product\",\r\n    \"name\": \"dummy name\",\r\n    \"description\": \"dummy description\",\r\n    \"short_description\": \"dummy short description\",\r\n    \"image\": \"dummy image name\",\r\n    \"barcode\": \"dummy barcode\",\r\n    \"sku\": \"dummy sku12\",\r\n    \"stock_quantity\": 10,\r\n    \"average_rating\": 9.99,\r\n    \"total_reviews\": 10,\r\n    \"image_url\": \"/uploads/products/small/dummy image name\",\r\n    \"hourly_rate\": 10,\r\n    \"daily_base_rate\": 15,\r\n    \"weekly_base_rate\": 15,\r\n    \"monthly_base_rate\": 15,\r\n    \"transmission\": \"automatice\",\r\n    \"fuel_type\": \"diesel\",\r\n    \"rent_product_status\": \"available\",\r\n    \"gallery\": []\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/products",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"products"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-product-by-id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"category_id\": 1,\r\n    \"brand_id\": 1,\r\n    \"product_type\": \"purchased_product\",\r\n    \"name\": \"dummy name\",\r\n    \"description\": \"dummy description\",\r\n    \"short_description\": \"dummy short description\",\r\n    \"image\": \"dummy image name\",\r\n    \"barcode\": \"dummy barcode\",\r\n    \"sku\": \"dummy sku\",\r\n    \"stock_quantity\": 10,\r\n    \"average_rating\": \"9.99\",\r\n    \"total_reviews\": 10,\r\n    \"price\": \"10.00\",\r\n    \"compare_price\": \"10.00\",\r\n    \"is_active\": 1,\r\n    \"image_url\": \"/uploads/products/small/dummy image name\",\r\n    \"gallery\": [1,2]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/products/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"products",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete-product-by-id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/products/666",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"products",
+												"666"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "orders",
+							"item": [
+								{
+									"name": "get-all-orders",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/orders",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"orders"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get-order-by-id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/orders/26",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"orders",
+												"26"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-purchased-order-by-id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"order_type\": \"purchased_order\",\r\n    \"payment_method\": \"stripe\",\r\n    \"payment_status\": \"completed\",\r\n    \"order_status\": \"shipped\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/orders/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"orders",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-rental-order-by-id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"order_type\": \"rental_order\",\r\n    \"payment_method\": \"stripe\",\r\n    \"payment_status\": \"completed\",\r\n    \"rental_status\": \"confirmed\",\r\n    \"pickup_status\": \"completed\",\r\n    \"dropoff_status\": \"vehicle_returned\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/orders/26",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"orders",
+												"26"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete-order-by-id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/orders/6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"orders",
+												"6"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "1|HY3osQ8kU80TJmtuleUDHVpJROqr53fLTSYPJ7TSf97b1474",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Farmer",
+					"item": [
+						{
+							"name": "orders",
+							"item": [
+								{
+									"name": "get-user-orders",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "localhost:8000/api/get-orders",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"get-orders"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get-user-order-details",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "localhost:8000/api/get-order-details/1",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"get-order-details",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-purhcased-order",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"order_type\": \"purchased_order\",\r\n    \"discount_amount\": \"10.00\",\r\n    \"caneclled_at\": null,\r\n    \"cancellation_reason\": null,\r\n    \"address_line1\": \"dummy address line 1\",\r\n    \"address_line2\": \"dummy address line 2\",\r\n    \"city\": \"dummy city\",\r\n    \"state\": \"dummy state\",\r\n    \"country\": \"dummy country\",\r\n    \"postal_code\": \"dummy postal code\",\r\n    \"address_type\": \"shipping\",\r\n    \"payment_method\": \"cod\",\r\n    \"payment_status\": \"pending\",\r\n    \"amount\": \"100.00\",\r\n    \"transaction_id\": \"13\",\r\n    \"subtotal\": \"10.00\",\r\n    \"grand_total\": \"10.00\",\r\n    \"order_status\": \"pending\",\r\n    \"required_date\": \"2026-01-14 13:26:59\",\r\n    \"shipped_date\": \"2026-01-14 13:26:59\",\r\n    \"shipping_fee\": \"10.00\",\r\n    \"cart\": [\r\n      {\r\n        \"purchased_product_id\": 2,\r\n        \"name\": \"dummy title(name)\",\r\n        \"quantity\": 10,\r\n        \"price\": \"10.00\"\r\n      },\r\n      {\r\n        \"purchased_product_id\": 3,\r\n        \"name\": \"dummy title(name)\",\r\n        \"quantity\": 10,\r\n        \"price\": \"10.00\"\r\n      },\r\n      {\r\n        \"purchased_product_id\": 4,\r\n        \"name\": \"dummy title(name)\",\r\n        \"quantity\": 10,\r\n        \"price\": \"10.00\"\r\n      },\r\n      {\r\n        \"purchased_product_id\": 5,\r\n        \"name\": \"dummy title(name)\",\r\n        \"quantity\": 10,\r\n        \"price\": \"10.00\"\r\n      },\r\n      {\r\n        \"purchased_product_id\": 6,\r\n        \"name\": \"dummy title(name)\",\r\n        \"quantity\": 10,\r\n        \"price\": \"10.00\"\r\n      },\r\n      {\r\n        \"purchased_product_id\": 16,\r\n        \"name\": \"dummy title(name)\",\r\n        \"quantity\": 10,\r\n        \"price\": \"10.00\"\r\n      }\r\n      ,{\r\n        \"purchased_product_id\": 17,\r\n        \"name\": \"dummy title(name)\",\r\n        \"quantity\": 10,\r\n        \"price\": \"10.00\"\r\n      }\r\n      ,{\r\n        \"purchased_product_id\": 18,\r\n        \"name\": \"dummy title(name)\",\r\n        \"quantity\": 10,\r\n        \"price\": \"10.00\"\r\n      }\r\n      ,{\r\n        \"purchased_product_id\": 19,\r\n        \"name\": \"dummy title(name)\",\r\n        \"quantity\": 10,\r\n        \"price\": \"10.00\"\r\n      }\r\n      ,{\r\n        \"purchased_product_id\": 20,\r\n        \"name\": \"dummy title(name)\",\r\n        \"quantity\": 10,\r\n        \"price\": \"10.00\"\r\n      }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8000/api/save-purchased-order",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"save-purchased-order"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "save-rental-order",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"order_type\": \"rental_order\",\r\n    \"order_date\": \"2026-01-14\",\r\n    \"discount_amount\": \"10.00\",\r\n    \"cancelled_at\": null,\r\n    \"cancellation_reason\": null,\r\n    \"created_at\": \"2026-01-14T13:41:04.000000Z\",\r\n    \"updated_at\": \"2026-01-14T13:41:04.000000Z\",\r\n    \"payment_id\": 13,\r\n    \"payment_method\": \"cod\",\r\n    \"payment_status\": \"pending\",\r\n    \"amount\": \"100.00\",\r\n    \"transaction_id\": \"15\",\r\n    \"rental_product_id\": 1,\r\n    \"pickup_location_id\": 6,\r\n    \"dropoff_location_id\": 7,\r\n    \"actual_pickup_date\": \"2026-01-14 13:41:04\",\r\n    \"actual_dropoff_date\": \"2026-01-14 13:41:04\",\r\n    \"rental_status\": \"quote\",\r\n    \"pickup_status\": \"pending\",\r\n    \"dropoff_status\": \"pending\",\r\n    \"base_rental_amount\": \"100.00\",\r\n    \"tax_amount\": \"10.00\",\r\n    \"insurance_total\": \"10.00\",\r\n    \"total_amount\": \"10.00\",\r\n    \"refund_amount\": \"0.00\",\r\n    \"address_line1\": \"dummy address line 1\",\r\n    \"address_line2\": \"dummy address line 2\",\r\n    \"city\": \"dummy city\",\r\n    \"state\": \"dummy state\",\r\n    \"country\": \"dummy country\",\r\n    \"postal_code\": \"dummy postal code\",\r\n    \"address_type\": \"pickup\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8000/api/save-rental-order",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"save-rental-order"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "2|KujO3ApqTylcDLt8XqH0NVWEV1H8eGO97aSiauyiaf3b26fd",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Engineer",
+					"item": [
+						{
+							"name": "get-engineer-products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/get-engineer-products",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-engineer-products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-engineer-product-details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/get-engineer-product/20",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-engineer-product",
+										"20"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "save-engineer-product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 1,\r\n    \"brand_id\": 1,\r\n    \"product_type\": \"purchased_product\",\r\n    \"name\": \"dummy name\",\r\n    \"description\": \"dummy description\",\r\n    \"short_description\": \"dummy short description\",\r\n    \"image\": \"dummy image name\",\r\n    \"barcode\": \"dummy barcode\",\r\n    \"sku\": \"dummy 13sku\",\r\n    \"stock_quantity\": 5,\r\n    \"average_rating\": \"5.00\",\r\n    \"total_reviews\": 5,\r\n    \"created_at\": \"2026-01-07T04:50:10.000000Z\",\r\n    \"updated_at\": \"2026-01-07T04:50:10.000000Z\",\r\n    \"price\": \"10.00\",\r\n    \"compare_price\": \"10.00\",\r\n    \"is_active\": 1,\r\n    \"image_url\": \"/uploads/products/small/dummy image name\",\r\n    \"gallery\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/save-engineer-product",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"save-engineer-product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update-engineer-product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/update-engineer-product/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"update-engineer-product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete-engineer-product",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/delete-engineer-product/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"delete-engineer-product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "3|oyfQRYVySsLmTxwmXT63PWd4yK9li0PHOz6U0AzF8b78fa78",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Dealer",
+					"item": [
+						{
+							"name": "get-dealer-products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/get-dealer-products",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-dealer-products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-dealer-product-details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/get-dealer-product/10",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-dealer-product",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "save-dealer-purchased-product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 1,\r\n    \"brand_id\": 1,\r\n    \"product_type\": \"purchased_product\",\r\n    \"name\": \"dummy name\",\r\n    \"description\": \"dummy description\",\r\n    \"short_description\": \"dummy short description\",\r\n    \"image\": \"dummy image name\",\r\n    \"barcode\": \"dummy barcode\",\r\n    \"sku\": \"dummy 30sku\",\r\n    \"stock_quantity\": 5,\r\n    \"average_rating\": \"5.00\",\r\n    \"total_reviews\": 5,\r\n    \"created_at\": \"2026-01-07T04:50:10.000000Z\",\r\n    \"updated_at\": \"2026-01-07T04:50:10.000000Z\",\r\n    \"price\": \"10.00\",\r\n    \"compare_price\": \"10.00\",\r\n    \"is_active\": 1,\r\n    \"image_url\": \"/uploads/products/small/dummy image name\",\r\n    \"gallery\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/save-dealer-product",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"save-dealer-product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "save-dealer-rental-product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 1,\r\n    \"brand_id\": 1,\r\n    \"product_type\": \"rental_product\",\r\n    \"name\": \"dummy name\",\r\n    \"description\": \"dummy description\",\r\n    \"short_description\": \"dummy short description\",\r\n    \"image\": \"dummy image name\",\r\n    \"barcode\": \"dummy barcode\",\r\n    \"sku\": \"dummy sku14\",\r\n    \"stock_quantity\": 10,\r\n    \"average_rating\": 9.99,\r\n    \"total_reviews\": 10,\r\n    \"image_url\": \"/uploads/products/small/dummy image name\",\r\n    \"hourly_rate\": 10,\r\n    \"daily_base_rate\": 15,\r\n    \"weekly_base_rate\": 15,\r\n    \"monthly_base_rate\": 15,\r\n    \"transmission\": \"automatice\",\r\n    \"fuel_type\": \"diesel\",\r\n    \"rent_product_status\": \"available\",\r\n    \"gallery\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/save-dealer-product",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"save-dealer-product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update-dealer-product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/update-dealer-product/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"update-dealer-product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete-dealer-product",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/api/delete-dealer-product/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"delete-dealer-product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "9|dTAfWNVOlSTsua05DBHzCX41kaTISButdv0hijHu702092b3",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "handle-with-images",
+					"item": [
+						{
+							"name": "store-temp-image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "image/*",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/E:/Figma/Pictures/A bag of balanced NPK fertilizer.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/temp-images",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"temp-images"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store-product-image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "image/*",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/E:/Projects/Application Development/Photos/Mobile home/243-web-or-mls-Trenton_002.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/save-product-image",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"save-product-image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update-product-default-image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "image/*",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/E:/Projects/Application Development/Photos/Mobile home/243-web-or-mls-Trenton_002.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/change-product-default-image",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"change-product-default-image"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "5|heupsBWPyFp04scYy1pllxLha502ZAixIC8712YM75e00024",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "No-Auth (Public APIs)",
+			"item": [
+				{
+					"name": "login & register",
+					"item": [
+						{
+							"name": "admin-login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "admin@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/admin/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "farmer@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "farmer-register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "Farmer",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "farmer@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "farmer",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "engineer-register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "Engineer",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "engineer@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "engineer",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "dealer-register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "Dealer",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "dealer@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "dealer",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "products",
+					"item": [
+						{
+							"name": "get-categories",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-brands",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-brands",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-brands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-purhcased-products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-purhcased-products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-purhcased-products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-rental-products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-rental-products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-rental-products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-latest-equipment-products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-latest-equipment-products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-latest-equipment-products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-latest-medicine-products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-latest-medicine-products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-latest-medicine-products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-latest-insecticide-products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-latest-insecticide-products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-latest-insecticide-products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-latest-seeder-products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-latest-seeder-products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-latest-seeder-products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-latest-purchased-products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-latest-purchased-products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-latest-purchased-products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-latest-rental-products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-latest-rental-products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-latest-rental-products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-product-details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/get-product/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"get-product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
