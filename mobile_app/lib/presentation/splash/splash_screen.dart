@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/core/api/end_ponits.dart';
 import 'package:mobile_app/helpers/cache/cache_helper.dart';
+import 'package:mobile_app/helpers/image/image_helper.dart';
+import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -36,11 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: context.colorScheme.surface,
       body: Center(
-        child: FlutterLogo(
-          size: 100,
-          style: FlutterLogoStyle.markOnly,
-          textColor: context.colorScheme.onPrimary,
-        ),
+        child: Image.asset(ImageHelper.logo, width: context.setWidth(100)),
       ),
     );
   }
