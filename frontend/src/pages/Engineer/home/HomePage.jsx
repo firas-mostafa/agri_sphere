@@ -1,5 +1,7 @@
+import React from 'react';
 import { MessageSquare, Video, AlertTriangle, ShoppingCart, Star, Package } from 'lucide-react';
-import './home.css';  
+import './home.css';
+
 const HomePageStats = ({ 
   pendingConsultations, 
   videoCallsScheduled, 
@@ -139,21 +141,32 @@ const QuickActions = ({ setCurrentPage, consultationsThisMonth, productsSold, to
       </div>
       <div className="summary-row">
         <span className="summary-label">Revenue</span>
-        <span className="summary-value">${totalRevenue.toLocaleString()}</span>
+        <span className="summary-value">{totalRevenue.toLocaleString()}{" "}SYP</span>
       </div>
     </div>
   </div>
 );
 
-const HomePage = ({ consultations, upcomingCalls, alerts, orders, feedback, setCurrentPage }) => {
+const HomePage = ({ consultations, upcomingCalls, orders, feedback, setCurrentPage }) => {
   const pendingConsultations = consultations.filter(consultation => consultation.status === 'pending').length;
   const videoCallsScheduled = upcomingCalls.length;
-  const activeAlerts = alerts.length;
-  const pestReports = alerts.filter(alert => alert.type === 'pest').length;
+  
+  const activeAlerts = consultations.filter(consultation => consultation.type === 'pest' && consultation.status === 'pending').length;
+  
+  const pestReports = activeAlerts; 
   const purchaseRequests = orders.filter(order => order.status === 'pending').length;
-  const averageRating = feedback.length > 0 ? (feedback.reduce((sum, f) => sum + f.rating, 0) / feedback.length).toFixed(1) : '0.0';
-  const productsSold = orders.filter(order => order.status === 'delivered').reduce((sum, o) => sum + order.quantity, 0);
-  const totalRevenue = orders.filter(order => order.status === 'delivered').reduce((sum, o) => sum + order.totalPrice, 0);
+  const averageRating = feedback.length > 0 
+    ? (feedback.reduce((sum, f) => sum + f.rating, 0) / feedback.length).toFixed(1) 
+    : '0.0';
+
+  const productsSold = orders
+    .filter(order => order.status === 'delivered')
+    .reduce((sum, o) => sum + o.quantity, 0);
+
+  const totalRevenue = orders
+    .filter(order => order.status === 'delivered')
+    .reduce((sum, o) => sum + o.totalPrice, 0);
+
   const consultationsThisMonth = consultations.length;
 
   const recentActivity = [

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Star, TrendingUp, User } from 'lucide-react';
 import './feedback.css';
+
 const FeedbackStats = ({ averageRating, oneStarReviews, fiveStarReviews, thisMonthIncrease }) => (
   <div className="feedback-stats-grid">
     <div className="feedback-card">
@@ -209,5 +210,4 @@ const FeedbackPage = ({ feedback }) => {
     </div>
   );
 };
-
 export default FeedbackPage;
