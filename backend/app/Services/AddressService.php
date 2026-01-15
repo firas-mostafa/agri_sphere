@@ -32,8 +32,11 @@ class AddressService
                 'address_type' => "user_address",
             ])
             ->first();
+        
+        if ( $address == null ) 
+            $address = new Address();
 
-        $address = AddressService::saveUserAddressInfo($request, $address);
+        $address = AddressService::saveAddressInfo($request, $address);
 
         return $address;
     }
@@ -45,6 +48,14 @@ class AddressService
         if ( $address == null ) return null;
 
         $address = AddressService::saveAddressInfo($request, $address);
+
+        if (isset($request->address_type) && !empty($request->address_type)) {
+            $address->address_type = $request->address_type;
+        }
+
+        $address->address_type = "user_address";
+
+        $address->save();
 
         return $address;
     }
@@ -77,35 +88,44 @@ class AddressService
         return $validator;
     }
 
+    // This method will validate the requirement of store specific address along with arguments in DB
+    public static function validateUpdateAddress($request, $address_type) {
+        $addressRules = [
+            'address_line1' => "sometimes|required|string",
+            'address_line2' => "nullable|string",
+            'city' => "sometimes|required|string",
+            'state' => "nullable|string",
+            'country' => "sometimes|required|string",
+            'postal_code' => "nullable|string",
+            'address_type' => "sometimes|required|string|in:".implode(',', $address_type),
+        ];
+
+        $validator = Validator::make($request->all(), $addressRules);
+
+        return $validator;
+    }
+
 
     // ========================= Private Static Methods =========================
 
     private static function saveAddressInfo($request, $address) {
 
         $address->user_id = $request->user()->user_id;
-        $address->address_line1 = $request->address_line1;
+
+        if ( isset($request->address_line1) && !empty($request->address_line1) )
+            $address->address_line1 = $request->address_line1;
+
         $address->address_line2 = $request->address_line2;
-        $address->city = $request->city;
+
+        if ( isset($request->city) && !empty($request->city) )
+            $address->city = $request->city;
+
         $address->state = $request->state;
+
         $address->postal_code = $request->postal_code;
-        $address->country = $request->country;
-        $address->address_type = $request->address_type;
 
-        $address->save();
-
-        return $address;
-    }
-
-    private static function saveUserAddressInfo($request, $address) {
-
-        $address->user_id = $request->user()->user_id;
-        $address->address_line1 = $request->address_line1;
-        $address->address_line2 = $request->address_line2;
-        $address->city = $request->city;
-        $address->state = $request->state;
-        $address->postal_code = $request->postal_code;
-        $address->country = $request->country;
-        $address->address_type = "user_address";
+        if ( isset($request->country) && !empty($request->country) )
+            $address->country = $request->country;
 
         $address->save();
 
