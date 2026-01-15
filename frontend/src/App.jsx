@@ -18,8 +18,10 @@ import Farmer from './pages/public/farmer/Farmer';
 import Engineer from './pages/public/engineer/Engineer';
 import Equipment from './pages/public/equipment/Equipment';
 import Contact from './pages/public/contact/Contact';
-
-
+          //dealer
+import  HomePage from './pages/Dealer/home/HomePage';
+import FeedbackPage from './pages/FeedbackPage';
+import EquipmentAndOrdersPage from './pages/dealer/equipments and orders management/Equipment_and_order_management';
 function App() {
 
   return (
@@ -196,6 +198,282 @@ function App() {
         />
       )}
     </div>*/
+  /*
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const [equipment, setEquipment] = useState([
+    { id: 1, name: "Tractor #1", type: "Tractor", dailyRate: 150, status: "ready", operatingHours: 124, lastMaintenance: "Jan 10, 2026" },
+    { id: 2, name: "Harvester #1", type: "Harvester", dailyRate: 350, status: "under maintenance", operatingHours: 98, lastMaintenance: "Dec 15, 2025" },
+    { id: 3, name: "Tractor #2", type: "Tractor", dailyRate: 140, status: "reserved", operatingHours: 156, lastMaintenance: "Jan 5, 2026" },
+    { id: 4, name: "Planter #1", type: "Planter", dailyRate: 120, status: "ready", operatingHours: 87, lastMaintenance: "Jan 12, 2026" },
+    { id: 5, name: "Sprayer #1", type: "Sprayer", dailyRate: 80, status: "ready", operatingHours: 45, lastMaintenance: "Jan 15, 2026" },
+    { id: 6, name: "Harvester #2", type: "Harvester", dailyRate: 320, status: "under maintenance", operatingHours: 210, lastMaintenance: "Dec 20, 2025" },
+    { id: 7, name: "Tractor #3", type: "Tractor", dailyRate: 160, status: "ready", operatingHours: 178, lastMaintenance: "Jan 8, 2026" },
+    { id: 8, name: "Sprayer #2", type: "Sprayer", dailyRate: 85, status: "reserved", operatingHours: 92, lastMaintenance: "Jan 3, 2026" },
+    { id: 9, name: "Planter #2", type: "Planter", dailyRate: 130, status: "ready", operatingHours: 67, lastMaintenance: "Jan 14, 2026" },
+    { id: 10, name: "Tractor #4", type: "Tractor", dailyRate: 145, status: "under maintenance", operatingHours: 201, lastMaintenance: "Dec 28, 2025" },
+    { id: 11, name: "Harvester #3", type: "Harvester", dailyRate: 380, status: "ready", operatingHours: 134, lastMaintenance: "Jan 7, 2026" },
+    { id: 12, name: "Sprayer #3", type: "Sprayer", dailyRate: 75, status: "ready", operatingHours: 56, lastMaintenance: "Jan 16, 2026" },
+    { id: 13, name: "Tractor #5", type: "Tractor", dailyRate: 155, status: "reserved", operatingHours: 189, lastMaintenance: "Jan 2, 2026" },
+    { id: 14, name: "Planter #3", type: "Planter", dailyRate: 125, status: "ready", operatingHours: 73, lastMaintenance: "Jan 11, 2026" },
+    { id: 15, name: "Tractor #6", type: "Tractor", dailyRate: 150, status: "ready", operatingHours: 145, lastMaintenance: "Dec 30, 2025" }
+  ]);
+
+  const [orders, setOrders] = useState([
+    {
+      id: 1,
+      equipmentName: "Tractor #2",
+      equipmentId: 3,
+      farmerName: "Mohammed Hassan",
+      startDate: "Jan 17, 2026",
+      endDate: "Jan 20, 2026",
+      totalAmount: 420,
+      status: "active"
+    },
+    {
+      id: 2,
+      equipmentName: "Sprayer #2",
+      equipmentId: 8,
+      farmerName: "Ahmed Ali",
+      startDate: "Jan 15, 2026",
+      endDate: "Jan 18, 2026",
+      totalAmount: 255,
+      status: "completed"
+    },
+    {
+      id: 3,
+      equipmentName: "Harvester #3",
+      equipmentId: 11,
+      farmerName: "Khalid Omar",
+      startDate: "Jan 19, 2026",
+      endDate: "Jan 25, 2026",
+      totalAmount: 2280,
+      status: "approved"
+    },
+    {
+      id: 4,
+      equipmentName: "Tractor #5",
+      equipmentId: 13,
+      farmerName: "Omar Farooq",
+      startDate: "Jan 20, 2026",
+      endDate: "Jan 22, 2026",
+      totalAmount: 310,
+      status: "pending"
+    },
+    {
+      id: 5,
+      equipmentName: "Planter #2",
+      equipmentId: 9,
+      farmerName: "Fatima Zahra",
+      startDate: "Jan 16, 2026",
+      endDate: "Jan 19, 2026",
+      totalAmount: 390,
+      status: "approved"
+    },
+    {
+      id: 6,
+      equipmentName: "Planter #1",
+      equipmentId: 4,
+      farmerName: "Sara Ahmed",
+      startDate: "Jan 18, 2026",
+      endDate: "Jan 21, 2026",
+      totalAmount: 480,
+      status: "pending"
+    }
+  ]);
+
+  const [feedbackData] = useState([
+    { farmer: 'Farmer Ahmed Ali', equipment: 'Tractor #1', time: '2 hours ago', rating: 4 },
+    { farmer: 'Farmer Mohammed Hassan', equipment: 'Harvester #2', time: '1 day ago', rating: 5 },
+    { farmer: 'Farmer Nora Abdullah', equipment: 'Tractor #14', time: '4 days ago', rating: 5 },
+    { farmer: 'Farmer Khalid Omar', equipment: 'Sprayer #3', time: '1 week ago', rating: 3 },
+    { farmer: 'Farmer Sara Ahmed', equipment: 'Planter #1', time: '2 weeks ago', rating: 4 }
+  ]);
+
+  const totalEquipment = equipment.length;
+  const readyEquipment = equipment.filter(eq => eq.status === 'ready').length;
+  const reservedEquipment = equipment.filter(eq => eq.status === 'reserved').length;
+  const maintenanceEquipment = equipment.filter(eq => eq.status === 'under maintenance').length;
+  const activeAlerts = maintenanceEquipment + 2;
+  const pendingMaintenance = maintenanceEquipment;
+
+  const calculateAverageRating = () => {
+    if (feedbackData.length === 0) return 0;
+    const total = feedbackData.reduce((sum, f) => sum + f.rating, 0);
+    return parseFloat((total / feedbackData.length).toFixed(1));
+  };
+  const avgRating = calculateAverageRating();
+
+  const dashboardStats = [
+    { 
+      title: 'Total Equipment', 
+      value: totalEquipment.toString(), 
+      subtitle: `${readyEquipment} ready, ${reservedEquipment} reserved, ${maintenanceEquipment} maintenance`, 
+      icon: <Wrench className="icon-size icon-gray-600" /> 
+    },
+    { 
+      title: 'Active Alerts', 
+      value: activeAlerts.toString(), 
+      subtitle: `${maintenanceEquipment} maintenance, 2 safety`, 
+      icon: <AlertTriangle className="icon-size icon-yellow-500" /> 
+    },
+    { 
+      title: 'Pending Maintenance', 
+      value: pendingMaintenance.toString(), 
+      subtitle: 'Requires attention', 
+      icon: <Wrench className="icon-size icon-orange-500" /> 
+    },
+    { 
+      title: 'Avg. Rating', 
+      value: avgRating.toString(), 
+      subtitle: `Based on ${feedbackData.length} reviews`, 
+      icon: <Star className="icon-size icon-yellow-500" /> 
+    }
+  ];
+
+  const recentActivity = [
+    { type: 'star', text: 'Farmer Ahmed gave you 4 stars for fast delivery', time: '2 hours ago' },
+    { type: 'wrench', text: 'Tractor #3 maintenance completed - now ready', time: '5 hours ago' },
+    { type: 'alert', text: 'Harvester #1 needs oil change (98 hours)', time: '1 day ago' },
+    { type: 'trend', text: 'Tractor #5 reserved by Farmer Hassan', time: '1 day ago' }
+  ];
+
+  const thisWeekStats = { newRentals: 8, completed: 6, revenue: '$4,200' };
+  const equipmentUtilization = [
+    { status: 'Ready', count: readyEquipment },
+    { status: 'Reserved', count: reservedEquipment },
+    { status: 'Maintenance', count: maintenanceEquipment }
+  ];
+
+  const feedbackStats = {
+    averageRating: avgRating,
+    oneStarReviews: feedbackData.filter(f => f.rating === 1).length,
+    fiveStarReviews: feedbackData.filter(f => f.rating === 5).length,
+    thisMonthChange: '+4'
+  };
+
+  const ratingDistribution = [1,2,3,4,5].map(stars => {
+    const count = feedbackData.filter(f => f.rating === stars).length;
+    const percentage = feedbackData.length ? Math.round((count / feedbackData.length) * 100) : 0;
+    return { stars, percentage, filled: stars };
+  });
+
+  // ===== MODAL STATE =====
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const [addDialogOpen, setAddDialogOpen] = useState(false);
+  const [editingEquipment, setEditingEquipment] = useState(null);
+  const [newEquipment, setNewEquipment] = useState({
+    name: "",
+    type: "Tractor",
+    dailyRate: 0,
+    status: "ready",
+    operatingHours: 0,
+    lastMaintenance: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  });
+
+  // ===== HANDLERS =====
+  const handleStatusUpdate = (id, newStatus) => {
+    setEquipment(prev => prev.map(item => item.id === id ? { ...item, status: newStatus } : item));
+  };
+
+  const handleEditClick = (item) => {
+    setEditingEquipment({ ...item });
+    setEditDialogOpen(true);
+  };
+
+  const handleEditSave = () => {
+    if (editingEquipment) {
+      setEquipment(prev => prev.map(item => item.id === editingEquipment.id ? editingEquipment : item));
+      setEditDialogOpen(false);
+      setEditingEquipment(null);
+    }
+  };
+
+  const handleAddEquipment = () => {
+    if (!newEquipment.name || newEquipment.dailyRate <= 0) return;
+    const newId = Math.max(...equipment.map(e => e.id), 0) + 1;
+    setEquipment(prev => [...prev, { ...newEquipment, id: newId }]);
+    setAddDialogOpen(false);
+    setNewEquipment({
+      name: "",
+      type: "Tractor",
+      dailyRate: 0,
+      status: "ready",
+      operatingHours: 0,
+      lastMaintenance: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    });
+  };
+  const handleApproveOrder = (orderId) => {
+    const order = orders.find(o => o.id === orderId);
+    if (!order) return;
+    setOrders(prev => prev.map(o => o.id === orderId ? { ...o, status: "approved" } : o));
+    setEquipment(prev => prev.map(e => e.id === order.equipmentId ? { ...e, status: "reserved" } : e));
+  };
+  const handleRejectOrder = (orderId) => {
+    setOrders(prev => prev.map(o => o.id === orderId ? { ...o, status: "rejected" } : o));
+  };
+  const getStatusColor = (status) => {
+    switch (status) {
+      case "ready": return "status-badge status-ready";
+      case "under maintenance": return "status-badge status-under-maintenance";
+      case "reserved": return "status-badge status-reserved";
+      default: return "status-badge";
+    }
+  };
+  const getOrderStatusColor = (status) => {
+    switch (status) {
+      case "active": return "status-badge status-active";
+      case "completed": return "status-badge status-completed";
+      case "approved": return "status-badge status-approved";
+      case "pending": return "status-badge status-pending";
+      default: return "status-badge";
+    }
+  };
+
+  return (
+    <div className="app-container">
+      <NavBar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <main className="app-main">
+        {currentPage === 'home' && (
+          <HomePage
+            dashboardStats={dashboardStats}
+            recentActivity={recentActivity}
+            thisWeekStats={thisWeekStats}
+            equipmentUtilization={equipmentUtilization}
+          />
+        )}
+        {currentPage === 'feedback' && (
+          <FeedbackPage
+            feedbackStats={feedbackStats}
+            ratingDistribution={ratingDistribution}
+            equipmentFeedback={feedbackData}
+          />
+        )}
+        {currentPage === 'orders' && (
+          <EquipmentAndOrdersPage
+            equipment={equipment}
+            orders={orders}
+            handleStatusUpdate={handleStatusUpdate}
+            handleApproveOrder={handleApproveOrder}
+            handleRejectOrder={handleRejectOrder}
+            getStatusColor={getStatusColor}
+            getOrderStatusColor={getOrderStatusColor}
+            handleEditClick={handleEditClick}
+            setAddDialogOpen={setAddDialogOpen}
+            editDialogOpen={editDialogOpen}
+            addDialogOpen={addDialogOpen}
+            editingEquipment={editingEquipment}
+            newEquipment={newEquipment}
+            setEditingEquipment={setEditingEquipment}
+            setNewEquipment={setNewEquipment}
+            handleEditSave={handleEditSave}
+            handleAddEquipment={handleAddEquipment}
+            setEditDialogOpen={setEditDialogOpen}
+          />
+        )}
+      </main>
+    </div>
+  */
   );
 };
 
