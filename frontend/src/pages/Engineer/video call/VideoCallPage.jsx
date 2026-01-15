@@ -1,7 +1,7 @@
 import React from 'react';
 import { Clock, Camera, Users, Video, X, Check } from 'lucide-react';
 import './videoCall.css';
-
+import Footer from '../../../components/common/Footer/Footer';
 const VideoCallStats = ({ upcomingCalls, completedCalls }) => (
   <div className="call-stats-section">
     <div className="stat-card">
@@ -250,6 +250,7 @@ const VideoCallPage = ({
           </div>
         </div>
       )}
+      <Footer/>
     </div>
   );
 };
