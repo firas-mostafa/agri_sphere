@@ -28,7 +28,7 @@ class MainScreen extends StatelessWidget {
             CategoryCubit(CategoryRepository(DioConsumer(dio: Dio()))),
         child: StorePage(),
       ),
-      EngineersPage(),
+      EngineerPage(),
       SettingsPage(),
     ];
     return BlocProvider(

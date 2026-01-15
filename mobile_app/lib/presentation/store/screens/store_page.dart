@@ -27,13 +27,7 @@ class StorePage extends StatelessWidget {
                   children: [
                     SizedBox(height: context.setHeight(20)),
 
-                    // CLEAN: Just one widget handling all category logic
-                    CategoriesSelector(
-                      onCategorySelected: (id) {
-                        // TODO: Use this ID to filter your ItemsList
-                        print("Category Selected: $id");
-                      },
-                    ),
+                    CategoriesSelector(onCategorySelected: (id) {}),
 
                     SizedBox(height: context.setHeight(20)),
                     ItemsList(),
@@ -48,7 +42,6 @@ class StorePage extends StatelessWidget {
     );
   }
 
-  // Helper method to keep build() clean
   PreferredSize _buildAppBar(BuildContext context) {
     return PreferredSize(
       preferredSize: Size(context.screenWidth, context.setHeight(100)),

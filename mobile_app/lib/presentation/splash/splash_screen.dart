@@ -25,7 +25,6 @@ class _SplashScreenState extends State<SplashScreen> {
     final bool isLoggedIn = token != null && token.isNotEmpty;
     if (mounted) {
       if (isLoggedIn) {
-        // context.read<UserCubit>().getProfileDetails();
         Navigator.pushReplacementNamed(context, '/main');
       } else {
         Navigator.pushReplacementNamed(context, '/login');
@@ -38,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: context.colorScheme.surface,
       body: Center(
-        child: Image.asset(ImageHelper.logo, width: context.setWidth(100)),
+        child: Image.asset(ImageHelper.logo, width: context.setWidth(300)),
       ),
     );
   }
