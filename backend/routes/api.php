@@ -54,16 +54,6 @@ Route::get('get-brands', [FrontProductController::class, 'getBrands']);
 // ==================== Private Routes (Private APIs) ====================
 Route::group(['middleware' => 'auth:sanctum'], function() {
 
-    // ========== Account Routes (User APIs) ==========
-    Route::get('get-profile-details', [AccountController::class, 'getAccountDetails']);
-    Route::post('update-profile', [AccountController::class, 'updateProfile']);
-    Route::post('temp-images', [TempImageController::class, 'store']);
-    Route::delete('delete-temp-image/{id}', [TempImageController::class, 'destroy']);
-    Route::post('save-product-image', [ProductController::class, 'saveProductImage']);
-    Route::post('save-user-image', [AccountController::class, 'saveUserImage']);
-    Route::post('change-product-default-image', [ProductController::class, 'updateDefaultImage']);
-    Route::delete('delete-product-image/{id}', [ProductController::class, 'deleteProductImage']);
-
     // ========== Admin Routes (Admin APIs) ==========
     Route::group(['middleware' => 'checkAdminRole'], function() {
 
@@ -142,5 +132,22 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
         Route::post('save-dealer-product', [DealerProductController::class, 'saveDealerProduct']);
         Route::put('update-dealer-product/{id}', [DealerProductController::class, 'updateDealerProduct']);
         Route::delete('delete-dealer-product/{id}', [DealerProductController::class, 'deleteDealerProduct']);
+    });
+
+    // ========== Product Image Routes (Image APIs) ==========
+    Route::group(['middleware' => 'check.any.role:admin,engineer,dealer'], function() {
+        Route::post('temp-images', [TempImageController::class, 'store']);
+        Route::delete('delete-temp-image/{id}', [TempImageController::class, 'destroy']);
+        Route::post('save-product-image', [ProductController::class, 'saveProductImage']);
+        Route::post('change-product-default-image', [ProductController::class, 'updateDefaultImage']);
+        Route::delete('delete-product-image/{id}', [ProductController::class, 'deleteProductImage']);
+    });
+
+    // ========== Account Routes (User APIs) ==========
+    Route::group(['middleware' => 'check.any.role:farmer,engineer,dealer'], function() {
+        Route::get('get-profile-details', [AccountController::class, 'getAccountDetails']);
+        Route::post('update-profile', [AccountController::class, 'updateProfile']);
+        Route::post('save-user-image', [AccountController::class, 'saveUserImage']);
+        Route::post('change-user-default-image', [AccountController::class, 'updateDefaultUserImage']);
     });
 });

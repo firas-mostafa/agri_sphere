@@ -17,6 +17,8 @@ class UserImage extends Model
         'image',
     ];
 
+    protected $appends = ["image_url"];
+
     public function getImageUrlAttribute()
     {
         if ( $this->image == "" ) {

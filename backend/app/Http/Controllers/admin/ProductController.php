@@ -48,8 +48,6 @@ class ProductController extends Controller
                 $product->save();
 
                 $purchasedProduct = ProductService::storePurchasedProduct($request, $product);
-
-                return ProductService::successStoreProductResponse($product, $purchasedProduct, $this->purchasedProductType);
             } 
 
             else if ( $request->product_type == "rental_product" ) 
@@ -62,7 +60,6 @@ class ProductController extends Controller
 
                 $rentalProduct = ProductService::storeRentalProduct($request, $product);
 
-                return ProductService::successStoreProductResponse($product, $rentalProduct, $this->rentalProductType);
             }
         }
 
@@ -100,6 +97,12 @@ class ProductController extends Controller
                 }
             }
         }
+
+        if ( $request->product_type == "purchased_product" )
+            return ProductService::successStoreProductResponse($product, $purchasedProduct, $this->purchasedProductType);
+        else if ( $request->product_type == "rental_product" )
+            return ProductService::successStoreProductResponse($product, $rentalProduct, $this->rentalProductType);
+
     }
 
     // This method will return a single product with specific ID
@@ -133,10 +136,10 @@ class ProductController extends Controller
                     $rentalProduct = RentalProduct::find($id);
                     $rentalProduct->delete($id);
                 } 
+
                 $validator = ProductService::validatePurchasedProduct($request);
 
                 if ( $validator->fails() ) return ResponseService::faliedValidationResponse($validator);
-
 
                 $product = ProductService::updateProductById($request, $id);
 
@@ -177,7 +180,6 @@ class ProductController extends Controller
 
         return ResponseService::successDeleteItemResponse($this->itemName, $id);
     }
-
 
     // This method will store product image in DB and Server
     public function saveProductImage(Request $request) {

@@ -96,6 +96,7 @@ class OrderController extends Controller
 
         $rentalOrder->pickup_location_id = $address->address_id;
 
+        $rental_order_id = $rentalOrder->rental_order_id;
         $rentalOrder->save();
 
         $payment = PaymentService::storePayment($request);
@@ -104,7 +105,7 @@ class OrderController extends Controller
 
         return response()->json([
             'status' => 200,
-            'id' => $rentalOrder->rental_order_id,
+            'id' => $rental_order_id,
             'message' => 'You have successfully placed your order',
         ], 200);
     }

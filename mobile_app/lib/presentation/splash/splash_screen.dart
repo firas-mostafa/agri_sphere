@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/core/api/end_ponits.dart';
 import 'package:mobile_app/helpers/cache/cache_helper.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+import 'package:mobile_app/logic/user_cubit/user_cubit.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,10 +24,12 @@ class _SplashScreenState extends State<SplashScreen> {
     final String? token = CacheHelper().getDataString(ApiKey.token);
     final bool isLoggedIn = token != null && token.isNotEmpty;
     if (mounted) {
-      Navigator.pushReplacementNamed(
-        context,
-        isLoggedIn ? '/main' : '/language',
-      );
+      if (isLoggedIn) {
+        // context.read<UserCubit>().getProfileDetails();
+        Navigator.pushReplacementNamed(context, '/main');
+      } else {
+        Navigator.pushReplacementNamed(context, '/login');
+      }
     }
   }
 

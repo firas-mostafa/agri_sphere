@@ -84,7 +84,7 @@ class AccountController extends Controller
     }
 
     public function getOrders(Request $request) {
-        $orders = OrderService::showAllUserOrders($request->user()->user_id);
+        $orders = OrderService::showAllUserOrders(Auth::user()->user_id);
 
         return ResponseService::allItemsResponse($orders);
     }
@@ -100,7 +100,7 @@ class AccountController extends Controller
     }
 
     public function updateProfile(Request $request) {
-        $userId = $request->user()->user_id;
+        $userId = Auth::user()->user_id;
         $user = User::find($userId);
 
         if ( $user == null ) return ResponseService::itemNotFoundResponse("User", $userId);
@@ -109,13 +109,15 @@ class AccountController extends Controller
 
         if ( $validator->fails() ) return ResponseService::faliedValidationResponse($validator);
 
-        $validator = AddressService::validateStoreAddress($request, ["user_address"]);
+        $validator = AddressService::validateUpdateAddress($request, ["user_address"]);
 
         if ( $validator->fails() ) return ResponseService::faliedValidationResponse($validator);
 
         $user = UserService::updateUserInfo($request);
 
         AddressService::storeUserAddress($request);
+
+        $user = UserService::userInfo($request);
 
         return ResponseService::successUpdateItemResponse("User", $userId, $user);
     }
@@ -143,7 +145,7 @@ class AccountController extends Controller
 
 
         $image = $request->file('image');
-        $imageName = $request->user_id.'-'.time().'.'.$image->extension(); // 17-23224242.jpg
+        $imageName = $request->user()->user_id.'-'.time().'.'.$image->extension(); // 17-23224242.jpg
 
         // Large Thumbnail
         
@@ -164,10 +166,29 @@ class AccountController extends Controller
         $userImage->user_id = $request->user()->user_id;
         $userImage->save();
 
+        $user = User::find($request->user()->user_id);
+        $user->image = $imageName;
+        $user->save();
+
         return response()->json([
             'status' => 200,
             'message' => 'Image has been uploaded successfully',
             'data' => $userImage,
+        ], 200);
+    }
+
+    // This method will update default user image
+    public function updateDefaultUserImage(Request $request) {
+        $user = User::find($request->user()->user_id);
+
+        if ( $user == null ) return ResponseService::itemNotFoundResponse("User", $request->user()->user_id);
+
+        $user->image = $request->image;
+        $user->save();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'product default image changed successfully',
         ], 200);
     }
 }
