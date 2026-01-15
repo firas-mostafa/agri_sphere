@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessageSquare, Video, AlertTriangle, ShoppingCart, Star, Package } from 'lucide-react';
 import './home.css';
-
+import Footer from '../../../components/common/Footer/Footer';
 const HomePageStats = ({ 
   pendingConsultations, 
   videoCallsScheduled, 
@@ -200,6 +200,7 @@ const HomePage = ({ consultations, upcomingCalls, orders, feedback, setCurrentPa
           totalRevenue={totalRevenue}
         />
       </div>
+      <footer/>
     </div>
   );
 };
