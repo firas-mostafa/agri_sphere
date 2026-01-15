@@ -1,10 +1,10 @@
 class EndPoint {
-  static String baseUrl = "https://04f2991ee7c9.ngrok-free.app/";
+  static String baseUrl = "https://04f2991ee7c9.ngrok-free.app";
 
   // static String baseUrl = "http://127.0.0.1:8000/";
 
   // Farmer endPoint
-  static String api = "api/";
+  static String api = "/api/";
   static String register = "${api}register";
   static String login = "${api}login";
   static String getCategories = "${api}get-categories";
@@ -47,5 +47,5 @@ class ApiKey {
   static String createdAt = "created_at";
   static String confirmPassword = "confirmPassword";
   static String addresses = "addresses";
-  static String image = "image";
+  static String image = "image_url";
 }

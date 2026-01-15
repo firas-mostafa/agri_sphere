@@ -57,7 +57,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       : state is GetProfileDetailsSuccess
                       ? Column(
                           children: [
-                            ProfilePic(),
+                            ProfilePic(state.userModel.image),
                             SizedBox(height: context.setMineSize(10)),
                             Text(
                               "${state.userModel.firstName} ${state.userModel.lastName}",

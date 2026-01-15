@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+import 'package:mobile_app/logic/user_cubit/user_cubit.dart';
 
 class MySliverAppBar extends StatelessWidget {
   final Widget child;
@@ -36,9 +38,15 @@ class MySliverAppBar extends StatelessWidget {
             color: context.colorScheme.onPrimary,
           ),
         ),
-        CircleAvatar(
-          radius: context.setMineSize(25),
-          backgroundImage: NetworkImage('https://i.pravatar.cc/150?img=3'),
+        BlocBuilder<UserCubit, UserState>(
+          builder: (_, state) {
+            return CircleAvatar(
+              radius: context.setMineSize(25),
+              backgroundImage: NetworkImage(
+                state is GetProfileDetailsSuccess ? state.userModel.image : "",
+              ),
+            );
+          },
         ),
       ],
       expandedHeight: context.setHeight(380),

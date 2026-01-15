@@ -1,6 +1,7 @@
 import React from 'react';
 import { Bell, Check, Edit2, Trash2, Plus } from 'lucide-react';
 import './marketplace.css';
+import Footer from '../../../components/common/Footer/Footer';
 
 const PendingOrdersSection = ({ pendingOrders, products, setSelectedOrder, setShowOrderModal }) => {
   if (pendingOrders.length === 0) return null;
@@ -293,6 +294,7 @@ const MarketplacePage = ({
           </div>
         </div>
       )}
+      <Footer/>
     </div>
   );
 };
