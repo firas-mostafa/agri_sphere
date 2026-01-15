@@ -5,7 +5,7 @@ import 'package:mobile_app/helpers/localization/app_localizations.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
 import 'package:mobile_app/logic/user_cubit/user_cubit.dart';
-import 'package:mobile_app/presentation/settings/widget/edit_profile.dart';
+import 'package:mobile_app/presentation/settings/widget/edit_profile_card.dart';
 import 'package:mobile_app/presentation/settings/widget/language_changer.dart';
 import 'package:mobile_app/presentation/settings/widget/profile_pic.dart';
 import 'package:mobile_app/presentation/settings/widget/settings_theme_switcher.dart';
@@ -79,11 +79,21 @@ class _SettingsPageState extends State<SettingsPage> {
                               Divider(
                                 color: context.colorScheme.outlineVariant,
                               ),
-                              EditProfile(
+                              EditProfileCard(
                                 username: state.userModel.username,
                                 phoneNumber: state.userModel.phoneNumber,
                                 email: state.userModel.email,
                                 adresss: [],
+                                onEdit: () => Navigator.pushNamed(
+                                  context,
+                                  "/edit_profile",
+                                  arguments: {
+                                    'username': "John Doe",
+                                    'phoneNumber': "+1 234 567 890",
+                                    'email': "john.doe@example.com",
+                                    'addresses': ["Riyadh, Saudi Arabia"],
+                                  },
+                                ),
                               ),
                             ],
                           )

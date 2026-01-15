@@ -1,9 +1,13 @@
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_app/core/api/dio_consumer.dart';
+import 'package:mobile_app/data/repositories/category_repository.dart';
 import 'package:mobile_app/helpers/localization/logic/localization_cubit.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+import 'package:mobile_app/logic/category_cubit/category_cubit.dart';
 import 'package:mobile_app/presentation/calendar/screens/calendar_page.dart';
 import 'package:mobile_app/presentation/engineers/screens/engineers_page.dart';
 import 'package:mobile_app/presentation/home/screens/home_page.dart';
@@ -19,7 +23,11 @@ class MainScreen extends StatelessWidget {
     List<Widget> screens = [
       HomePage(),
       CalendarPage(),
-      StorePage(),
+      BlocProvider<CategoryCubit>(
+        create: (context) =>
+            CategoryCubit(CategoryRepository(DioConsumer(dio: Dio()))),
+        child: StorePage(),
+      ),
       EngineersPage(),
       SettingsPage(),
     ];
