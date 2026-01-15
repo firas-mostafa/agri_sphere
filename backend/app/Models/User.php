@@ -28,7 +28,19 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'phone_number',
+        'image',
     ];
+
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute()
+    {
+        if ( $this->image == "" ) {
+            return "";
+        }
+
+        return asset('/uploads/users/small/'.$this->image);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

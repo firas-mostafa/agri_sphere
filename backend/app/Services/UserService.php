@@ -22,30 +22,40 @@ class UserService
     // This method will return complete user info
     public static function userInfo(Request $request) {
 
-        // $user = User::select(
-        //     'users.username',
-        //     'users.email',
-        //     'users.first_name',
-        //     'users.last_name',
-        //     'users.phone_number',
-        //     'A.*',
-        // )
-        // ->join('addresses as A', 'users.user_id', '=', 'A.user_id')
-        // ->where([
-        //     'users.user_id' => $request->user()->user_id,
-        //     'A.address_type' => "user_address",
-        // ])
-        // ->get();
-
-        $user = User::with([
-            'addresses' => function ($query) {
-                $query->where('address_type', 'user_address');
-            }
-        ])
-        ->where([
+        $address = Address::where([
             'user_id' => $request->user()->user_id,
+            'address_type' => 'user_address'
         ])
-        ->get();
+        ->first();
+
+        if ( $address != null ) {
+            $user = User::select(
+                'users.username',
+                'users.email',
+                'users.first_name',
+                'users.last_name',
+                'users.phone_number',
+                'users.image',
+                'A.*',
+            )
+            ->join('addresses as A', 'users.user_id', '=', 'A.user_id')
+            ->where([
+                'users.user_id' => $request->user()->user_id,
+                'A.address_type' => "user_address",
+            ])
+            ->get();
+        }
+        else {
+            $user = User::with([
+                'addresses' => function ($query) {
+                    $query->where('address_type', 'user_address');
+                }
+            ])
+            ->where([
+                'user_id' => $request->user()->user_id,
+            ])
+            ->get();
+        }
 
         return $user;
     }
@@ -107,8 +117,8 @@ class UserService
     // This method will validate update user requirement
     public static function validateUpdateUser($request) {
         $userRules = [
-            'username' => 'required|string',
-            'email' => "required|email|unique:users,email,". $request->user()->user_id.',user_id',
+            'username' => 'sometimes|required|string',
+            'email' => "sometimes|required|email|unique:users,email,". $request->user()->user_id.',user_id',
             'password' => "sometimes|required|same:password_confirmation|min:6", // 'password' => 'sometimes|required|confirmed|min:6',
             'password_confirmation' => "sometimes|required",
             'first_name' => 'nullable|string',
@@ -125,8 +135,13 @@ class UserService
 
     private static function saveUserInfo(Request $request, User $user) {
 
-        $user->username = $request->username;
-        $user->email = $request->email;
+        if (isset($request->username) && !empty($request->username)) {
+            $user->username = $request->username;
+        }
+        
+        if (isset($request->email) && !empty($request->email)) {
+            $user->email = $request->email;
+        }
 
         if (isset($request->password) && !empty($request->password)) {
             $user->password = Hash::make($request->password);
