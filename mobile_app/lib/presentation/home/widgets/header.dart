@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/helpers/localization/app_localizations.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+import 'package:mobile_app/logic/user_cubit/user_cubit.dart';
 import 'package:mobile_app/presentation/home/widgets/weather_card.dart';
 
-class Header extends StatelessWidget {
+class Header extends StatefulWidget {
   const Header({super.key});
+
+  @override
+  State<Header> createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<UserCubit>().getProfileDetails();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +57,18 @@ class Header extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: context.setHeight(2)),
-                    Text(
-                      "Firas Mostafa",
-                      style: context.textTheme.titleLarge!.copyWith(
-                        color: context.colorScheme.onPrimary,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    BlocBuilder<UserCubit, UserState>(
+                      builder: (_, state) {
+                        return Text(
+                          state is GetProfileDetailsSuccess
+                              ? "${state.userModel.firstName}  ${state.userModel.lastName}"
+                              : ". . . .",
+                          style: context.textTheme.titleLarge!.copyWith(
+                            color: context.colorScheme.onPrimary,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),

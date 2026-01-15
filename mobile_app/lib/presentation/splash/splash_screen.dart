@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/core/api/end_ponits.dart';
 import 'package:mobile_app/helpers/cache/cache_helper.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
-import 'package:mobile_app/logic/user_cubit/user_cubit.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
