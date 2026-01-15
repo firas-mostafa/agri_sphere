@@ -3,7 +3,8 @@ import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
 
 class ProfilePic extends StatelessWidget {
-  const ProfilePic({super.key});
+  final String image;
+  const ProfilePic(this.image, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +18,9 @@ class ProfilePic extends StatelessWidget {
             backgroundColor: context.colorScheme.surfaceContainerHigh,
             child: CircleAvatar(
               radius: context.setMineSize(75),
-              backgroundImage: NetworkImage("https://i.pravatar.cc/150?img=3"),
+
+              backgroundImage: NetworkImage(image),
               backgroundColor: context.colorScheme.primary,
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: CircleAvatar(
-              backgroundColor: context.colorScheme.surfaceContainerHigh,
-              radius: context.setMineSize(20),
-              child: Icon(
-                Icons.camera_alt,
-                size: context.setMineSize(25),
-                color: context.colorScheme.onSurfaceVariant,
-              ),
             ),
           ),
         ],
