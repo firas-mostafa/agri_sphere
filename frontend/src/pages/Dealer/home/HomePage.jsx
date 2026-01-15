@@ -33,8 +33,8 @@ const RecentActivityItem = ({ activity }) => {
 
   return (
     <div className="Home_Dealer_ActivityItem">
-      <span className="Home_Dealer_ActivityIconWrapper">{getIcon()}</span>
-      <div>
+      <div className="Home_Dealer_ActivityIconWrapper">{getIcon()}</div>
+      <div className="Home_Dealer_ActivityContent">
         <p className="Home_Dealer_ActivityText">{activity.text}</p>
         <p className="Home_Dealer_ActivityTime">
           <svg className="Home_Dealer_ClockIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
