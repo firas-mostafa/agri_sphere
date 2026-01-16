@@ -200,7 +200,7 @@ const HomePage = ({ consultations, upcomingCalls, orders, feedback, setCurrentPa
           totalRevenue={totalRevenue}
         />
       </div>
-      <footer/>
+      <Footer/>
     </div>
   );
 };

@@ -32,7 +32,9 @@ class MySliverAppBar extends StatelessWidget {
       automaticallyImplyLeading: false,
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, "/notifications");
+          },
           icon: Icon(
             Icons.notifications_none,
             color: context.colorScheme.onPrimary,

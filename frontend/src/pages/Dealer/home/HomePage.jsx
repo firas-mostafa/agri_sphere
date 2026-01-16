@@ -1,7 +1,7 @@
 import React from 'react';
 import { Wrench, AlertTriangle, Star, TrendingUp } from "lucide-react";
 import './home.css';
-
+import Footer from '../../../components/common/Footer/Footer'
 const DashboardStatsCard = ({ title, value, subtitle, icon }) => (
   <div className="Home_Dealer_DashboardStatsCard">
     <div className="Home_Dealer_StatHeader">
@@ -109,6 +109,7 @@ const HomePage = ({
           />
         </div>
       </main>
+      <Footer/>
     </div>
   );
 };

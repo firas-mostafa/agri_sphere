@@ -3,14 +3,14 @@ import 'package:mobile_app/helpers/localization/app_localizations.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
 
-class EditProfile extends StatelessWidget {
+class EditProfileCard extends StatelessWidget {
   final String username;
   final String phoneNumber;
   final String email;
   final List<String> adresss;
   final VoidCallback? onEdit;
 
-  const EditProfile({
+  const EditProfileCard({
     super.key,
     required this.username,
     required this.phoneNumber,
@@ -93,16 +93,13 @@ class EditProfile extends StatelessWidget {
                   ],
                 ),
               ),
-              // Text(
-              //   'addresses'.tr(context) + ': ${adresss.join(', ')}',
-              //   style: context.textTheme.bodyMedium,
-              // ),
             ],
           ),
           Positioned(
             top: -8,
             right: -8,
             child: IconButton(
+              enableFeedback: false,
               icon: CircleAvatar(
                 backgroundColor: context.colorScheme.surfaceContainer,
                 child: Icon(
