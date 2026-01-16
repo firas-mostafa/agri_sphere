@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/data/models/engineer_models.dart/engineer_model.dart';
 import 'package:mobile_app/helpers/responsive/size_helper_extension.dart';
 import 'package:mobile_app/helpers/theme/theme_helper_extension.dart';
+// import 'package:mobile_app/core/utils/agora_settings.dart';
+// import 'package:mobile_app/presentation/engineers/screens/call.dart';
+// import 'package:mobile_app/presentation/engineers/screens/chat.dart';
 import 'package:mobile_app/presentation/engineers/widgets/engineer_card.dart';
 import 'package:mobile_app/presentation/store/widget/falling_dots.dart';
 
@@ -90,9 +93,41 @@ class _EngineerPageState extends State<EngineerPage> {
 
                         return EngineerCard(
                           engineer: engineer,
-                          onChat: () {},
-                          onVoiceCall: () {},
-                          onVideoCall: () {},
+                          onChat: () {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (_) => ChatPage(
+                            //       engineerId: engineer.id.toString(),
+                            //       engineerName: engineer.name,
+                            //     ),
+                            //   ),
+                            // );
+                          },
+                          onVoiceCall: () {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (_) => CallPage(
+                            //       // MUST MATCH the name you typed on the Agora website!
+                            //       channelName: AgoraConfig.tokenChannelName,
+                            //       isVideo: false,
+                            //     ),
+                            //   ),
+                            // );
+                          },
+                          onVideoCall: () {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (_) => CallPage(
+                            //       // MUST MATCH the name you typed on the Agora website!
+                            //       channelName: AgoraConfig.tokenChannelName,
+                            //       isVideo: true,
+                            //     ),
+                            //   ),
+                            // );
+                          },
                         );
                       },
                     ),

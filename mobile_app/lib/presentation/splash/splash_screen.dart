@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: context.colorScheme.surface,
       body: Center(
-        child: Image.asset(ImageHelper.logo, width: context.setWidth(300)),
+        child: Image.asset(ImageHelper.logo, width: context.setWidth(200)),
       ),
     );
   }
