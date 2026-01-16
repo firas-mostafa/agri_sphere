@@ -4,6 +4,7 @@ import {
   Tractor, Calendar, DollarSign, Edit, Plus, Check, X,
   AlertTriangle, Wrench
 } from "lucide-react";
+import Footer from '../../../components/common/Footer/Footer'
 const EquipmentAndOrdersPage = ({
   equipment,
   orders,
@@ -371,6 +372,7 @@ const EquipmentAndOrdersPage = ({
           </div>
         )}
       </main>
+      <Footer/>
     </div>
   );
 };
