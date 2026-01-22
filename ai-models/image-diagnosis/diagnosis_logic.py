@@ -15,7 +15,7 @@ except ImportError:
 
 print(f"TensorFlow Version: {tf.__version__}")
 
-rf = Roboflow(api_key="niOvSqvdTenkNQHrAPts")
+rf = Roboflow(api_key="")
 project = rf.workspace("m-phxif").project("kaggle-dataset-iziin")
 version = project.version(1)
 
