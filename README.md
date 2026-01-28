@@ -19,8 +19,5 @@ Agri Sphere is a multi-platform agricultural assistant project combining an AI m
 - Use feature branches named like `feat/<short-description>` or `fix/<short-description>`.
 - Open a pull request with a clear description, testing steps, and any migration notes.
 
-## License
-Specify your license here (e.g., MIT).
-
 ## Contact
 For questions, contact the maintainer: firas-mostafa
